@@ -29,15 +29,64 @@
   const year = document.getElementById('year');
   if (year) year.textContent = String(new Date().getFullYear());
 
-  const languageSelect = document.getElementById('language-select');
-  if (languageSelect) {
-    // Native selects can match :focus-visible even after a pointer click.
-    const clearPointerFocus = () => delete languageSelect.dataset.pointerFocus;
-    languageSelect.addEventListener('pointerdown', () => {
-      languageSelect.dataset.pointerFocus = '';
+  const languageControl = document.querySelector('.language-control');
+  const languageToggle = document.getElementById('language-toggle');
+  const languageMenu = document.getElementById('language-menu');
+  const languageOptions = [...document.querySelectorAll('#language-menu [data-language]')];
+  if (languageControl && languageToggle && languageMenu && languageOptions.length > 0) {
+    const closeMenu = (restoreFocus = false) => {
+      if (restoreFocus) languageToggle.focus();
+      languageMenu.hidden = true;
+      languageToggle.setAttribute('aria-expanded', 'false');
+    };
+    const openMenu = (index) => {
+      languageMenu.hidden = false;
+      languageToggle.setAttribute('aria-expanded', 'true');
+      languageOptions[index]?.focus();
+    };
+    languageToggle.addEventListener('click', () => {
+      if (!languageMenu.hidden) return closeMenu();
+      const selected = languageOptions.findIndex(option => option.getAttribute('aria-checked') === 'true');
+      openMenu(Math.max(0, selected));
     });
-    languageSelect.addEventListener('blur', clearPointerFocus);
-    document.addEventListener('keydown', clearPointerFocus, true);
+    languageToggle.addEventListener('keydown', (event) => {
+      if (event.key !== 'ArrowDown' && event.key !== 'ArrowUp') return;
+      event.preventDefault();
+      openMenu(event.key === 'ArrowDown' ? 0 : languageOptions.length - 1);
+    });
+    languageMenu.addEventListener('keydown', (event) => {
+      const index = languageOptions.indexOf(document.activeElement);
+      let next;
+      if (event.key === 'ArrowDown') next = (index + 1) % languageOptions.length;
+      else if (event.key === 'ArrowUp') next = (index - 1 + languageOptions.length) % languageOptions.length;
+      else if (event.key === 'Home') next = 0;
+      else if (event.key === 'End') next = languageOptions.length - 1;
+      else if (event.key === 'Escape') {
+        event.preventDefault();
+        closeMenu(true);
+      } else if (event.key === 'Tab') {
+        // Resume the normal tab order from the trigger before hiding the focused item.
+        closeMenu(true);
+      }
+      if (next !== undefined) {
+        event.preventDefault();
+        languageOptions[next]?.focus();
+      }
+    });
+    for (const option of languageOptions) {
+      option.addEventListener('click', () => {
+        window.MarkerSite?.setLanguage(option.dataset.language);
+        closeMenu(true);
+      });
+    }
+    document.addEventListener('pointerdown', (event) => {
+      if (!languageControl.contains(event.target)) closeMenu();
+    });
+    document.addEventListener('focusin', (event) => {
+      if (!languageControl.contains(event.target)) closeMenu();
+    });
+    // Pointer events inside the embedded workspace do not reach this document.
+    window.addEventListener('blur', () => closeMenu());
   }
 
   const viewport = document.getElementById('demo-viewport');

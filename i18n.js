@@ -232,8 +232,13 @@
     const locale = document.querySelector('meta[property="og:locale"]');
     if (locale) locale.content = site.language === 'en' ? 'en_US' : 'zh_CN';
 
-    const languageSelect = document.getElementById('language-select');
-    if (languageSelect) languageSelect.value = site.language;
+    const languageLabel = document.getElementById('language-label');
+    if (languageLabel) languageLabel.textContent = site.language === 'en' ? 'EN' : '中文';
+    const languageToggle = document.getElementById('language-toggle');
+    languageToggle?.setAttribute('aria-label', `${translate('a11y.language')}: ${site.language === 'en' ? 'English' : '中文'}`);
+    for (const option of document.querySelectorAll('#language-menu [data-language]')) {
+      option.setAttribute('aria-checked', String(option.dataset.language === site.language));
+    }
     const themeToggle = document.getElementById('theme-toggle');
     if (themeToggle) {
       const label = translate(site.theme === 'dark' ? 'theme.toLight' : 'theme.toDark');
@@ -246,9 +251,6 @@
     }
   }
 
-  document.getElementById('language-select')?.addEventListener('change', (event) => {
-    site.setLanguage(event.target.value);
-  });
   document.getElementById('theme-toggle')?.addEventListener('click', () => {
     site.setTheme(site.theme === 'dark' ? 'light' : 'dark');
   });
