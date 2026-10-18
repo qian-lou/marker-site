@@ -29,6 +29,17 @@
   const year = document.getElementById('year');
   if (year) year.textContent = String(new Date().getFullYear());
 
+  const languageSelect = document.getElementById('language-select');
+  if (languageSelect) {
+    // Native selects can match :focus-visible even after a pointer click.
+    const clearPointerFocus = () => delete languageSelect.dataset.pointerFocus;
+    languageSelect.addEventListener('pointerdown', () => {
+      languageSelect.dataset.pointerFocus = '';
+    });
+    languageSelect.addEventListener('blur', clearPointerFocus);
+    document.addEventListener('keydown', clearPointerFocus, true);
+  }
+
   const viewport = document.getElementById('demo-viewport');
   const frame = document.getElementById('marker-demo');
   const fullscreen = document.getElementById('demo-fullscreen');

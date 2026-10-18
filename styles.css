@@ -30,6 +30,7 @@ p,h1,h2,h3{margin:0}
 .language-control{display:flex;align-items:center;gap:6px;color:var(--muted)}
 .language-control>.icon{width:15px;height:15px}
 .language-control select{font-size:12px;font-weight:500;border:0;background:transparent;padding:8px 0;max-width:70px}
+.language-control select[data-pointer-focus]:focus{outline:none}
 .theme-toggle{display:grid;place-items:center;min-width:34px;min-height:34px;border-radius:6px;background:transparent;color:var(--muted)}
 .theme-toggle:hover{background:var(--soft);color:var(--ink)}
 .theme-sun,[data-theme=dark] .theme-moon{display:none}
