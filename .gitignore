@@ -2,3 +2,5 @@
 .playwright-cli/
 output/
 *.log
+__pycache__/
+*.py[cod]

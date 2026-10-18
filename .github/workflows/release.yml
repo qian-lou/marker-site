@@ -1,0 +1,297 @@
+name: Release desktop application
+
+run-name: Release desktop application from ${{ inputs.source_ref }}
+
+on:
+  workflow_dispatch:
+    inputs:
+      source_ref:
+        description: Private source branch, tag, or commit to release
+        required: true
+        default: main
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: desktop-release
+  cancel-in-progress: false
+
+jobs:
+  resolve:
+    name: Resolve immutable source and release version
+    runs-on: ubuntu-22.04
+    timeout-minutes: 10
+    outputs:
+      commit: ${{ steps.metadata.outputs.commit }}
+      version: ${{ steps.metadata.outputs.version }}
+      tag: ${{ steps.metadata.outputs.tag }}
+    steps:
+      - name: Check out publishing tools
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          path: site
+          persist-credentials: false
+
+      - name: Check out private source
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          repository: qian-lou/marker
+          ref: ${{ inputs.source_ref }}
+          ssh-key: ${{ secrets.MARKER_SOURCE_SSH_KEY }}
+          persist-credentials: false
+          path: source
+
+      - name: Read release version and exact source commit
+        id: metadata
+        run: python3 site/.github/scripts/release.py metadata
+
+      - name: Refuse an existing public tag or release
+        uses: actions/github-script@373c709c69115d41ff229c7e5df9f8788daa9553 # v9
+        env:
+          RELEASE_TAG: ${{ steps.metadata.outputs.tag }}
+        with:
+          script: |
+            const tag = process.env.RELEASE_TAG;
+            const releases = await github.paginate(github.rest.repos.listReleases, context.repo);
+            if (releases.some(release => release.tag_name === tag)) {
+              throw new Error(`Release ${tag} already exists; increment the source version.`);
+            }
+            let exists = true;
+            try {
+              await github.rest.git.getRef({ ...context.repo, ref: `tags/${tag}` });
+            } catch (error) {
+              if (error.status !== 404) throw error;
+              exists = false;
+            }
+            if (exists) throw new Error(`Tag ${tag} already exists; increment the source version.`);
+
+  build:
+    name: Build ${{ matrix.platform }}
+    needs: resolve
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 90
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - platform: macos-arm64
+            os: macos-15
+            target: aarch64-apple-darwin
+            bundles: dmg
+          - platform: macos-x64
+            os: macos-15-intel
+            target: x86_64-apple-darwin
+            bundles: dmg
+          - platform: windows-x64
+            os: windows-2022
+            target: x86_64-pc-windows-msvc
+            bundles: nsis
+          - platform: linux-x64
+            os: ubuntu-22.04
+            target: x86_64-unknown-linux-gnu
+            bundles: deb,appimage
+    defaults:
+      run:
+        shell: bash
+    env:
+      SOURCE_COMMIT: ${{ needs.resolve.outputs.commit }}
+      RELEASE_VERSION: ${{ needs.resolve.outputs.version }}
+      RELEASE_PLATFORM: ${{ matrix.platform }}
+      BUILD_TARGET: ${{ matrix.target }}
+      BUILD_BUNDLES: ${{ matrix.bundles }}
+      CARGO_INCREMENTAL: "0"
+      APPIMAGE_EXTRACT_AND_RUN: "1"
+      APPLE_SIGNING_IDENTITY: "-"
+    steps:
+      - name: Check out publishing tools
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          path: site
+          persist-credentials: false
+
+      - name: Check out exact private source commit
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          repository: qian-lou/marker
+          ref: ${{ needs.resolve.outputs.commit }}
+          ssh-key: ${{ secrets.MARKER_SOURCE_SSH_KEY }}
+          persist-credentials: false
+          path: source
+
+      - name: Set up Python
+        uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: "3.13"
+
+      - name: Verify resolved source metadata
+        run: python site/.github/scripts/release.py metadata
+
+      - name: Set up Node.js
+        uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: "24"
+          package-manager-cache: false
+
+      - name: Set up pnpm from packageManager
+        uses: pnpm/action-setup@f520eceda224fe1a4aed5a2a27a194379a409996 # v6
+        with:
+          package_json_file: source/package.json
+          run_install: false
+
+      - name: Set up stable Rust
+        uses: dtolnay/rust-toolchain@683b588c487a69d01f6c6ddf40f036ff682cc2c8 # master
+        with:
+          toolchain: stable
+          targets: ${{ matrix.target }}
+
+      - name: Install Linux build dependencies
+        if: runner.os == 'Linux'
+        run: |
+          sudo apt-get update
+          sudo apt-get install --no-install-recommends -y \
+            libwebkit2gtk-4.1-dev build-essential curl wget file \
+            libxdo-dev libssl-dev libayatana-appindicator3-dev librsvg2-dev patchelf
+
+      - name: Install locked frontend dependencies
+        working-directory: source
+        run: pnpm install --frozen-lockfile
+
+      - name: Build desktop installer
+        working-directory: source/apps/desktop
+        env:
+          CARGO_TARGET_DIR: ${{ runner.temp }}/marker-target
+        run: |
+          build_log="$RUNNER_TEMP/marker-build.log"
+          if pnpm exec tauri build --ci --target "$BUILD_TARGET" --bundles "$BUILD_BUNDLES" -- --locked >"$build_log" 2>&1; then
+            echo "Desktop installer build completed."
+          else
+            python - "$build_log" <<'PY'
+          import re
+          import sys
+          from pathlib import Path
+
+          print("Installer build failed. Compiler error summaries follow; private source context is omitted.")
+          ansi = re.compile(r"\x1b\[[0-9;]*m")
+          lines = Path(sys.argv[1]).read_text(encoding="utf-8", errors="replace").splitlines()
+          errors = [ansi.sub("", line).strip() for line in lines]
+          summaries = [line for line in errors if re.match(r"^(?:error(?:\[[A-Z]\d+\])?:|Error(?: |:)|ERR_PNPM_)", line)]
+          for line in summaries[-20:]:
+              print(line[:500])
+          PY
+            exit 1
+          fi
+
+      - name: Stage installers and checksums
+        env:
+          BUNDLE_ROOT: ${{ runner.temp }}/marker-target/${{ matrix.target }}/release/bundle
+        run: python site/.github/scripts/release.py collect
+
+      - name: Upload installers only
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
+        with:
+          name: installer-${{ matrix.platform }}
+          path: release-assets/
+          if-no-files-found: error
+          retention-days: 1
+          compression-level: 0
+
+  publish:
+    name: Verify all installers and publish preview release
+    needs: [resolve, build]
+    runs-on: ubuntu-22.04
+    timeout-minutes: 15
+    permissions:
+      contents: write
+    env:
+      SOURCE_COMMIT: ${{ needs.resolve.outputs.commit }}
+      RELEASE_VERSION: ${{ needs.resolve.outputs.version }}
+      RELEASE_TAG: ${{ needs.resolve.outputs.tag }}
+    steps:
+      - name: Check out publishing tools
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          path: site
+          persist-credentials: false
+
+      - name: Download installer artifacts
+        uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8
+        with:
+          pattern: installer-*
+          path: downloads
+
+      - name: Verify platforms, provenance, filenames, sizes, and checksums
+        run: python3 site/.github/scripts/release.py verify
+
+      - name: Upload to a new draft, verify uploaded assets, and publish
+        uses: actions/github-script@373c709c69115d41ff229c7e5df9f8788daa9553 # v9
+        with:
+          script: |
+            const fs = require('node:fs');
+            const path = require('node:path');
+            const crypto = require('node:crypto');
+            const tag = process.env.RELEASE_TAG;
+            const manifest = JSON.parse(fs.readFileSync('release-manifest.json', 'utf8'));
+            const releases = await github.paginate(github.rest.repos.listReleases, context.repo);
+            if (releases.some(release => release.tag_name === tag)) {
+              throw new Error(`Release ${tag} already exists; existing releases are never overwritten.`);
+            }
+            let tagExists = true;
+            try {
+              await github.rest.git.getRef({ ...context.repo, ref: `tags/${tag}` });
+            } catch (error) {
+              if (error.status !== 404) throw error;
+              tagExists = false;
+            }
+            if (tagExists) throw new Error(`Tag ${tag} already exists; existing tags are never overwritten.`);
+            const body = [
+              `Marker ${tag} — 未签名预览版。`,
+              '',
+              '支持 macOS Apple Silicon / Intel、Windows x64、Linux x64。',
+              '此版本未配置 Apple Developer ID、公证或 Windows 代码签名，系统可能阻止安装或显示安全提示。',
+              'macOS 请先确认来源，再按照系统提示在“系统设置 → 隐私与安全性”中允许打开；Windows 可能显示 SmartScreen 提示。',
+              'Linux 构建基于 Ubuntu 22.04；AppImage 下载后需要授予执行权限。',
+              '请使用 SHA256SUMS.txt 校验下载文件。',
+              '',
+              `Source commit: \`${process.env.SOURCE_COMMIT}\``,
+              `Build: ${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`,
+            ].join('\n');
+            const { data: release } = await github.rest.repos.createRelease({
+              ...context.repo,
+              tag_name: tag,
+              target_commitish: context.sha,
+              name: `Marker ${tag} · Preview`,
+              body,
+              draft: true,
+              prerelease: true,
+              make_latest: 'false',
+            });
+            core.info(`Created draft release ${release.id}; a failed upload remains a draft for inspection.`);
+            for (const file of manifest.files) {
+              const data = fs.readFileSync(path.join('release', file.name));
+              if (data.length !== file.size || crypto.createHash('sha256').update(data).digest('hex') !== file.sha256) {
+                throw new Error(`Local asset changed after verification: ${file.name}`);
+              }
+              await github.rest.repos.uploadReleaseAsset({
+                ...context.repo,
+                release_id: release.id,
+                name: file.name,
+                data,
+                headers: { 'content-type': 'application/octet-stream', 'content-length': data.length },
+              });
+            }
+            const uploaded = await github.paginate(github.rest.repos.listReleaseAssets, {
+              ...context.repo, release_id: release.id,
+            });
+            if (uploaded.length !== manifest.files.length) throw new Error('Uploaded asset count differs from the manifest.');
+            for (const file of manifest.files) {
+              const asset = uploaded.find(asset => asset.name === file.name);
+              if (!asset || asset.state !== 'uploaded' || asset.size !== file.size || asset.digest !== `sha256:${file.sha256}`) {
+                throw new Error(`Uploaded asset verification failed: ${file.name}`);
+              }
+            }
+            const { data: published } = await github.rest.repos.updateRelease({
+              ...context.repo, release_id: release.id, draft: false, prerelease: true, make_latest: 'false',
+            });
+            await core.summary.addHeading(`Published ${tag} preview`).addLink('Download installers', published.html_url).write();
