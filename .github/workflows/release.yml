@@ -260,7 +260,7 @@ jobs:
             }
             if (tagExists) throw new Error(`Tag ${tag} already exists; existing tags are never overwritten.`);
             const body = [
-              `Marker ${tag} — 未签名预览版。`,
+              `Marker ${tag} — 预览版（含签名更新包）。`,
               '',
               '支持 macOS Apple Silicon / Intel、Windows x64、Linux x64。',
               '此版本未配置 Apple Developer ID、公证或 Windows 代码签名，系统可能阻止安装或显示安全提示。',
