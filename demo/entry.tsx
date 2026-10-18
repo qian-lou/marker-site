@@ -9,7 +9,10 @@ import { useDocumentStore } from '@/stores/document-store';
 import { useWorkspaceStore } from '@/stores/workspace-store';
 import { usePreferencesStore } from '@/stores/preferences-store';
 import { getSampleDocuments, type DemoLocale } from './documents';
+import { installEmbeddedScrollBoundary } from './scroll-boundary';
 import '@/styles/index.css';
+
+installEmbeddedScrollBoundary();
 
 const search = new URLSearchParams(window.location.search);
 const detectLocale = (value: unknown): DemoLocale | null =>

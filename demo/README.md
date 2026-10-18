@@ -47,3 +47,10 @@ same-origin parent window are accepted. `{ type: 'marker-demo:reset' }` restores
 the sample documents. Changing language translates untouched samples and keeps
 visitor edits. Sample documents, edits and code folding remain in memory for the
 current page session. The app's real browser file/folder pickers remain available.
+
+When embedded, the adapter confines app `scrollIntoView` calls to the nearest
+scrolling pane, using the native `container: 'nearest'` option when supported and
+a local-pane fallback in older browsers. Root overscroll containment prevents
+wheel/touch gestures at the app's edge from scrolling the surrounding website.
+Standalone app scrolling is unchanged; preferences flow from the host into the
+demo and are kept in memory inside the demo.
