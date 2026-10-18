@@ -176,7 +176,7 @@ jobs:
           ansi = re.compile(r"\x1b\[[0-9;]*m")
           lines = Path(sys.argv[1]).read_text(encoding="utf-8", errors="replace").splitlines()
           errors = [ansi.sub("", line).strip() for line in lines]
-          summaries = [line for line in errors if re.match(r"^(?:error(?:\[[A-Z]\d+\])?:|Error(?: |:)|ERR_PNPM_)", line)]
+          summaries = [line for line in errors if re.match(r"^(?:error(?:\[[A-Z]\d+\]| TS\d+)?:|Error(?: |:)|ERR_PNPM_|[^\r\n]+\(\d+,\d+\): error TS\d+:)", line)]
           for line in summaries[-20:]:
               print(line[:500])
           PY
