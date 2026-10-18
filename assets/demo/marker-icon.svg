@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" role="img" aria-labelledby="depth-m-app-title depth-m-app-description">
+  <title id="depth-m-app-title">Marker 石墨银立体 M 应用图标</title>
+  <desc id="depth-m-app-description">四边 64 单位透明留白，墨色圆角底板上为完整石墨银立体 M。</desc>
+  <defs>
+    <path id="depth-m-face" d="M22 106Q20 106 20 104V24Q20 22 22 22H39L64 47L89 22H106Q108 22 108 24V104Q108 106 106 106H89Q87 106 87 104V57L65.4 78.6Q64 80 62.6 78.6L41 57V104Q41 106 39 106Z" />
+    <clipPath id="depth-m-face-clip"><use href="#depth-m-face" /></clipPath>
+    <linearGradient id="depth-m-surface" x1="25" y1="20" x2="107" y2="113" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#E0E3E6" />
+      <stop offset="0.24" stop-color="#BEC5CC" />
+      <stop offset="0.51" stop-color="#9DA7B0" />
+      <stop offset="0.76" stop-color="#7F8B96" />
+      <stop offset="1" stop-color="#66727D" />
+    </linearGradient>
+    <radialGradient id="depth-m-soft-light" cx="29" cy="20" r="101" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F5F8FA" stop-opacity="0.32" />
+      <stop offset="0.46" stop-color="#E0E3E6" stop-opacity="0.1" />
+      <stop offset="1" stop-color="#E0E3E6" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="depth-m-right-side" x1="106" y1="24" x2="113" y2="110" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#6E7A86" />
+      <stop offset="0.42" stop-color="#4C5864" />
+      <stop offset="1" stop-color="#333D47" />
+    </linearGradient>
+    <linearGradient id="depth-m-inner-side" x1="41" y1="55" x2="85" y2="95" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#6E7A86" />
+      <stop offset="0.43" stop-color="#333D47" />
+      <stop offset="1" stop-color="#4C5864" />
+    </linearGradient>
+    <linearGradient id="depth-m-bottom-side" x1="24" y1="104" x2="108" y2="113" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#6E7A86" />
+      <stop offset="0.45" stop-color="#4C5864" />
+      <stop offset="1" stop-color="#333D47" />
+    </linearGradient>
+    <linearGradient id="depth-m-bevel" x1="24" y1="22" x2="103" y2="106" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F5F8FA" stop-opacity="0.96" />
+      <stop offset="0.35" stop-color="#E0E3E6" stop-opacity="0.72" />
+      <stop offset="0.66" stop-color="#9DA7B0" stop-opacity="0.32" />
+      <stop offset="1" stop-color="#4C5864" stop-opacity="0.62" />
+    </linearGradient>
+    <linearGradient id="depth-m-side-rim" x1="44" y1="62" x2="111" y2="112" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#BEC5CC" stop-opacity="0.46" />
+      <stop offset="0.5" stop-color="#9DA7B0" stop-opacity="0.24" />
+      <stop offset="1" stop-color="#6E7A86" stop-opacity="0.12" />
+    </linearGradient>
+    <linearGradient id="depth-m-ink" x1="180" y1="96" x2="844" y2="950" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#25282D" />
+      <stop offset="0.48" stop-color="#1C1F23" />
+      <stop offset="1" stop-color="#14161A" />
+    </linearGradient>
+  </defs>
+  <rect x="64" y="64" width="896" height="896" rx="202" fill="url(#depth-m-ink)" />
+  <g transform="translate(47.9 66) scale(7)">
+  <g>
+    <use href="#depth-m-face" transform="translate(4.6 4.6)" fill="url(#depth-m-right-side)" />
+    <path d="M106 22Q108 22 108 24V104Q108 106 106 106L110.6 110.6Q112.6 110.6 112.6 108.6V28.6Q112.6 26.6 110.6 26.6Z" fill="url(#depth-m-right-side)" />
+    <path d="M41 57L62.6 78.6Q64 80 65.4 78.6L87 57L91.6 61.6L70 83.2Q68.6 84.6 67.2 83.2L45.6 61.6V108.6L41 104Z" fill="url(#depth-m-inner-side)" />
+    <path d="M22 106H39Q41 106 41 104L45.6 108.6Q45.6 110.6 43.6 110.6H26.6Q24.6 110.6 24.6 108.6L20 104Q20 106 22 106Z" fill="url(#depth-m-bottom-side)" />
+    <path d="M89 106H106Q108 106 108 104L112.6 108.6Q112.6 110.6 110.6 110.6H93.6Q91.6 110.6 91.6 108.6L87 104Q87 106 89 106Z" fill="url(#depth-m-bottom-side)" />
+    <path d="M45.6 62.6V108.6Q45.6 110.6 43.6 110.6H26.6M69.2 83.7L91.6 61.6M112.6 29V108.6Q112.6 110.6 110.6 110.6H93.6" fill="none" stroke="url(#depth-m-side-rim)" stroke-width="0.65" stroke-linecap="round" />
+    <use href="#depth-m-face" fill="url(#depth-m-surface)" />
+    <use href="#depth-m-face" fill="url(#depth-m-soft-light)" />
+    <g clip-path="url(#depth-m-face-clip)" fill="none" stroke-linejoin="round">
+      <use href="#depth-m-face" stroke="url(#depth-m-bevel)" stroke-width="1.9" />
+      <path d="M20.5 103.5V24Q20.5 22.5 22 22.5H38.8L64 47.7L89.2 22.5H105.8" stroke="#F5F8FA" stroke-opacity="0.53" stroke-width="0.65" />
+      <path d="M41 57L62.6 78.6Q64 80 65.4 78.6L87 57M41 103.8Q41 106 39 106H22M108 24V104Q108 106 106 106H89" stroke="#333D47" stroke-opacity="0.26" stroke-width="0.85" />
+    </g>
+  </g>
+  </g>
+</svg>

@@ -1,0 +1,3 @@
+# Keep generated browser bundles and unmodified upstream licenses intact.
+assets/demo/** linguist-generated=true -whitespace
+assets/fonts/*-OFL.txt -whitespace

@@ -2,6 +2,8 @@
 
 官网是纯静态页面，无需安装依赖或构建，使用独立 GitHub 仓库与 GitHub Pages 部署。
 
+页面提供中文、英文以及浅色、深色模式，首次访问跟随浏览器语言和系统配色，手动选择后保留偏好。字体使用自托管的 Inter 与 Noto Sans SC，不依赖第三方字体服务；授权文件见 `assets/fonts/`。
+
 - 官网地址：<https://qian-lou.github.io/marker-site/>
 - 官网仓库：<https://github.com/qian-lou/marker-site>
 
@@ -18,6 +20,20 @@ python3 -m http.server 4173
 打开 <http://localhost:4173>。资源使用相对路径，也支持 GitHub Pages 的 `/仓库名/` 子路径部署。
 
 如果从主工程进入官网仓库，先执行 `cd site`。
+
+### 真实应用工作台
+
+产品体验区直接运行 Marker 的真实前端组件，支持阅读、所见即所得编辑、源码实时预览、文件树、大纲和阅读设置。官网只分发编译压缩后的浏览器资源，不公开主项目的 TypeScript、Rust 源码或源码映射；官网专用的示例与桥接代码放在 `demo/`。
+
+已构建的工作台保存在 `assets/demo/`，普通页面部署不需要读取私有仓库。主应用界面更新后，在已安装锁定依赖的私有项目旁执行：
+
+```sh
+node .github/scripts/build-demo.mjs /absolute/path/to/private/marker
+```
+
+当官网位于主项目的 `site/` 下时可省略路径。构建脚本只读取私有前端，使用独立示例数据，关闭环境文件加载和源码映射，并检查输出文件类型。提交更新后的浏览器产物即可同步官网体验；`assets/demo/build.json` 记录源提交和是否包含未提交改动。完整说明见 `demo/README.md`。
+
+体验区初始使用示例文档，示例修改只留在当前页面。主动选择的本地文件在浏览器内处理，不上传。完整的磁盘保存、工作区恢复与应用内更新在桌面应用中使用。官网的语言与配色会同步到工作台，切换语言会保留访客已编辑的草稿。
 
 `config.js` 中的 `window.MARKER_SITE` 提供以下公开链接配置：
 
@@ -44,7 +60,7 @@ git push
 
 部署方式参考 [GitHub Pages 自定义工作流官方文档](https://docs.github.com/zh/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages)。
 
-工作流会在临时目录准备发布内容。发布内容仅包含 `index.html`、`styles.css`、`script.js`、`config.js` 和 `assets/`，不会发布本说明文档、Git 元数据或主工程文件。工作流直接使用已提交的 `config.js`，不会自动推断下载或联系地址；配置应填写真实且可公开访问的 URL。
+工作流会在临时目录准备发布内容。发布内容仅包含 `index.html`、`styles.css`、`script.js`、`config.js`、`preferences.js`、`i18n.js` 和 `assets/`，不会发布本说明文档、演示适配器源码、Git 元数据或主工程文件。工作流直接使用已提交的 `config.js`，不会自动推断下载或联系地址；配置应填写真实且可公开访问的 URL。
 
 ## 构建并发布桌面安装包
 

@@ -40,7 +40,7 @@ jobs:
 
           source = Path(os.environ["GITHUB_WORKSPACE"])
           staging = Path(tempfile.mkdtemp(prefix="marker-pages-", dir=os.environ["RUNNER_TEMP"]))
-          for filename in ("index.html", "styles.css", "script.js", "config.js"):
+          for filename in ("index.html", "styles.css", "script.js", "config.js", "preferences.js", "i18n.js"):
               shutil.copy2(source / filename, staging / filename)
           shutil.copytree(source / "assets", staging / "assets")
 
