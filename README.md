@@ -56,12 +56,23 @@ git push
 
 如需重新配置，在私有仓库 **Settings → Deploy keys** 添加公钥，保持 **Allow write access** 未勾选；在官网仓库 **Settings → Secrets and variables → Actions** 保存对应私钥。私钥不能提交到任一仓库，也不能放入 `config.js` 或网页资源。
 
+### 应用内更新签名
+
+应用使用 Tauri 2 官方 updater 下载、校验并安装更新。发布前，在官网仓库的 **Settings → Secrets and variables → Actions** 配置以下 secret：
+
+- `TAURI_SIGNING_PRIVATE_KEY`：专用于 Marker 更新的 Tauri 签名私钥内容，必须与主应用 `tauri.conf.json` 中 `plugins.updater.pubkey` 的公钥匹配。
+- `TAURI_SIGNING_PRIVATE_KEY_PASSWORD`：生成私钥时使用的密码；未设置密码的私钥可以不配置此 secret。
+
+缺少私钥时，工作流会在构建前明确失败，不会发布没有签名的更新包。私钥与密码通过构建步骤的环境变量读取，不写入公开产物或日志。妥善备份私钥；已安装应用信任对应公钥，更换或丢失私钥会影响后续更新。公钥可以提交，私钥及密码不能提交到任一仓库。
+
+Tauri 更新包签名与 Apple Developer ID、公证及 Windows 代码签名是不同机制；具备更新签名不代表安装包已获得系统发行签名。配置与密钥生成方法参见 [Tauri 官方更新文档](https://v2.tauri.app/plugin/updater/)。
+
 ### 手动发布
 
 1. 将准备发布的源码提交并推送到私有仓库。
 2. 打开官网仓库 **Actions → Release desktop application → Run workflow**。
 3. 在 `source_ref` 中填写私有仓库的分支、标签或完整提交 SHA，例如 `main`、`v0.1.0` 或指定提交；运行工作流。
-4. 查看构建与发布结果，确认 Releases 中的安装包和 `SHA256SUMS.txt` 已公开，再进行下载安装验证。
+4. 查看构建与发布结果，确认 Releases 中的安装包、更新包、`.sig`、`latest.json` 和 `SHA256SUMS.txt` 已公开，再进行下载安装及应用内更新验证。
 
 工作流先将 `source_ref` 解析为固定提交 SHA，所有平台都检出同一提交，避免构建过程中分支移动造成版本混用。
 
@@ -69,14 +80,18 @@ git push
 
 ### 构建矩阵与发布条件
 
-| 构建环境 | 架构 | 安装包 |
-| --- | --- | --- |
-| `macos-15` | Apple Silicon / ARM64 | `.dmg` |
-| `macos-15-intel` | Intel / x64 | `.dmg` |
-| `windows-2022` | x64 | NSIS `.exe` |
-| `ubuntu-22.04` | x64 | `.deb`、`.AppImage` |
+| 构建环境 | 架构 | 安装包 | 应用内更新资产 |
+| --- | --- | --- | --- |
+| `macos-15` | Apple Silicon / ARM64 | `.dmg` | `.app.tar.gz`、`.app.tar.gz.sig` |
+| `macos-15-intel` | Intel / x64 | `.dmg` | `.app.tar.gz`、`.app.tar.gz.sig` |
+| `windows-2022` | x64 | NSIS `.exe` | 复用 `.exe`、另带 `.exe.sig` |
+| `ubuntu-22.04` | x64 | `.deb`、`.AppImage` | 复用各自安装包、另带对应 `.sig` |
 
-只有全部矩阵构建成功、安装包与 SHA-256 校验通过后，工作流才通过 Release 草稿上传产物并发布。应用发布上传的公开内容仅包含安装包和 `SHA256SUMS.txt`，不上传私有源码或整个构建目录。下载后可用 `SHA256SUMS.txt` 核对文件完整性。
+只有全部矩阵构建成功、产物的来源提交、版本、精确文件集合、大小和 SHA-256 校验通过后，工作流才生成 `latest.json`，通过 Release 草稿上传产物并发布。公开内容仅包含安装包、更新包、签名、`latest.json` 和 `SHA256SUMS.txt`，不上传私有源码或整个构建目录。下载后可用 `SHA256SUMS.txt` 核对文件完整性；它也包含 `latest.json` 和签名文件的校验值。
+
+每个版本的 `latest.json` 使用固定的版本资产 URL，内嵌 `.sig` 文件的文本内容，并按实际安装包类型提供五个 updater 平台键：`darwin-aarch64-app`、`darwin-x86_64-app`、`windows-x86_64-nsis`、`linux-x86_64-deb`、`linux-x86_64-appimage`。Linux 不提供混用 DEB 与 AppImage 的通用回退，应用会按自身安装类型选择更新包。
+
+预览版继续使用 `prerelease: true`，因此客户端先从公开 Releases 列表选择更高版本且具备 `latest.json` 的发布，再请求该版本的清单；不能使用 GitHub 的 `/releases/latest/download/latest.json`。此前不含签名更新包的旧发布不会作为应用内更新目标。应用内安装仍需由用户点击更新按钮触发。
 
 当前采用预览版发布：macOS 安装包使用 ad-hoc 签名，尚未经过 Apple 公证，首次打开可能需要在系统“隐私与安全性”中允许；Windows 安装包尚未进行代码签名，可能显示 SmartScreen 提示。公开 Release 说明会保留这些安装限制。
 

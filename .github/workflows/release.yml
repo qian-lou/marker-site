@@ -34,6 +34,18 @@ jobs:
           path: site
           persist-credentials: false
 
+      - name: Require updater signing configuration
+        env:
+          TAURI_SIGNING_PRIVATE_KEY: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY }}
+        run: |
+          if [ -z "${TAURI_SIGNING_PRIVATE_KEY:-}" ]; then
+            echo "::error::Configure the TAURI_SIGNING_PRIVATE_KEY Actions secret before publishing signed updates."
+            exit 1
+          fi
+
+      - name: Test release staging and updater manifests
+        run: python3 -m unittest discover -s site/.github/scripts -p 'test_release.py'
+
       - name: Check out private source
         uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
         with:
@@ -79,11 +91,11 @@ jobs:
           - platform: macos-arm64
             os: macos-15
             target: aarch64-apple-darwin
-            bundles: dmg
+            bundles: app,dmg
           - platform: macos-x64
             os: macos-15-intel
             target: x86_64-apple-darwin
-            bundles: dmg
+            bundles: app,dmg
           - platform: windows-x64
             os: windows-2022
             target: x86_64-pc-windows-msvc
@@ -162,6 +174,8 @@ jobs:
         working-directory: source/apps/desktop
         env:
           CARGO_TARGET_DIR: ${{ runner.temp }}/marker-target
+          TAURI_SIGNING_PRIVATE_KEY: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY }}
+          TAURI_SIGNING_PRIVATE_KEY_PASSWORD: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY_PASSWORD }}
         run: |
           build_log="$RUNNER_TEMP/marker-build.log"
           if pnpm exec tauri build --ci --target "$BUILD_TARGET" --bundles "$BUILD_BUNDLES" -- --locked >"$build_log" 2>&1; then
@@ -183,12 +197,12 @@ jobs:
             exit 1
           fi
 
-      - name: Stage installers and checksums
+      - name: Stage installers and signed updater artifacts
         env:
           BUNDLE_ROOT: ${{ runner.temp }}/marker-target/${{ matrix.target }}/release/bundle
         run: python site/.github/scripts/release.py collect
 
-      - name: Upload installers only
+      - name: Upload release assets only
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
         with:
           name: installer-${{ matrix.platform }}
@@ -198,7 +212,7 @@ jobs:
           compression-level: 0
 
   publish:
-    name: Verify all installers and publish preview release
+    name: Verify signed updates and publish preview release
     needs: [resolve, build]
     runs-on: ubuntu-22.04
     timeout-minutes: 15
@@ -221,7 +235,7 @@ jobs:
           pattern: installer-*
           path: downloads
 
-      - name: Verify platforms, provenance, filenames, sizes, and checksums
+      - name: Verify provenance and generate signed updater manifest
         run: python3 site/.github/scripts/release.py verify
 
       - name: Upload to a new draft, verify uploaded assets, and publish
@@ -253,6 +267,7 @@ jobs:
               'macOS 请先确认来源，再按照系统提示在“系统设置 → 隐私与安全性”中允许打开；Windows 可能显示 SmartScreen 提示。',
               'Linux 构建基于 Ubuntu 22.04；AppImage 下载后需要授予执行权限。',
               '请使用 SHA256SUMS.txt 校验下载文件。',
+              '支持应用内更新；latest.json 和 .sig 文件用于校验并安装更新，macOS 更新使用 .app.tar.gz。',
               '',
               `Source commit: \`${process.env.SOURCE_COMMIT}\``,
               `Build: ${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`,
