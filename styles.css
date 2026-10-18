@@ -63,7 +63,7 @@ h1, h2, h3, p { margin-top: 0; }
 .window-title { color: var(--app-muted); font-size: 10px; }
 .window-title span { margin: 0 8px; opacity: .5; }
 .window-mark { width: 56px; text-align: right; color: var(--app-accent); font-size: 13px; font-weight: 600; }
-.window-mark span { color: var(--app-ink); }
+.window-mark img { width: 24px; height: 24px; vertical-align: middle; }
 .app-layout { display: grid; grid-template-columns: 182px minmax(0, 1fr) 180px; min-height: 540px; }
 .app-sidebar { position: relative; background: var(--app-nav); border-right: 1px solid var(--app-line); padding: 24px 12px; }
 .sidebar-heading { display: flex; align-items: center; justify-content: space-between; font-size: 10px; color: var(--app-muted); padding: 0 10px; letter-spacing: 1px; margin-bottom: 25px; }
