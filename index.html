@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#faf9f5">
+    <title>Marker — 把专注，还给文字</title>
+    <meta name="description" content="Marker 是一款本地优先的 Markdown 阅读与编辑工具。沉浸阅读、所见即所得写作、源码编辑，让每一份文档都有舒适的打开方式。">
+    <meta property="og:title" content="Marker — 把专注，还给文字">
+    <meta property="og:description" content="一款安静、顺手的本地 Markdown 阅读与编辑工具。">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="zh_CN">
+    <link rel="icon" type="image/png" href="./assets/favicon.png">
+    <link rel="stylesheet" href="./styles.css">
+    <script src="./config.js" defer></script>
+    <script src="./script.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">跳转到正文</a>
+    <svg class="icon-library" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+      <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></symbol>
+      <symbol id="i-down" viewBox="0 0 24 24"><path d="M12 3v12m-5-5 5 5 5-5M5 15v5h14v-5"/></symbol>
+      <symbol id="i-file" viewBox="0 0 24 24"><path d="M14 3H6v18h12V7zm0 0v5h4M9 12h6m-6 4h6"/></symbol>
+      <symbol id="i-folder" viewBox="0 0 24 24"><path d="M3 6h7l2 3h9v11H3z"/></symbol>
+      <symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></symbol>
+      <symbol id="i-book" viewBox="0 0 24 24"><path d="M12 5C9 3 5 3 2 4v15c3-1 7-1 10 1 3-2 7-2 10-1V4c-3-1-7-1-10 1zm0 0v15"/></symbol>
+      <symbol id="i-code" viewBox="0 0 24 24"><path d="m7 6-6 6 6 6m10-12 6 6-6 6M14 3l-4 18"/></symbol>
+      <symbol id="i-pen" viewBox="0 0 24 24"><path d="m15 4 5 5M4 15l-1 6 6-1L21 8l-5-5zM13 21h9"/></symbol>
+      <symbol id="i-local" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="13" rx="2"/><path d="M8 21h8m-4-5v5m-5-9 3-3 3 3 4-5"/></symbol>
+      <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+      <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 15A9 9 0 0 1 9 4a9 9 0 1 0 11 11Z"/></symbol>
+      <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 1v2m0 18v2M1 12h2m18 0h2M4 4l2 2m12 12 2 2M4 20l2-2M18 6l2-2"/></symbol>
+      <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m9 5 7 7-7 7"/></symbol>
+    </svg>
+
+    <header class="header wrap">
+      <a class="brand" href="#" aria-label="Marker 首页"><img src="./assets/marker-icon.png" width="36" height="36" alt=""><span>Marker<span class="brand-dot">.</span></span></a>
+      <nav aria-label="主导航"><a href="#experience">产品体验</a><a href="#features">功能</a><a href="#questions">常见问题</a></nav>
+      <a class="button button-small button-outline" href="#download">获取 Marker <svg class="icon"><use href="#i-arrow"/></svg></a>
+    </header>
+
+    <main id="main">
+      <section class="hero wrap" aria-labelledby="hero-title">
+        <p class="eyebrow"><span class="status-dot"></span> 本地优先 · 专注于 Markdown</p>
+        <h1 id="hero-title">把专注，<br class="mobile-break">还给<span class="serif accent">文字</span><span class="hero-period">。</span></h1>
+        <p class="hero-description">阅读时沉浸，写作时自如。<br>一款安静、顺手的 Markdown 工具，让想法在自己的空间里生长。</p>
+        <div class="hero-actions"><a class="button button-primary" href="#download"><svg class="icon"><use href="#i-down"/></svg> 获取 Marker</a><a class="text-link" href="#experience">看看它的样子 <svg class="icon"><use href="#i-arrow"/></svg></a></div>
+        <p class="hero-note">无需账号 <span>·</span> 离线可用 <span>·</span> 文件由你掌握</p>
+
+        <div id="experience" class="experience">
+          <div class="preview-topline"><span><span class="tiny-cross">✳</span> 留一点空间，给正在发生的想法。</span><span class="preview-label">交互示意</span></div>
+          <div class="app-window" data-preview-theme="ivory">
+            <div class="app-titlebar"><div class="traffic-lights" aria-hidden="true"><i></i><i></i><i></i></div><span class="window-title">Marker <span>/</span> 我的工作空间</span><span class="window-mark" aria-hidden="true">M<span>_</span></span></div>
+            <div class="app-layout">
+              <aside class="app-sidebar" aria-label="示例文档">
+                <div class="sidebar-heading"><span>工作空间</span><svg class="icon"><use href="#i-folder"/></svg></div>
+                <div class="folder-name"><svg class="icon"><use href="#i-chevron"/></svg> 我的文档</div>
+                <div class="document-list">
+                  <button type="button" class="document-button" data-document="welcome"><svg class="icon"><use href="#i-file"/></svg> 开始于此.md</button>
+                  <button type="button" class="document-button is-active" data-document="writing" aria-pressed="true"><svg class="icon"><use href="#i-file"/></svg> 一段好文字.md</button>
+                  <button type="button" class="document-button" data-document="ideas"><svg class="icon"><use href="#i-file"/></svg> 灵感收集.md</button>
+                </div>
+                <div class="sidebar-bottom"><span class="local-indicator"></span> 本地工作空间</div>
+              </aside>
+              <div class="app-main">
+                <div class="app-toolbar"><span class="document-name">一段好文字.md</span><div class="view-tabs" role="tablist" aria-label="示例显示方式"><button id="read-tab" type="button" role="tab" aria-selected="true" aria-controls="read-panel" data-view="read"><svg class="icon"><use href="#i-book"/></svg> 阅读</button><button id="source-tab" type="button" role="tab" aria-selected="false" aria-controls="source-panel" tabindex="-1" data-view="source"><svg class="icon"><use href="#i-code"/></svg> 源码</button></div></div>
+                <div id="read-panel" class="document-panel" role="tabpanel" aria-labelledby="read-tab" tabindex="0">
+                  <article class="sample-document"><p class="document-kicker">NOTES ON A QUIETER WORKSPACE</p><h2>一段好文字，<br>值得一个好位置。</h2><p class="document-intro">把纷杂留在窗外，让思绪慢下来。<br>从一行文字开始，重新发现阅读与书写的乐趣。</p><h3>留白，也是内容的一部分</h3><p>不必填满每一寸空间。清晰的排版、恰好的行距，让重要的内容自然浮现。</p><blockquote>好的工具安静地待在一旁，<br>让你听见自己的想法。</blockquote><h3>让想法，自然成形</h3><ul class="sample-checklist"><li><span>✓</span> 给灵感一个随时落笔的地方</li><li><span>✓</span> 在阅读与写作之间，自在切换</li><li><span class="unchecked"></span> 把下一段故事，留给自己</li></ul></article>
+                </div>
+                <div id="source-panel" class="source-panel" role="tabpanel" aria-labelledby="source-tab" tabindex="0" hidden><pre><code></code></pre></div>
+              </div>
+              <aside class="app-outline" aria-label="示例文档大纲"><p>文档大纲</p><div class="outline-items"><span class="outline-title">一段好文字</span><span class="outline-active">留白，也是内容的一部分</span><span>让想法，自然成形</span></div><div class="outline-footnote">清晰的结构<br>让思路有迹可循。</div></aside>
+            </div>
+            <div class="app-statusbar"><span><span class="local-indicator"></span> 所有灵感，留在本地</span><span>Markdown <i>·</i> UTF-8</span></div>
+          </div>
+          <div class="preview-bottomline"><p>换一种心情，读同一段文字。</p><div class="theme-switcher" role="group" aria-label="示例阅读皮肤"><button type="button" class="theme-choice" data-theme="ivory" aria-pressed="true"><span class="swatch ivory"></span> 象牙</button><button type="button" class="theme-choice" data-theme="charcoal" aria-pressed="false"><span class="swatch charcoal"></span> 暖炭</button><button type="button" class="theme-choice" data-theme="celadon" aria-pressed="false"><span class="swatch celadon"></span> 青瓷</button></div></div>
+        </div>
+      </section>
+
+      <section id="features" class="features wrap" aria-labelledby="features-title">
+        <div class="section-heading"><p class="eyebrow">少一点打扰，多一点心流</p><h2 id="features-title">好工具，<span class="serif">让文字站在中间。</span></h2><p>从第一眼阅读，到最后一次落笔。<br>需要的能力恰好在手边，其他的，就交给留白。</p></div>
+        <div class="feature-grid">
+          <article class="feature"><div class="feature-top"><svg class="icon"><use href="#i-book"/></svg><span>01 / READ</span></div><h3>读得进去。</h3><p>文件树、正文与大纲各就其位。打开文档，沿着清晰的结构，把注意力留给内容。</p><ul><li>多标签与文内搜索</li><li>大纲导航与可调三栏</li><li>12 款皮肤与自定义排版</li></ul></article>
+          <article class="feature"><div class="feature-top"><svg class="icon"><use href="#i-pen"/></svg><span>02 / WRITE</span></div><h3>写得顺手。</h3><p>用所见即所得的方式连贯书写，或回到熟悉的源码。让表达顺着思路，自然发生。</p><ul><li>所见即所得编辑</li><li>源码编辑与实时预览</li><li>选区格式与结构插入</li></ul></article>
+          <article class="feature"><div class="feature-top"><svg class="icon"><use href="#i-local"/></svg><span>03 / LOCAL</span></div><h3>用得自在。</h3><p>文档保存在自己的电脑，日常读写离线可用。没有注册流程，打开文件就能开始。</p><ul><li>本地文件与文件夹</li><li>标准 Markdown 格式</li><li>远程图片默认关闭</li></ul></article>
+        </div>
+      </section>
+
+      <section class="craft-section" aria-labelledby="craft-title"><div class="craft-grid wrap"><div class="craft-copy"><p class="eyebrow">想法不止一种形状</p><h2 id="craft-title">文字之外，<br>也能<span class="serif accent">表达清楚。</span></h2><p>一段代码的逻辑，一张表格的比较，<br>一个公式的推导。复杂的内容，也能有清楚的呈现。</p><div class="capability-tags"><span>代码高亮与折叠</span><span>GFM 表格</span><span>任务清单</span><span>数学公式</span><span>Mermaid 图表</span></div></div><div class="technical-note" aria-label="技术文档排版示意"><div class="note-label"><span>把想法连接起来</span><span>01 — 03</span></div><div class="flow-diagram"><span>灵感</span><svg class="icon"><use href="#i-arrow"/></svg><span>落笔</span><svg class="icon"><use href="#i-arrow"/></svg><span class="flow-final">成形</span></div><div class="code-sample"><div><span class="code-language">JavaScript</span><span class="code-dots" aria-hidden="true">···</span></div><pre><code><span class="code-muted">// 给想法一个开始</span>
+<span class="code-purple">const</span> create = (<span class="code-orange">idea</span>) =&gt; {
+  <span class="code-purple">return</span> {
+    words: idea,
+    space: <span class="code-green">'just yours'</span>,
+  };
+};</code></pre></div><div class="note-footer"><span><svg class="icon"><use href="#i-check"/></svg> 从灵感到表达</span><span>保持清晰。</span></div></div></div></section>
+
+      <section id="questions" class="questions wrap" aria-labelledby="questions-title"><div><p class="eyebrow">再多了解一点</p><h2 id="questions-title">你可能想知道。</h2></div><div class="faq-list"><details><summary>Marker 是阅读器，还是编辑器？<span aria-hidden="true">+</span></summary><p>两者都是。你可以沉浸阅读本地 Markdown 文档，也可以使用所见即所得编辑，或在源码与预览分栏中写作。阅读、编辑和源码模式切换时会保留当前草稿。</p></details><details><summary>需要注册账号或保持联网吗？<span aria-hidden="true">+</span></summary><p>不需要注册账号。日常文档读写在本地完成，离线也能使用。文档中的外部链接和远程图片需要网络；远程图片默认关闭，可按需开启。</p></details><details><summary>文档会保存在哪里？<span aria-hidden="true">+</span></summary><p>文档以 Markdown 文件保存在你自己的电脑中。你可以打开已有文件或文件夹，编辑后保存到本地，也可以用其他兼容 Markdown 的工具继续使用这些文件。</p></details><details><summary>这里可以直接编辑我的文件吗？<span aria-hidden="true">+</span></summary><p>这里是 Marker 官网，页面中的工作台是交互示意，你可以切换示例文档、源码视图与阅读配色。完整的本地文件读写功能在 Marker 桌面应用中使用。</p></details></div></section>
+
+      <section id="download" class="download wrap" aria-labelledby="download-title"><div class="download-inner"><img src="./assets/marker-icon.png" alt="" width="76" height="76" loading="lazy"><p class="eyebrow">为你的下一份文档</p><h2 id="download-title">留一处安静，<span class="serif">给文字。</span></h2><p>打开 Marker，从阅读开始，让想法继续。</p><a id="download-link" class="button button-primary" hidden><svg class="icon"><use href="#i-down"/></svg> 查看下载版本</a><p id="download-pending" class="download-pending">安装包准备中，敬请期待。</p><p class="download-note">本地 Markdown 阅读与编辑 · 无需账号</p></div></section>
+    </main>
+    <footer class="footer wrap"><a class="brand" href="#" aria-label="返回 Marker 首页"><img src="./assets/marker-icon.png" width="28" height="28" alt=""><span>Marker<span class="brand-dot">.</span></span></a><p>文字有自己的力量。</p><div><a id="contact-link" hidden>联系与反馈 <svg class="icon"><use href="#i-arrow"/></svg></a><span>© <span id="year">2026</span> Marker</span></div></footer>
+
+    <template id="welcome-template"><p class="document-kicker">A LITTLE SPACE FOR YOUR WORDS</p><h2>从这里，<br>打开一份好心情。</h2><p class="document-intro">欢迎来到 Marker。<br>把文档放在手边，把专注还给自己。</p><h3>从熟悉的 Markdown 开始</h3><p>阅读文档，记录想法，整理你的知识。在一个连续、清晰的工作空间里，找到适合自己的节奏。</p><blockquote>工具轻一点，<br>想法就能走得远一点。</blockquote><h3>为自己留一点空间</h3><ul class="sample-checklist"><li><span>✓</span> 打开一份想读的文档</li><li><span>✓</span> 选择喜欢的阅读配色</li><li><span class="unchecked"></span> 写下今天的第一个想法</li></ul></template>
+    <template id="ideas-template"><p class="document-kicker">SMALL THOUGHTS, NEW BEGINNINGS</p><h2>有些灵感，<br>从一件小事开始。</h2><p class="document-intro">一段读到的话，一次路过的风景。<br>把那些微小的闪光，先记下来。</p><h3>今天的灵感清单</h3><ul class="sample-checklist"><li><span>✓</span> 留意日常里不寻常的细节</li><li><span>✓</span> 重新读一遍喜欢的文章</li><li><span class="unchecked"></span> 记录一个还没想明白的问题</li></ul><blockquote>不急着给想法一个答案，<br>先给它一个可以停留的地方。</blockquote><h3>让记录慢慢生长</h3><p>短短几行也很好。今天记下的文字，也许就是明天故事的开头。</p></template>
+  </body>
+</html>

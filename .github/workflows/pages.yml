@@ -1,0 +1,58 @@
+name: Deploy website to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v6
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Prepare static website
+        id: stage
+        run: |
+          python3 <<'PY'
+          import os
+          import shutil
+          import tempfile
+          from pathlib import Path
+
+          source = Path(os.environ["GITHUB_WORKSPACE"])
+          staging = Path(tempfile.mkdtemp(prefix="marker-pages-", dir=os.environ["RUNNER_TEMP"]))
+          for filename in ("index.html", "styles.css", "script.js", "config.js"):
+              shutil.copy2(source / filename, staging / filename)
+          shutil.copytree(source / "assets", staging / "assets")
+
+          with Path(os.environ["GITHUB_OUTPUT"]).open("a", encoding="utf-8") as output:
+              output.write(f"path={staging}\n")
+          PY
+
+      - name: Upload website artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: ${{ steps.stage.outputs.path }}
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
