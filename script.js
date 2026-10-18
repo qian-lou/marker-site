@@ -43,7 +43,7 @@
 
   function updateDemoLink() {
     if (!fullscreen) return;
-    const url = new URL('./assets/demo/index.html', document.baseURI);
+    const url = new URL(frame?.getAttribute('src') || './assets/demo/index.html', document.baseURI);
     url.searchParams.set('locale', window.MarkerSite?.language === 'en' ? 'en-US' : 'zh-CN');
     url.searchParams.set('theme', window.MarkerSite?.theme === 'dark' ? 'dark' : 'light');
     fullscreen.href = url.href;
