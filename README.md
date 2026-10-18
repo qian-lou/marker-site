@@ -92,7 +92,7 @@ Tauri 更新包签名与 Apple Developer ID、公证及 Windows 代码签名是�
 
 工作流先将 `source_ref` 解析为固定提交 SHA，所有平台都检出同一提交，避免构建过程中分支移动造成版本混用。
 
-应用版本读取自私有源码的 `apps/desktop/src-tauri/tauri.conf.json`，当前为 `0.1.4`；不会使用前端 `package.json` 的版本。已发布版本不能覆盖，需要发布新版本时先在私有源码中更新版本，并保持 `Cargo.toml` 的应用版本一致。
+应用版本读取自私有源码的 `apps/desktop/src-tauri/tauri.conf.json`，当前为 `0.1.5`；不会使用前端 `package.json` 的版本。已发布版本不能覆盖，需要发布新版本时先在私有源码中更新版本，并保持 `Cargo.toml` 的应用版本一致。
 
 ### 构建矩阵与发布条件
 
