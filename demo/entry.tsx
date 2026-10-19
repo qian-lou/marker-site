@@ -1,10 +1,12 @@
 /** Website-only adapter. All workspace, reader, editor and settings UI comes from Marker. */
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import type { CodeFoldSnapshot, RenderDocument, UserPreferences, WorkspaceTree } from '@marker/contracts';
+import type { CodeFoldSnapshot, ReadingPosition, RenderDocument, UserPreferences, WorkspaceEntry, WorkspaceTree } from '@marker/contracts';
 import { App } from '@/app/app';
 import { ipcClient } from '@/ipc/client';
 import { createBrowserRenderDocument } from '@/ipc/browser-markdown';
+import { parseDocumentLink, resolveBrowserDocumentLink } from '@/ipc/document-links';
+import { parseReadingPosition, serializeReadingPosition } from '@/ipc/reading-position';
 import { useDocumentStore } from '@/stores/document-store';
 import { useWorkspaceStore } from '@/stores/workspace-store';
 import { usePreferencesStore } from '@/stores/preferences-store';
@@ -26,6 +28,7 @@ const workspaceId = 'marker-website-samples';
 const browserIpc = { ...ipcClient };
 const documents = new Map<string, RenderDocument>();
 const folds = new Map<string, CodeFoldSnapshot>();
+const positions = new Map<string, ReadingPosition>();
 let preferences: UserPreferences = {
   ...usePreferencesStore.getState().preferences,
   language: locale,
@@ -35,14 +38,40 @@ let preferences: UserPreferences = {
 };
 
 function createWorkspace(): WorkspaceTree {
+  const entries: WorkspaceEntry[] = [];
+  const folders = new Map<string, WorkspaceEntry & { children: WorkspaceEntry[] }>();
+  for (const sample of getSampleDocuments(locale)) {
+    if (sample.standalone) continue;
+    const segments = sample.path.split('/');
+    let children = entries;
+    let relativePath = '';
+    for (let index = 0; index < segments.length - 1; index += 1) {
+      relativePath += `${index > 0 ? '/' : ''}${segments[index]}`;
+      let folder = folders.get(relativePath);
+      if (!folder) {
+        folder = { id: `folder:${relativePath}`, name: segments[index], relativePath, isDirectory: true, children: [] };
+        folders.set(relativePath, folder);
+        children.push(folder);
+      }
+      children = folder.children;
+    }
+    children.push({
+      id: sample.id, name: segments[segments.length - 1], relativePath: sample.path,
+      isDirectory: false, size: sample.markdown.length, modifiedAt: 0,
+    });
+  }
+  for (const siblings of [entries, ...Array.from(folders.values(), folder => folder.children)]) {
+    siblings.sort((a, b) => {
+      if (a.isDirectory !== b.isDirectory) return a.isDirectory ? -1 : 1;
+      const readmeOrder = Number(b.name.toLowerCase() === 'readme.md') - Number(a.name.toLowerCase() === 'readme.md');
+      return readmeOrder || a.name.toLowerCase().localeCompare(b.name.toLowerCase());
+    });
+  }
   return {
     workspaceId,
     rootName: locale === 'zh-CN' ? '我的工作空间' : 'My workspace',
     rootDisplayPath: 'Marker samples',
-    entries: getSampleDocuments(locale).map(sample => ({
-      id: sample.id, name: sample.path, relativePath: sample.path,
-      isDirectory: false, size: sample.markdown.length, modifiedAt: 0,
-    })),
+    entries,
   };
 }
 
@@ -53,8 +82,8 @@ function requireDocument(documentId: string): RenderDocument {
 }
 
 function documentAtPath(path: string): RenderDocument {
-  const filename = path.split(/[\\/]/).pop();
-  const sample = getSampleDocuments(locale).find(item => item.path === filename);
+  const relativePath = path.replace(/\\/g, '/').replace(/^\.\//, '');
+  const sample = getSampleDocuments(locale).find(item => item.path === relativePath);
   if (!sample) throw { code: 'NOT_FOUND', message: 'Sample document not found.', recoverable: true };
   return requireDocument(sample.id);
 }
@@ -86,12 +115,39 @@ ipcClient.openWorkspaceDocument = async (id, path) => {
   return documentAtPath(path);
 };
 ipcClient.openFileByPath = async path => {
-  const filename = path.split(/[\\/]/).pop();
-  return getSampleDocuments(locale).some(sample => sample.path === filename)
+  const relativePath = path.replace(/\\/g, '/').replace(/^\.\//, '');
+  return getSampleDocuments(locale).some(sample => sample.path === relativePath)
     ? documentAtPath(path) : browserIpc.openFileByPath(path);
 };
 ipcClient.getRenderDocument = async id => documents.get(id) ?? browserIpc.getRenderDocument(id);
+ipcClient.navigateDocumentLink = async (id, href, sourceWorkspaceId) => {
+  if (!documents.has(id)) return browserIpc.navigateDocumentLink(id, href, sourceWorkspaceId);
+  const link = parseDocumentLink(href);
+  if (link.kind === 'external') {
+    window.open(link.url, '_blank', 'noopener,noreferrer');
+    return { external: true, url: link.url };
+  }
+  if (link.kind === 'anchor') return { documentId: id, anchor: link.anchor, external: false };
+  if (sourceWorkspaceId && sourceWorkspaceId !== workspaceId) {
+    throw { code: 'PERMISSION_DENIED', message: 'The source document is not in this sample workspace.', recoverable: true };
+  }
+  const relativePath = resolveBrowserDocumentLink(requireDocument(id).displayPath, link.path);
+  const target = documentAtPath(relativePath);
+  const standalone = getSampleDocuments(locale).find(sample => sample.id === target.documentId)?.standalone;
+  return {
+    documentId: target.documentId, anchor: link.anchor, external: false,
+    ...(!standalone ? { workspaceId, relativePath } : {}),
+  };
+};
 ipcClient.getRecentItems = async () => [];
+ipcClient.getReadingPosition = async id => {
+  const position = positions.get(id);
+  return position ? { ...position } : null;
+};
+ipcClient.saveReadingPosition = async (id, position) => {
+  const saved = parseReadingPosition(serializeReadingPosition(position));
+  if (saved) positions.set(id, { ...saved, documentId: id });
+};
 ipcClient.getCodeFolds = async id => documents.has(id) ? folds.get(id) ?? null : browserIpc.getCodeFolds(id);
 ipcClient.saveCodeFolds = async (id, snapshot) => {
   if (documents.has(id)) folds.set(id, snapshot);
@@ -109,6 +165,9 @@ ipcClient.renderMarkdownPreview = async (markdown, id = 'preview', path = 'Previ
 
 const workspace = createWorkspace();
 useWorkspaceStore.getState().addWorkspace(workspace);
+for (const sample of getSampleDocuments(locale)) {
+  if (sample.standalone) useDocumentStore.getState().openDocument(requireDocument(sample.id));
+}
 useWorkspaceStore.getState().registerDocument('welcome', workspaceId, 'Welcome.md');
 useDocumentStore.getState().openDocument(requireDocument('welcome'));
 await usePreferencesStore.getState().loadPreferences();
@@ -144,9 +203,13 @@ window.addEventListener('message', event => {
   } else if (event.data.type === 'marker-demo:reset') {
     useDocumentStore.getState().closeAllTabs();
     folds.clear();
+    positions.clear();
     seedDocuments(locale, true);
     useWorkspaceStore.getState().clearWorkspace();
     useWorkspaceStore.getState().addWorkspace(createWorkspace());
+    for (const sample of getSampleDocuments(locale)) {
+      if (sample.standalone) useDocumentStore.getState().openDocument(requireDocument(sample.id));
+    }
     useWorkspaceStore.getState().registerDocument('welcome', workspaceId, 'Welcome.md');
     useDocumentStore.getState().openDocument(requireDocument('welcome'));
     useDocumentStore.getState().setViewMode('preview');

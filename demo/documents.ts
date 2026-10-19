@@ -1,7 +1,15 @@
 /** Public sample content only. The workspace uses the desktop app's real UI. */
 export type DemoLocale = 'zh-CN' | 'en-US';
 
-const samples = {
+interface DemoDocument {
+  id: string;
+  path: string;
+  title: string;
+  markdown: string;
+  standalone?: boolean;
+}
+
+const samples: Record<DemoLocale, DemoDocument[]> = {
   'zh-CN': [
     {
       id: 'welcome', path: 'Welcome.md', title: '把专注，还给文字。',
@@ -36,7 +44,9 @@ const samples = {
 
 桌面版可以打开本地 Markdown 文件与文件夹，无需账号，离线可用。这个网页体验使用独立的示例工作区；编辑仅保留在当前浏览器会话中，刷新即可重新开始。
 
-打开左侧的 **Notes.md** 与 **Markdown.md**，继续体验多标签、代码、表格、数学公式和流程图。
+打开左侧的 **Notes.md** 与 **Markdown.md**，继续体验多标签、代码、表格、数学公式和流程图。展开 **Projects → Marker → Release**，体验多层目录；下方的 **Quick note.md** 是一份独立文件示例，可切换、筛选或从侧栏移除。
+
+也可以通过[发布清单](Projects/Marker/Release/Checklist.md)跳转到深层目录中的文档。
 `,
     },
     {
@@ -115,6 +125,38 @@ flowchart LR
 \`\`\`
 `,
     },
+    {
+      id: 'release-checklist', path: 'Projects/Marker/Release/Checklist.md', title: '让每一个细节，都有去处',
+      markdown: `# 让每一个细节，都有去处
+
+这份文档位于 **Projects / Marker / Release**。展开多层文件夹，或在左侧搜索 Checklist.md，快速找到深处的笔记。
+
+## 整理一个项目
+
+- [x] 用文件夹组织不同主题
+- [x] 在多层目录中定位 Markdown 文档
+- [ ] 切换到源码模式，补充自己的检查项
+
+## 保存与回顾
+
+编辑后保存，再打开其他文档并切回来，修改仍保留在当前网页会话中。这里的示例不会写入你的磁盘，点击官网的「重置体验」即可还原。
+
+[返回欢迎文档](../../../Welcome.md)
+`,
+    },
+    {
+      id: 'quick-note', path: 'Quick note.md', title: '一份随手打开的笔记', standalone: true,
+      markdown: `# 一份随手打开的笔记
+
+这是一份内存中的独立文件示例，不属于上面的工作区目录。它保留完整文件名，并和工作区文档一起显示在侧栏。
+
+## 随时回到自己的想法
+
+试试切换文档、筛选 Quick note.md，或使用侧栏的移除按钮。移除只会将它从当前会话中关闭，不会删除任何本地文件。
+
+点击「重置体验」可恢复这份示例。你也可以主动选择自己的 Markdown 文件；浏览器读取的文件不会上传。
+`,
+    },
   ],
   'en-US': [
     {
@@ -150,7 +192,9 @@ Choose Edit to write directly on the page. Choose Source to work with Markdown a
 
 The desktop app opens local Markdown files and folders, works offline, and needs no account. This web experience uses a separate sample workspace. Edits stay in the current browser session; refresh to start again.
 
-Open **Notes.md** and **Markdown.md** to explore tabs, code, tables, formulas, and diagrams.
+Open **Notes.md** and **Markdown.md** to explore tabs, code, tables, formulas, and diagrams. Expand **Projects → Marker → Release** to explore nested folders. **Quick note.md** below the workspace is a standalone sample you can select, filter, or remove from the sidebar.
+
+You can also follow the [release checklist](Projects/Marker/Release/Checklist.md) to open a document inside the nested folders.
 `,
     },
     {
@@ -227,6 +271,38 @@ flowchart LR
   B --> C[Focus and write]
   C --> D[Review and share]
 \`\`\`
+`,
+    },
+    {
+      id: 'release-checklist', path: 'Projects/Marker/Release/Checklist.md', title: 'A place for every detail',
+      markdown: `# A place for every detail
+
+This document lives in **Projects / Marker / Release**. Expand the nested folders, or filter for Checklist.md in the sidebar to find a note further down the tree.
+
+## Organize a project
+
+- [x] Group related ideas in folders
+- [x] Find Markdown documents at any folder level
+- [ ] Switch to Source and add a checklist item of your own
+
+## Save and revisit
+
+Save an edit, visit another document, and come back: your changes remain in this page session. These samples never write to your disk. Choose Reset demo on the website to restore the original content.
+
+[Back to Welcome](../../../Welcome.md)
+`,
+    },
+    {
+      id: 'quick-note', path: 'Quick note.md', title: 'A note you opened along the way', standalone: true,
+      markdown: `# A note you opened along the way
+
+This standalone sample lives in memory, outside the workspace folders above. Its full filename appears alongside the workspace documents in the sidebar.
+
+## Find your way back to a thought
+
+Switch documents, filter for Quick note.md, or try its sidebar remove button. Removing it only closes it in this session; it never deletes a local file.
+
+Choose Reset demo to bring this sample back. You can also select your own Markdown files: files read by the browser are never uploaded.
 `,
     },
   ],

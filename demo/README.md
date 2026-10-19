@@ -46,7 +46,14 @@ Send preferences through `iframe.contentWindow.postMessage(message, location.ori
 same-origin parent window are accepted. `{ type: 'marker-demo:reset' }` restores
 the sample documents. Changing language translates untouched samples and keeps
 visitor edits. Sample documents, edits and code folding remain in memory for the
-current page session. The app's real browser file/folder pickers remain available.
+current page session. Reading positions also stay in memory and reset with the
+sample documents. The app's real browser file/folder pickers remain available.
+
+The sample tree includes `Projects/Marker/Release/Checklist.md` for nested-folder
+navigation and a separate `Quick note.md` tab for standalone-file filtering and
+removal. Workspace lookup and relative document links use complete paths, not
+basenames. Removing the standalone sample closes it without touching local files;
+reset restores both the folder samples and the standalone tab.
 
 When embedded, the adapter confines app `scrollIntoView` calls to the nearest
 scrolling pane, using the native `container: 'nearest'` option when supported and
