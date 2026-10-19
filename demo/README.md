@@ -48,6 +48,9 @@ the sample documents. Changing language translates untouched samples and keeps
 visitor edits. Sample documents, edits and code folding remain in memory for the
 current page session. Reading positions also stay in memory and reset with the
 sample documents. The app's real browser file/folder pickers remain available.
+Closing a document retains its sidebar entry and reading position. Reopening it
+from the sidebar or the in-memory recent-file list resumes reading. The recent
+list contains only visited samples and clears on reset or page refresh.
 
 The sample tree includes `Projects/Marker/Release/Checklist.md` for nested-folder
 navigation and a separate `Quick note.md` tab for standalone-file filtering and

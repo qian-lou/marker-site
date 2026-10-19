@@ -17,7 +17,7 @@ const samples: Record<DemoLocale, DemoDocument[]> = {
 
 从一段文字开始，把零散的想法慢慢写成自己的东西。
 
-这是 Marker 的真实工作台。试试右上角的 **只读、编辑和源码**，或在两侧的文件树与大纲之间自由跳转。
+这是 Marker 的真实工作台。试试右上角的 **只读、编辑和源码图标**，悬停可查看提示；也可以在两侧的文件树与大纲之间自由跳转。
 
 ## 为思考，留一点空间
 
@@ -44,7 +44,9 @@ const samples: Record<DemoLocale, DemoDocument[]> = {
 
 桌面版可以打开本地 Markdown 文件与文件夹，无需账号，离线可用。这个网页体验使用独立的示例工作区；编辑仅保留在当前浏览器会话中，刷新即可重新开始。
 
-打开左侧的 **Notes.md** 与 **Markdown.md**，继续体验多标签、代码、表格、数学公式和流程图。展开 **Projects → Marker → Release**，体验多层目录；下方的 **Quick note.md** 是一份独立文件示例，可切换、筛选或从侧栏移除。
+打开左侧的 **Notes.md** 与 **Markdown.md**，继续体验文件切换、代码、表格、数学公式和流程图。将鼠标移到顶部文件名旁，点击 **×** 关闭当前文档；文件仍保留在左侧，再次打开或切换回来会恢复之前的阅读位置。
+
+展开 **Projects → Marker → Release**，体验多层目录；下方的 **Quick note.md** 是一份独立文件示例，可切换、筛选或从侧栏移除。桌面版还会在重启后恢复文件列表、当前文档、阅读位置和目录的展开、折叠状态。
 
 也可以通过[发布清单](Projects/Marker/Release/Checklist.md)跳转到深层目录中的文档。
 `,
@@ -165,7 +167,7 @@ flowchart LR
 
 Begin with a line of text. Let scattered thoughts become something of your own.
 
-This is the real Marker workspace. Try **Read, Edit, and Source** in the toolbar, or explore the file tree and document outline.
+This is the real Marker workspace. Try the **Read, Edit, and Source icons** in the toolbar; hover to see their labels. Or explore the file tree and document outline.
 
 ## Make space for your thoughts
 
@@ -192,7 +194,9 @@ Choose Edit to write directly on the page. Choose Source to work with Markdown a
 
 The desktop app opens local Markdown files and folders, works offline, and needs no account. This web experience uses a separate sample workspace. Edits stay in the current browser session; refresh to start again.
 
-Open **Notes.md** and **Markdown.md** to explore tabs, code, tables, formulas, and diagrams. Expand **Projects → Marker → Release** to explore nested folders. **Quick note.md** below the workspace is a standalone sample you can select, filter, or remove from the sidebar.
+Open **Notes.md** and **Markdown.md** to explore file switching, code, tables, formulas, and diagrams. Hover beside the filename in the toolbar and click **×** to close the document. It stays in the sidebar, and reopening it or switching back restores your reading position.
+
+Expand **Projects → Marker → Release** to explore nested folders. **Quick note.md** below the workspace is a standalone sample you can select, filter, or remove from the sidebar. The desktop app also restores your file list, active document, reading positions, and expanded or collapsed folders after a restart.
 
 You can also follow the [release checklist](Projects/Marker/Release/Checklist.md) to open a document inside the nested folders.
 `,

@@ -29,6 +29,7 @@ const browserIpc = { ...ipcClient };
 const documents = new Map<string, RenderDocument>();
 const folds = new Map<string, CodeFoldSnapshot>();
 const positions = new Map<string, ReadingPosition>();
+const recentDocuments = new Map<string, number>();
 let preferences: UserPreferences = {
   ...usePreferencesStore.getState().preferences,
   language: locale,
@@ -81,6 +82,14 @@ function requireDocument(documentId: string): RenderDocument {
   return document;
 }
 
+/** Keep a bounded sample history in memory, separate from visitors' local files. */
+function rememberSample(document: RenderDocument): RenderDocument {
+  recentDocuments.delete(document.documentId);
+  recentDocuments.set(document.documentId, Date.now());
+  if (recentDocuments.size > 5) recentDocuments.delete(recentDocuments.keys().next().value!);
+  return document;
+}
+
 function documentAtPath(path: string): RenderDocument {
   const relativePath = path.replace(/\\/g, '/').replace(/^\.\//, '');
   const sample = getSampleDocuments(locale).find(item => item.path === relativePath);
@@ -112,14 +121,17 @@ ipcClient.saveWorkspaceSession = async () => {};
 ipcClient.openWorkspaceByPath = async () => createWorkspace();
 ipcClient.openWorkspaceDocument = async (id, path) => {
   if (id !== workspaceId) return browserIpc.openWorkspaceDocument(id, path);
-  return documentAtPath(path);
+  return rememberSample(documentAtPath(path));
 };
 ipcClient.openFileByPath = async path => {
   const relativePath = path.replace(/\\/g, '/').replace(/^\.\//, '');
   return getSampleDocuments(locale).some(sample => sample.path === relativePath)
-    ? documentAtPath(path) : browserIpc.openFileByPath(path);
+    ? rememberSample(documentAtPath(path)) : browserIpc.openFileByPath(path);
 };
-ipcClient.getRenderDocument = async id => documents.get(id) ?? browserIpc.getRenderDocument(id);
+ipcClient.getRenderDocument = async id => {
+  const document = documents.get(id);
+  return document ? rememberSample(document) : browserIpc.getRenderDocument(id);
+};
 ipcClient.navigateDocumentLink = async (id, href, sourceWorkspaceId) => {
   if (!documents.has(id)) return browserIpc.navigateDocumentLink(id, href, sourceWorkspaceId);
   const link = parseDocumentLink(href);
@@ -139,7 +151,12 @@ ipcClient.navigateDocumentLink = async (id, href, sourceWorkspaceId) => {
     ...(!standalone ? { workspaceId, relativePath } : {}),
   };
 };
-ipcClient.getRecentItems = async () => [];
+ipcClient.getRecentItems = async () => [...recentDocuments].reverse().flatMap(([id, lastOpenedAt]) => {
+  const document = documents.get(id);
+  return document ? [{ id, name: document.displayPath.split('/').pop() || document.title,
+    path: document.displayPath, isFolder: false, lastOpenedAt }] : [];
+});
+ipcClient.clearRecentItems = async () => { recentDocuments.clear(); };
 ipcClient.getReadingPosition = async id => {
   const position = positions.get(id);
   return position ? { ...position } : null;
@@ -166,10 +183,10 @@ ipcClient.renderMarkdownPreview = async (markdown, id = 'preview', path = 'Previ
 const workspace = createWorkspace();
 useWorkspaceStore.getState().addWorkspace(workspace);
 for (const sample of getSampleDocuments(locale)) {
-  if (sample.standalone) useDocumentStore.getState().openDocument(requireDocument(sample.id));
+  if (sample.standalone) useDocumentStore.getState().openDocument(rememberSample(requireDocument(sample.id)));
 }
 useWorkspaceStore.getState().registerDocument('welcome', workspaceId, 'Welcome.md');
-useDocumentStore.getState().openDocument(requireDocument('welcome'));
+useDocumentStore.getState().openDocument(rememberSample(requireDocument('welcome')));
 await usePreferencesStore.getState().loadPreferences();
 
 usePreferencesStore.subscribe((state, previous) => {
@@ -204,14 +221,15 @@ window.addEventListener('message', event => {
     useDocumentStore.getState().closeAllTabs();
     folds.clear();
     positions.clear();
+    recentDocuments.clear();
     seedDocuments(locale, true);
     useWorkspaceStore.getState().clearWorkspace();
     useWorkspaceStore.getState().addWorkspace(createWorkspace());
     for (const sample of getSampleDocuments(locale)) {
-      if (sample.standalone) useDocumentStore.getState().openDocument(requireDocument(sample.id));
+      if (sample.standalone) useDocumentStore.getState().openDocument(rememberSample(requireDocument(sample.id)));
     }
     useWorkspaceStore.getState().registerDocument('welcome', workspaceId, 'Welcome.md');
-    useDocumentStore.getState().openDocument(requireDocument('welcome'));
+    useDocumentStore.getState().openDocument(rememberSample(requireDocument('welcome')));
     useDocumentStore.getState().setViewMode('preview');
   }
 });
