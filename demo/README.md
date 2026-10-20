@@ -58,6 +58,11 @@ removal. Workspace lookup and relative document links use complete paths, not
 basenames. Removing the standalone sample closes it without touching local files;
 reset restores both the folder samples and the standalone tab.
 
+Removing a workspace also removes its visited file records from the sidebar.
+Unsaved workspace edits prompt for Save, Don't Save, or Cancel before removal;
+other workspaces and standalone files retain their current state. The desktop
+app persists the cleaned session so removed files do not return after restart.
+
 When embedded, the adapter confines app `scrollIntoView` calls to the nearest
 scrolling pane, using the native `container: 'nearest'` option when supported and
 a local-pane fallback in older browsers. Root overscroll containment prevents

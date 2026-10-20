@@ -48,6 +48,8 @@ const samples: Record<DemoLocale, DemoDocument[]> = {
 
 展开 **Projects → Marker → Release**，体验多层目录；下方的 **Quick note.md** 是一份独立文件示例，可切换、筛选或从侧栏移除。桌面版还会在重启后恢复文件列表、当前文档、阅读位置和目录的展开、折叠状态。
 
+移除工作空间时，其打开过的文件记录会一并清理；如有未保存内容，会先提示保存、放弃或取消。独立文件保持不变，桌面版重启后也不会恢复已移除工作空间的文件记录。
+
 也可以通过[发布清单](Projects/Marker/Release/Checklist.md)跳转到深层目录中的文档。
 `,
     },
@@ -197,6 +199,8 @@ The desktop app opens local Markdown files and folders, works offline, and needs
 Open **Notes.md** and **Markdown.md** to explore file switching, code, tables, formulas, and diagrams. Hover beside the filename in the toolbar and click **×** to close the document. It stays in the sidebar, and reopening it or switching back restores your reading position.
 
 Expand **Projects → Marker → Release** to explore nested folders. **Quick note.md** below the workspace is a standalone sample you can select, filter, or remove from the sidebar. The desktop app also restores your file list, active document, reading positions, and expanded or collapsed folders after a restart.
+
+Removing a workspace also clears its visited file records. Unsaved edits prompt you to save, discard, or cancel first. Standalone files stay in place, and the desktop app keeps the removed workspace's files out of the restored session after a restart.
 
 You can also follow the [release checklist](Projects/Marker/Release/Checklist.md) to open a document inside the nested folders.
 `,
