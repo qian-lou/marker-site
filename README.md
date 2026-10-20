@@ -2,6 +2,8 @@
 
 # Marker
 
+**简体中文** · [English](./README.en.md)
+
 > 把专注，还给文字。
 
 Marker 是一款本地优先的 Markdown 阅读与编辑工具，面向 macOS、Windows 和 Linux。你可以沉浸阅读本地文档，用所见即所得的方式写作，或在源码与实时预览之间打磨内容。无需账号，日常读写离线可用，文档以标准 Markdown 文件保存在自己的电脑中。
