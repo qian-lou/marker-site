@@ -29,6 +29,8 @@ const samples: Record<DemoLocale, DemoDocument[]> = {
 
 点击右侧标题跳转章节，拖动两侧分隔线，或收起侧栏，把整个画面留给正文。
 
+在「设置 → 外观 → 顶部工具栏」选择自动隐藏，把更多空间留给文字。鼠标移到工作台顶部即可唤出，移开 1 秒后收起；期间返回工具栏会取消隐藏，正文位置保持不变。
+
 ### 写作，保持想法的流动
 
 切到「编辑」直接修改排版后的文字；切到「源码」查看 Markdown 与实时预览。选中文字即可设置格式，也可以使用编辑器的插入菜单。
@@ -180,6 +182,8 @@ Good tools stay quietly beside you. Read a long article, gather your notes, or c
 ### Read at your own pace
 
 Jump between sections in the outline. Drag either divider, or hide the sidebars to give the page your full attention.
+
+Choose Auto-hide under Settings → Appearance → Top toolbar for more reading space. Move the pointer to the top of the workspace to reveal it. Leaving starts a one-second hide delay; returning cancels it, and the document stays in place.
 
 ### Keep your writing in flow
 

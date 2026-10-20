@@ -11,20 +11,21 @@
       html,body{overscroll-behavior:contain}
       body{background:#faf9f5}
       @media(max-width:799px){
-        #root>div>header{
+        #root>div>[data-titlebar-mode="always"]{height:auto}
+        #root>div>[data-titlebar-mode="always"]>header{
           height:auto;
           min-height:44px;
           flex-wrap:wrap;
           row-gap:6px;
           padding-block:6px;
         }
-        #root>div>header>div:first-child{
+        #root>div>[data-titlebar-mode="always"]>header>div:first-child{
           flex:0 0 100%;
           width:100%;
           margin-right:0;
         }
-        #root>div>header>div:first-child>div[aria-hidden="true"]{display:none}
-        #root>div>header>div:last-child{
+        #root>div>[data-titlebar-mode]>header>div:first-child>div[aria-hidden="true"]{display:none}
+        #root>div>[data-titlebar-mode="always"]>header>div:last-child{
           width:100%;
           max-width:100%;
           overflow-x:auto;
@@ -32,7 +33,8 @@
           scrollbar-width:thin;
           padding-bottom:2px;
         }
-        #root>div>header>div:last-child>*{flex-shrink:0}
+        #root>div>[data-titlebar-mode="always"]>header>div:last-child>*{flex-shrink:0}
+        #root>div>[data-titlebar-mode="auto-hide"]>header{overflow-x:auto}
       }
     </style>
   </head>

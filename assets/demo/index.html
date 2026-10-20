@@ -11,20 +11,21 @@
       html,body{overscroll-behavior:contain}
       body{background:#faf9f5}
       @media(max-width:799px){
-        #root>div>header{
+        #root>div>[data-titlebar-mode="always"]{height:auto}
+        #root>div>[data-titlebar-mode="always"]>header{
           height:auto;
           min-height:44px;
           flex-wrap:wrap;
           row-gap:6px;
           padding-block:6px;
         }
-        #root>div>header>div:first-child{
+        #root>div>[data-titlebar-mode="always"]>header>div:first-child{
           flex:0 0 100%;
           width:100%;
           margin-right:0;
         }
-        #root>div>header>div:first-child>div[aria-hidden="true"]{display:none}
-        #root>div>header>div:last-child{
+        #root>div>[data-titlebar-mode]>header>div:first-child>div[aria-hidden="true"]{display:none}
+        #root>div>[data-titlebar-mode="always"]>header>div:last-child{
           width:100%;
           max-width:100%;
           overflow-x:auto;
@@ -32,19 +33,20 @@
           scrollbar-width:thin;
           padding-bottom:2px;
         }
-        #root>div>header>div:last-child>*{flex-shrink:0}
+        #root>div>[data-titlebar-mode="always"]>header>div:last-child>*{flex-shrink:0}
+        #root>div>[data-titlebar-mode="auto-hide"]>header{overflow-x:auto}
       }
     </style>
-    <script type="module" crossorigin src="./assets/index-BbGaZJ-u.js"></script>
+    <script type="module" crossorigin src="./assets/index-Cbu-Yg_T.js"></script>
     <link rel="modulepreload" crossorigin href="./assets/purify.es-Dzj7hFAt.js">
     <link rel="modulepreload" crossorigin href="./assets/preload-helper-CmsKOCeN.js">
     <link rel="modulepreload" crossorigin href="./assets/marked.esm-Dc6Miqd8.js">
     <link rel="modulepreload" crossorigin href="./assets/index-Ddo18YKm.js">
     <link rel="modulepreload" crossorigin href="./assets/index-BRKGYKSA.js">
     <link rel="modulepreload" crossorigin href="./assets/code-presentation-BxeQokge.js">
-    <link rel="modulepreload" crossorigin href="./assets/mermaid-ek4G7kz7.js">
+    <link rel="modulepreload" crossorigin href="./assets/mermaid-BIcn1x4s.js">
     <link rel="stylesheet" crossorigin href="./assets/code-presentation-m7LsPuYX.css">
-    <link rel="stylesheet" crossorigin href="./assets/index-BTzsmeUW.css">
+    <link rel="stylesheet" crossorigin href="./assets/index-Dwd6mYNo.css">
   </head>
   <body>
     <div id="root"></div>

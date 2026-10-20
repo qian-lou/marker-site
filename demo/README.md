@@ -69,3 +69,9 @@ a local-pane fallback in older browsers. Root overscroll containment prevents
 wheel/touch gestures at the app's edge from scrolling the surrounding website.
 Standalone app scrolling is unchanged; preferences flow from the host into the
 demo and are kept in memory inside the demo.
+
+The appearance settings also expose the desktop toolbar's always-visible and
+auto-hide modes. Move the pointer to the top of the demo viewport to reveal it;
+leaving starts a one-second hide delay, and returning cancels that delay. The
+toolbar overlays the document without moving its content. As with the other
+demo preferences, this selection stays in memory for the current page.
