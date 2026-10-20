@@ -30,7 +30,7 @@ Your current draft is preserved when switching between the three modes, so you c
 - **Workspace file management**: Removing a workspace also clears its open-file records, so the desktop app will not restore them after a restart. You are prompted about unsaved changes first; other workspaces and standalone files are unaffected.
 - **Pick up where you left off**: Hover over the filename at the top to close the current document while keeping it in the sidebar. Reopening or switching back to a document restores its reading position. The desktop app also restores the file list, active file, and expanded or collapsed folders after a restart.
 - **Built for technical documents**: Supports code highlighting and folding, GFM tables, task lists, math notation, and Mermaid diagrams.
-- **Reading settings that suit you**: Choose from 12 reading themes, light and dark appearances, and settings for font, font size, line height, and content width.
+- **Reading settings that suit you**: Choose from 12 reading themes, light and dark appearances, and settings for font, font size, line height, and content width. Fine-tune font size in 0.1px steps and line height in 0.01 steps with synchronized sliders and live numeric inputs. Click a value to select it for replacement.
 - **Show the top toolbar when you need it**: Set the toolbar to always stay visible or hide automatically. Move the pointer to the top of the window to reveal it; it hides one second after the pointer leaves, and returning cancels the hide. The document layout stays stable. The desktop app preserves this setting across restarts and updates.
 - **Chinese and English interfaces**: Read, write, and adjust settings in your preferred language.
 - **Your files stay yours**: No sign-up is needed, and everyday reading and writing happens locally. Standard Markdown files remain compatible with other tools. Remote images are disabled by default and can be enabled when needed.
@@ -59,6 +59,7 @@ The [interactive workspace on the website](https://qian-lou.github.io/marker-sit
 - Expand `Projects → Marker → Release` to explore nested folders. Open `Quick note.md` to try switching, searching, and removing standalone files.
 - Click Search sample files and enter `Checklist`. Switch between Tree and List and open a deeply nested file, or search `Quick note` to open a standalone file.
 - Hover over the filename at the top and click `×` to close the document. Reopen it from the sidebar or recent files to resume at your previous reading position.
+- Open Settings and drag a slider, or click a numeric value to select and replace the font size or line height. The document updates as you type.
 - Edit a sample document, change the reading theme, or choose a local file to try in the browser. Your local files are never uploaded.
 
 Sample edits stay in the current page. Refresh the page or click Reset demo to restore the samples. Use the desktop app for full disk saving, workspace restoration, and in-app updates.

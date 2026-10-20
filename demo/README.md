@@ -76,6 +76,12 @@ leaving starts a one-second hide delay, and returning cancels that delay. The
 toolbar overlays the document without moving its content. As with the other
 demo preferences, this selection stays in memory for the current page.
 
+The compact settings header matches the desktop app. Font size adjusts in 0.1px
+steps and line height in 0.01 steps. Clicking a numeric value selects it for
+replacement; valid input immediately updates the document and its slider while
+preserving partial decimal input. Empty or incomplete input keeps the last valid
+value, and leaving the field clamps out-of-range values to the supported bounds.
+
 The search dialog supports tree and list views with a shared query and selection.
 Folders can be expanded or collapsed without changing the sidebar. Searching
 reveals matching paths, including files in collapsed folders. The host
