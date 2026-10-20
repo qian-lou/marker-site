@@ -31,6 +31,10 @@ const samples: Record<DemoLocale, DemoDocument[]> = {
 
 在「设置 → 外观 → 顶部工具栏」选择自动隐藏，把更多空间留给文字。鼠标移到工作台顶部即可唤出，移开 1 秒后收起；期间返回工具栏会取消隐藏，正文位置保持不变。
 
+### 找到想看的那份文件
+
+点击顶部的 **搜索文件**，或按 **⌘ / Ctrl + P**，按文件名或路径找到工作区与独立文件。在弹窗中切换 **树形 / 列表**，搜索词和选中文件会保留；输入 **Checklist**，即可找到折叠目录里的发布清单，点击或按 Enter 打开。
+
 ### 写作，保持想法的流动
 
 切到「编辑」直接修改排版后的文字；切到「源码」查看 Markdown 与实时预览。选中文字即可设置格式，也可以使用编辑器的插入菜单。
@@ -48,7 +52,7 @@ const samples: Record<DemoLocale, DemoDocument[]> = {
 
 打开左侧的 **Notes.md** 与 **Markdown.md**，继续体验文件切换、代码、表格、数学公式和流程图。将鼠标移到顶部文件名旁，点击 **×** 关闭当前文档；文件仍保留在左侧，再次打开或切换回来会恢复之前的阅读位置。
 
-展开 **Projects → Marker → Release**，体验多层目录；下方的 **Quick note.md** 是一份独立文件示例，可切换、筛选或从侧栏移除。桌面版还会在重启后恢复文件列表、当前文档、阅读位置和目录的展开、折叠状态。
+展开 **Projects → Marker → Release**，体验多层目录；下方的 **Quick note.md** 是一份独立文件示例，可切换、通过搜索弹窗查找，或从侧栏移除。桌面版还会在重启后恢复文件列表、当前文档、阅读位置和目录的展开、折叠状态。
 
 移除工作空间时，其打开过的文件记录会一并清理；如有未保存内容，会先提示保存、放弃或取消。独立文件保持不变，桌面版重启后也不会恢复已移除工作空间的文件记录。
 
@@ -135,7 +139,7 @@ flowchart LR
       id: 'release-checklist', path: 'Projects/Marker/Release/Checklist.md', title: '让每一个细节，都有去处',
       markdown: `# 让每一个细节，都有去处
 
-这份文档位于 **Projects / Marker / Release**。展开多层文件夹，或在左侧搜索 Checklist.md，快速找到深处的笔记。
+这份文档位于 **Projects / Marker / Release**。展开多层文件夹，或点击顶部搜索按钮查找 Checklist.md，在树形与列表间切换，快速打开深处的笔记。
 
 ## 整理一个项目
 
@@ -158,7 +162,7 @@ flowchart LR
 
 ## 随时回到自己的想法
 
-试试切换文档、筛选 Quick note.md，或使用侧栏的移除按钮。移除只会将它从当前会话中关闭，不会删除任何本地文件。
+试试点击顶部搜索按钮，搜索 Quick note.md，切换树形 / 列表，或使用侧栏的移除按钮。移除只会将它从当前会话中关闭，不会删除任何本地文件。
 
 点击「重置体验」可恢复这份示例。你也可以主动选择自己的 Markdown 文件；浏览器读取的文件不会上传。
 `,
@@ -202,7 +206,9 @@ The desktop app opens local Markdown files and folders, works offline, and needs
 
 Open **Notes.md** and **Markdown.md** to explore file switching, code, tables, formulas, and diagrams. Hover beside the filename in the toolbar and click **×** to close the document. It stays in the sidebar, and reopening it or switching back restores your reading position.
 
-Expand **Projects → Marker → Release** to explore nested folders. **Quick note.md** below the workspace is a standalone sample you can select, filter, or remove from the sidebar. The desktop app also restores your file list, active document, reading positions, and expanded or collapsed folders after a restart.
+Expand **Projects → Marker → Release** to explore nested folders. **Quick note.md** below the workspace is a standalone sample you can select, find with file search, or remove from the sidebar. The desktop app also restores your file list, active document, reading positions, and expanded or collapsed folders after a restart.
+
+Click **Search Files** at the top, or press **⌘ / Ctrl + P**, to find workspace and standalone files by name or path. Switch between **Tree / List** without losing your query or selection. Search **Checklist** to find a file inside collapsed folders, then click it or press Enter to open it.
 
 Removing a workspace also clears its visited file records. Unsaved edits prompt you to save, discard, or cancel first. Standalone files stay in place, and the desktop app keeps the removed workspace's files out of the restored session after a restart.
 
@@ -289,7 +295,7 @@ flowchart LR
       id: 'release-checklist', path: 'Projects/Marker/Release/Checklist.md', title: 'A place for every detail',
       markdown: `# A place for every detail
 
-This document lives in **Projects / Marker / Release**. Expand the nested folders, or filter for Checklist.md in the sidebar to find a note further down the tree.
+This document lives in **Projects / Marker / Release**. Expand the nested folders, or use Search Files to find Checklist.md. Switch between tree and list views without losing your search, then open the result.
 
 ## Organize a project
 
@@ -312,7 +318,7 @@ This standalone sample lives in memory, outside the workspace folders above. Its
 
 ## Find your way back to a thought
 
-Switch documents, filter for Quick note.md, or try its sidebar remove button. Removing it only closes it in this session; it never deletes a local file.
+Use Search Files to find Quick note.md, switch between tree and list views, or try its sidebar remove button. Removing it only closes it in this session; it never deletes a local file.
 
 Choose Reset demo to bring this sample back. You can also select your own Markdown files: files read by the browser are never uploaded.
 `,

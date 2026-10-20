@@ -217,7 +217,10 @@ window.addEventListener('message', event => {
       !event.data || typeof event.data !== 'object') return;
   if (event.data.type === 'marker-site:preferences' || event.data.type === 'marker-demo:preferences') {
     void synchronize(event.data);
+  } else if (event.data.type === 'marker-demo:search-files') {
+    window.dispatchEvent(new KeyboardEvent('keydown', { key: 'p', ctrlKey: true, cancelable: true }));
   } else if (event.data.type === 'marker-demo:reset') {
+    window.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape', cancelable: true }));
     useDocumentStore.getState().closeAllTabs();
     folds.clear();
     positions.clear();
@@ -236,5 +239,10 @@ window.addEventListener('message', event => {
 
 const root = document.getElementById('root');
 if (!root) throw new Error('Marker demo root is missing.');
-ReactDOM.createRoot(root).render(<React.StrictMode><App /></React.StrictMode>);
-window.parent.postMessage({ type: 'marker-demo:ready' }, window.location.origin);
+function DemoApp() {
+  React.useEffect(() => {
+    window.parent.postMessage({ type: 'marker-demo:ready' }, window.location.origin);
+  }, []);
+  return <App />;
+}
+ReactDOM.createRoot(root).render(<React.StrictMode><DemoApp /></React.StrictMode>);

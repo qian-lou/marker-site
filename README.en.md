@@ -26,6 +26,7 @@ Your current draft is preserved when switching between the three modes, so you c
 
 - **A clear document workspace**: Browse files, content, and the outline in separate panes. Drag the dividers or collapse the sidebars to give your content more room.
 - **Local files and multi-folder workspaces**: Open existing files or folders and browse nested directories. Standalone files and workspace documents share the same sidebar for easy switching.
+- **Quick file search**: Use the top search button or ⌘/Ctrl+P to find files by name or path. Switch between tree and list views, expand folders, and open files with the keyboard while keeping your query and selected file.
 - **Workspace file management**: Removing a workspace also clears its open-file records, so the desktop app will not restore them after a restart. You are prompted about unsaved changes first; other workspaces and standalone files are unaffected.
 - **Pick up where you left off**: Hover over the filename at the top to close the current document while keeping it in the sidebar. Reopening or switching back to a document restores its reading position. The desktop app also restores the file list, active file, and expanded or collapsed folders after a restart.
 - **Built for technical documents**: Supports code highlighting and folding, GFM tables, task lists, math notation, and Mermaid diagrams.
@@ -55,7 +56,8 @@ The desktop app supports in-app updates. When a new version is available, an upd
 The [interactive workspace on the website](https://qian-lou.github.io/marker-site/#experience) runs the actual Marker frontend. Use the mode icons to switch between reading, editing, and source, and explore the file tree, file switching, outline, and reading settings.
 
 - Open `Markdown.md` to see code, tables, math notation, and Mermaid diagrams.
-- Expand `Projects → Marker → Release` to explore nested folders. Open `Quick note.md` to try switching, filtering, and removing standalone files.
+- Expand `Projects → Marker → Release` to explore nested folders. Open `Quick note.md` to try switching, searching, and removing standalone files.
+- Click Search sample files and enter `Checklist`. Switch between Tree and List and open a deeply nested file, or search `Quick note` to open a standalone file.
 - Hover over the filename at the top and click `×` to close the document. Reopen it from the sidebar or recent files to resume at your previous reading position.
 - Edit a sample document, change the reading theme, or choose a local file to try in the browser. Your local files are never uploaded.
 

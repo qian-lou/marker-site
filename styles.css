@@ -74,7 +74,8 @@ p,h1,h2,h3{margin:0}
 #marker-demo{position:absolute;inset:0;width:1100px;height:720px;max-width:none;border:0;transform:scale(var(--demo-scale,1));transform-origin:top left;background:var(--surface);color-scheme:normal}
 .preview-bottomline{display:flex;align-items:flex-start;justify-content:space-between;gap:24px;margin-top:19px;color:var(--muted);font-size:11px}
 .preview-bottomline>p{max-width:650px;line-height:1.8}
-.demo-actions{display:flex;align-items:center;gap:20px;flex-shrink:0}
+.demo-actions{display:flex;align-items:center;flex-wrap:wrap;gap:8px 20px;flex-shrink:0}
+.demo-actions button:disabled{opacity:.5;cursor:wait}
 .demo-actions .text-link{font-size:10px;min-height:26px;padding:0;white-space:nowrap}
 .demo-actions .icon{width:13px;height:13px}
 .demo-hint{font-size:10px;color:var(--subtle);margin-top:6px}

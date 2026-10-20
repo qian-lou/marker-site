@@ -12,10 +12,10 @@
     <meta property="og:locale" content="zh_CN">
     <link rel="icon" type="image/png" href="./assets/favicon.png?v=0.1.1">
     <script src="./preferences.js?v=20261018.1"></script>
-    <link rel="stylesheet" href="./styles.css?v=20261018.4">
+    <link rel="stylesheet" href="./styles.css?v=0.1.14">
     <script src="./config.js?v=20261019.1" defer></script>
-    <script src="./i18n.js?v=20261019.2" defer></script>
-    <script src="./script.js?v=20261018.3" defer></script>
+    <script src="./i18n.js?v=0.1.14" defer></script>
+    <script src="./script.js?v=0.1.14" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main" data-i18n="a11y.skip">跳转到正文</a>
@@ -28,6 +28,7 @@
       <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
       <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 15A9 9 0 0 1 9 4a9 9 0 1 0 11 11Z"/></symbol>
       <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 1v2m0 18v2M1 12h2m18 0h2M4 4l2 2m12 12 2 2M4 20l2-2M18 6l2-2"/></symbol>
+      <symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></symbol>
       <symbol id="i-reset" viewBox="0 0 24 24"><path d="M3 11a9 9 0 1 1 2 7M3 4v7h7"/></symbol>
       <symbol id="i-external" viewBox="0 0 24 24"><path d="M14 3h7v7m0-7L10 14M10 3H3v18h18v-7"/></symbol>
       <symbol id="i-language" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c5 5 5 13 0 18-5-5-5-13 0-18Z"/></symbol>
@@ -61,8 +62,8 @@
 
       <section id="experience" class="experience wrap" aria-label="Marker">
         <div class="preview-topline"><p><span class="tiny-cross" aria-hidden="true">✳</span><span data-i18n="demo.intro">给文字一点空间，给想法一点自由。</span></p><span class="preview-label"><span class="status-dot" aria-hidden="true"></span><span data-i18n="demo.label">真实应用体验</span></span></div>
-        <div class="demo-shell"><div class="demo-viewport" id="demo-viewport"><iframe id="marker-demo" src="./assets/demo/index.html?v=0.1.13-25d37ec" title="Marker 交互工作台" data-i18n-title="demo.title" loading="lazy" allow="clipboard-write"></iframe></div></div>
-        <div class="preview-bottomline"><p data-i18n="demo.caption">试试切换文档，或悬停顶部文件名后关闭再打开，继续上次的阅读位置。</p><div class="demo-actions"><button id="demo-reset" type="button" class="text-link"><svg class="icon" aria-hidden="true"><use href="#i-reset"/></svg><span data-i18n="demo.reset">重置体验</span></button><a id="demo-fullscreen" class="text-link" href="./assets/demo/index.html?v=0.1.13-25d37ec" target="_blank" rel="noopener"><span data-i18n="demo.fullscreen">在新窗口体验</span><svg class="icon" aria-hidden="true"><use href="#i-external"/></svg></a></div></div>
+        <div class="demo-shell"><div class="demo-viewport" id="demo-viewport"><iframe id="marker-demo" src="./assets/demo/index.html?v=0.1.14-60e17ff" title="Marker 交互工作台" data-i18n-title="demo.title" loading="lazy" allow="clipboard-write"></iframe></div></div>
+        <div class="preview-bottomline"><p data-i18n="demo.caption">搜索文件名或路径，在树形与列表之间切换，选中文件即可打开。</p><div class="demo-actions"><button id="demo-search" type="button" class="text-link" disabled><svg class="icon" aria-hidden="true"><use href="#i-search"/></svg><span data-i18n="demo.search">搜索示例文件</span></button><button id="demo-reset" type="button" class="text-link"><svg class="icon" aria-hidden="true"><use href="#i-reset"/></svg><span data-i18n="demo.reset">重置体验</span></button><a id="demo-fullscreen" class="text-link" href="./assets/demo/index.html?v=0.1.14-60e17ff" target="_blank" rel="noopener"><span data-i18n="demo.fullscreen">在新窗口体验</span><svg class="icon" aria-hidden="true"><use href="#i-external"/></svg></a></div></div>
         <p class="demo-hint" data-i18n="demo.hint">示例修改仅保留在当前页面；主动选择的本地文件不会上传。</p>
       </section>
 

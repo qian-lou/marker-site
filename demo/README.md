@@ -53,7 +53,7 @@ from the sidebar or the in-memory recent-file list resumes reading. The recent
 list contains only visited samples and clears on reset or page refresh.
 
 The sample tree includes `Projects/Marker/Release/Checklist.md` for nested-folder
-navigation and a separate `Quick note.md` tab for standalone-file filtering and
+navigation and a separate `Quick note.md` tab for standalone-file search and
 removal. Workspace lookup and relative document links use complete paths, not
 basenames. Removing the standalone sample closes it without touching local files;
 reset restores both the folder samples and the standalone tab.
@@ -75,3 +75,11 @@ auto-hide modes. Move the pointer to the top of the demo viewport to reveal it;
 leaving starts a one-second hide delay, and returning cancels that delay. The
 toolbar overlays the document without moving its content. As with the other
 demo preferences, this selection stays in memory for the current page.
+
+The search dialog supports tree and list views with a shared query and selection.
+Folders can be expanded or collapsed without changing the sidebar. Searching
+reveals matching paths, including files in collapsed folders. The host
+`marker-demo:search-files` message opens the app’s file picker through its file
+search shortcut; the ready message is sent after the app mounts. The website’s
+Search sample files button stays disabled until that message arrives. Reset also
+closes an open dialog before restoring the sample workspace.

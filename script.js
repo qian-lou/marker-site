@@ -92,6 +92,7 @@
   const viewport = document.getElementById('demo-viewport');
   const frame = document.getElementById('marker-demo');
   const fullscreen = document.getElementById('demo-fullscreen');
+  const searchFiles = document.getElementById('demo-search');
   if (viewport && frame) {
     const resize = () => {
       frame.style.setProperty('--demo-scale', String(viewport.clientWidth / 1100));
@@ -110,6 +111,17 @@
   }
   updateDemoLink();
   window.MarkerSite?.subscribe(updateDemoLink);
+
+  window.addEventListener('message', (event) => {
+    if (event.origin === window.location.origin && event.source === frame?.contentWindow &&
+        event.data?.type === 'marker-demo:ready' && searchFiles) searchFiles.disabled = false;
+  });
+  searchFiles?.addEventListener('click', () => {
+    if (!frame?.contentWindow) return;
+    viewport?.scrollIntoView({ block: 'center' });
+    frame.focus({ preventScroll: true });
+    frame.contentWindow.postMessage({ type: 'marker-demo:search-files' }, window.location.origin);
+  });
 
   document.getElementById('demo-reset')?.addEventListener('click', () => {
     if (!frame?.contentWindow) return;
