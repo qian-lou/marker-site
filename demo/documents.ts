@@ -37,7 +37,9 @@ const samples: Record<DemoLocale, DemoDocument[]> = {
 
 ### 写作，保持想法的流动
 
-切到「编辑」直接修改排版后的文字；切到「源码」查看 Markdown 与实时预览。选中文字即可设置格式，也可以使用编辑器的插入菜单。
+切到「编辑」直接修改排版后的文字。顶部的「插入」、撤销与重做集中在同一行；点击「插入」，输入「表格」或「公式」即可过滤内容，正文输入 \`/\` 也能快速插入。
+
+切到「源码」，左右拖动中间分隔线调整源码与预览宽度；方向键可微调，双击恢复均分。切换模式或刷新页面后，继续使用当前浏览器记住的分屏比例。
 
 ## 一个轻盈的日常工作流
 
@@ -193,7 +195,9 @@ Choose Auto-hide under Settings → Appearance → Top toolbar for more reading 
 
 ### Keep your writing in flow
 
-Choose Edit to write directly on the page. Choose Source to work with Markdown and a live preview. Select text to format it, or open the editor's insert menu.
+Choose Edit to write directly on the page. Insert, Undo and Redo share the top toolbar. Use Insert and type Table or Math to find a content block, or type \`/\` in the document to insert quickly.
+
+Choose Source and drag the middle divider to resize the source and preview. Use arrow keys for fine adjustments or double-click for equal widths. Your split ratio stays in this browser across mode changes and page reloads.
 
 ## A lighter everyday workflow
 

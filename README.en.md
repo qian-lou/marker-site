@@ -29,6 +29,8 @@ Your current draft is preserved when switching between the three modes, so you c
 - **Quick file search**: Use the top search button or ⌘/Ctrl+P to find files by name or path. Switch between tree and list views, expand folders, and open files with the keyboard while keeping your query and selected file.
 - **Workspace file management**: Removing a workspace also clears its open-file records, so the desktop app will not restore them after a restart. You are prompted about unsaved changes first; other workspaces and standalone files are unaffected.
 - **Pick up where you left off**: Hover over the filename at the top to close the current document while keeping it in the sidebar. Reopening or switching back to a document restores its reading position. The desktop app also restores the file list, active file, and expanded or collapsed folders after a restart.
+- **A compact writing surface**: Insert, Undo, and Redo share the top toolbar, leaving more space for the document. Filter content in the insert menu and use consistent dark gray dialog buttons in dark mode.
+- **A split that remembers**: Drag the source-preview divider, adjust with arrow keys, or double-click for equal panes. The ratio survives mode changes and reopening; narrow windows adapt without overwriting it.
 - **Built for technical documents**: Supports code highlighting and folding, GFM tables, task lists, math notation, and Mermaid diagrams.
 - **Reading settings that suit you**: Choose from 12 reading themes, light and dark appearances, and settings for font, font size, line height, and content width. Fine-tune font size in 0.1px steps and line height in 0.01 steps with synchronized sliders and live numeric inputs. Click a value to select it for replacement.
 - **Show the top toolbar when you need it**: Set the toolbar to always stay visible or hide automatically. Move the pointer to the top of the window to reveal it; it hides one second after the pointer leaves, and returning cancels the hide. The document layout stays stable. The desktop app preserves this setting across restarts and updates.
@@ -57,6 +59,8 @@ The [interactive workspace on the website](https://qian-lou.github.io/marker-sit
 
 - Open `Markdown.md` to see code, tables, math notation, and Mermaid diagrams.
 - Switch to Edit to try the single-row code toolbar, task checkboxes, and tables. Switch back to Read or Source with your current draft preserved.
+- Use Insert at the top and type Table or Math to filter content blocks. Typing `/` in the document also opens the compact insert menu.
+- Switch to Source, drag the middle divider, then change modes or reload. The split ratio is kept in your current browser.
 - Use the diagram’s ＋ / − controls to zoom, scroll horizontally to explore an enlarged diagram, click the percentage to reset, or open its popout preview.
 - Expand `Projects → Marker → Release` to explore nested folders. Open `Quick note.md` to try switching, searching, and removing standalone files.
 - Click Search sample files and enter `Checklist`. Switch between Tree and List and open a deeply nested file, or search `Quick note` to open a standalone file.

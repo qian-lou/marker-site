@@ -23,11 +23,20 @@ The Pages staging whitelist publishes `assets/demo/`, not this adapter directory
 The checked-in output lets the website deploy independently of private-source
 access. Rebuild it after a desktop UI change to keep the experience current.
 
-The 0.1.17 experience includes the desktop's single-row code toolbar, task-list
-checkbox styling, rounded tables and editor focus stability. Open `Markdown.md`
-and switch to Edit to try these interactions. Mode changes preserve the draft.
-On narrow reading panes, code actions scroll horizontally between the language
-picker and Copy button; keyboard focus also brings hidden actions into view.
+The 0.1.18 experience uses the compact desktop toolbar, with Insert, Undo and
+Redo at the top and no secondary writing toolbar. Insert uses a searchable
+single-column menu; typing `/` opens the compact document menu. Dialog actions
+use consistent dark gray surfaces in dark mode. Source and preview can be resized
+by dragging or with arrow keys, and double-clicking restores equal panes. The
+split ratio is kept in browser local storage across mode changes and reloads;
+viewport fitting never replaces the saved preference. Sample content still
+remains in memory for the current page.
+
+The single-row code toolbar, task-list checkbox styling, rounded tables and
+editor focus stability remain available. Open `Markdown.md` and switch to Edit
+to try these interactions. Mode changes preserve the draft. On narrow reading
+panes, code actions scroll horizontally between the language picker and Copy
+button; keyboard focus also brings hidden actions into view.
 Mermaid diagrams retain continuous zoom, horizontal scrolling, percentage reset
 and popout preview. Editor menus remain above code block controls in both light
 and dark appearances. Native desktop menus remain part of the installed app.
