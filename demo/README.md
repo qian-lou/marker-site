@@ -23,6 +23,11 @@ The Pages staging whitelist publishes `assets/demo/`, not this adapter directory
 The checked-in output lets the website deploy independently of private-source
 access. Rebuild it after a desktop UI change to keep the experience current.
 
+The 0.1.16 experience includes the desktop Mermaid zoom fix and editor overlay
+layering fix. In `Markdown.md`, zoom beyond the reading pane width, scroll to
+inspect the enlarged diagram, reset to 100%, or open its popout preview. Editor
+menus remain above code block controls in both light and dark appearances.
+
 ## Embed
 
 Use `assets/demo/index.html?locale=zh-CN&theme=light`. Supported locale values are

@@ -56,6 +56,7 @@ Marker 是一款本地优先的 Markdown 阅读与编辑工具，面向 macOS、
 [官网产品体验区](https://qian-lou.github.io/marker-site/#experience) 直接运行 Marker 的真实前端界面，可以通过图标切换阅读、编辑与源码模式，体验文件树、文件切换、大纲和阅读设置。
 
 - 打开 `Markdown.md`，查看代码、表格、数学公式与 Mermaid 图表。
+- 使用图表的 ＋ / − 连续缩放，放大后横向滚动查看内容；点击百分比重置，或打开弹窗查看大图。
 - 展开 `Projects → Marker → Release`，体验多层目录导航；打开 `Quick note.md`，体验独立文件的切换、搜索与移除。
 - 点击「搜索示例文件」，输入 `Checklist`，在树形与列表之间切换并打开深层目录中的文件；也可搜索 `Quick note` 打开独立文件。
 - 悬停顶部文件名并点击 `×` 关闭文档，从侧栏或最近文件重新打开，继续之前的阅读位置。

@@ -127,6 +127,8 @@ $$e^{i\\pi} + 1 = 0$$
 
 ## 用图表梳理思路
 
+使用图表上方的 **＋ / −** 连续缩放，放大后可横向滚动查看完整图表；点击百分比重置为 100%，或点击「弹窗」在大视图中查看。
+
 \`\`\`mermaid
 flowchart LR
   A[收集灵感] --> B[整理结构]
@@ -282,6 +284,8 @@ Sometimes a short equation says it best:
 $$e^{i\\pi} + 1 = 0$$
 
 ## Sketch the flow
+
+Use **＋ / −** above the diagram to zoom in or out. Scroll horizontally to explore an enlarged diagram, click the percentage to reset to 100%, or choose Popout for a larger view.
 
 \`\`\`mermaid
 flowchart LR
