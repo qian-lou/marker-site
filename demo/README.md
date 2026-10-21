@@ -23,10 +23,12 @@ The Pages staging whitelist publishes `assets/demo/`, not this adapter directory
 The checked-in output lets the website deploy independently of private-source
 access. Rebuild it after a desktop UI change to keep the experience current.
 
-The 0.1.16 experience includes the desktop Mermaid zoom fix and editor overlay
-layering fix. In `Markdown.md`, zoom beyond the reading pane width, scroll to
-inspect the enlarged diagram, reset to 100%, or open its popout preview. Editor
-menus remain above code block controls in both light and dark appearances.
+The 0.1.17 experience includes the desktop's single-row code toolbar, task-list
+checkbox styling, rounded tables and editor focus stability. Open `Markdown.md`
+and switch to Edit to try these interactions. Mode changes preserve the draft.
+Mermaid diagrams retain continuous zoom, horizontal scrolling, percentage reset
+and popout preview. Editor menus remain above code block controls in both light
+and dark appearances. Native desktop menus remain part of the installed app.
 
 ## Embed
 

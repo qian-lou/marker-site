@@ -95,7 +95,7 @@ const samples: Record<DemoLocale, DemoDocument[]> = {
       id: 'markdown', path: 'Markdown.md', title: '让内容，自然成形',
       markdown: `# 让内容，自然成形
 
-Markdown 让简单的文字拥有清晰的结构。这里有一些可以直接尝试的内容。
+Markdown 让简单的文字拥有清晰的结构。切到「编辑」，试试勾选任务、修改表格，或使用代码块顶部的语言、复制与折叠工具；切回「只读」查看排版，草稿会继续保留。
 
 ## 表格与清单
 
@@ -253,7 +253,7 @@ Collect a passage, organize meeting notes, or write down an idea before it has a
       id: 'markdown', path: 'Markdown.md', title: 'Give your ideas a clear shape',
       markdown: `# Give your ideas a clear shape
 
-Markdown gives plain text a useful structure. Here are a few things you can try.
+Markdown gives plain text a useful structure. Switch to Edit to check a task, change a table, or try the language, copy, and fold controls above a code block. Switch back to Read to review the layout; your draft stays with you.
 
 ## Tables and tasks
 
