@@ -26,6 +26,8 @@ access. Rebuild it after a desktop UI change to keep the experience current.
 The 0.1.17 experience includes the desktop's single-row code toolbar, task-list
 checkbox styling, rounded tables and editor focus stability. Open `Markdown.md`
 and switch to Edit to try these interactions. Mode changes preserve the draft.
+On narrow reading panes, code actions scroll horizontally between the language
+picker and Copy button; keyboard focus also brings hidden actions into view.
 Mermaid diagrams retain continuous zoom, horizontal scrolling, percentage reset
 and popout preview. Editor menus remain above code block controls in both light
 and dark appearances. Native desktop menus remain part of the installed app.
