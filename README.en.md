@@ -27,6 +27,9 @@ Your current draft is preserved when switching between the three modes, so you c
 - **A clear document workspace**: Browse files, content, and the outline in separate panes. Drag the dividers or collapse the sidebars to give your content more room.
 - **Local files and multi-folder workspaces**: Open existing files or folders and browse nested directories. Standalone files and workspace documents share the same sidebar for easy switching.
 - **Quick file search**: Use the top search button or ⌘/Ctrl+P to find files by name or path. Switch between tree and list views, expand folders, and open files with the keyboard while keeping your query and selected file.
+- **Document tabs**: Switch, reorder, and pin open tabs. Right-click to close other tabs or reopen a closed document. Search the tab list by filename or path and switch with the keyboard.
+- **Offline export**: Export your current draft to PDF, HTML, PNG, Word, OpenOffice, RTF, EPUB, LaTeX, MediaWiki, reStructuredText, Textile, or OPML. The desktop app includes its converters with no extra installation. Adjust paper size, orientation, margins, font size, and image scale.
+- **Native Windows menus**: Use the File, Edit, View, and Help menus for common actions. macOS uses the system menu bar.
 - **Workspace file management**: Removing a workspace also clears its open-file records, so the desktop app will not restore them after a restart. You are prompted about unsaved changes first; other workspaces and standalone files are unaffected.
 - **Pick up where you left off**: Hover over the filename at the top to close the current document while keeping it in the sidebar. Reopening or switching back to a document restores its reading position. The desktop app also restores the file list, active file, and expanded or collapsed folders after a restart.
 - **A compact writing surface**: Insert, Undo, and Redo share the top toolbar, leaving more space for the document. Filter content in the insert menu and use consistent dark gray dialog buttons in dark mode.
@@ -43,7 +46,7 @@ Visit the [downloads page](https://github.com/qian-lou/marker-site/releases) and
 
 | System | Architecture | Installer format |
 | --- | --- | --- |
-| macOS | Apple Silicon / ARM64, Intel / x64 | `.dmg` |
+| macOS 15+ | Apple Silicon / ARM64, Intel / x64 | `.dmg` |
 | Windows | x64 | `.exe` |
 | Linux | x64 | `.deb`, `.AppImage` |
 
@@ -64,6 +67,8 @@ The [interactive workspace on the website](https://qian-lou.github.io/marker-sit
 - Use the diagram’s ＋ / − controls to zoom, scroll horizontally to explore an enlarged diagram, click the percentage to reset, or open its popout preview.
 - Expand `Projects → Marker → Release` to explore nested folders. Open `Quick note.md` to try switching, searching, and removing standalone files.
 - Click Search sample files and enter `Checklist`. Switch between Tree and List and open a deeply nested file, or search `Quick note` to open a standalone file.
+- Open several documents, switch tabs, right-click to pin a frequent document, and search the tab list for an open file.
+- Use Export in the toolbar to download PDF, HTML, or PNG, or adjust export settings. Use the desktop app for Word, EPUB, and other formats.
 - Hover over the filename at the top and click `×` to close the document. Reopen it from the sidebar or recent files to resume at your previous reading position.
 - Open Settings and drag a slider, or click a numeric value to select and replace the font size or line height. The document updates as you type.
 - Edit a sample document, change the reading theme, or choose a local file to try in the browser. Your local files are never uploaded.

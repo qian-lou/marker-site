@@ -35,11 +35,17 @@ const samples: Record<DemoLocale, DemoDocument[]> = {
 
 点击顶部的 **搜索文件**，或按 **⌘ / Ctrl + P**，按文件名或路径找到工作区与独立文件。在弹窗中切换 **树形 / 列表**，搜索词和选中文件会保留；输入 **Checklist**，即可找到折叠目录里的发布清单，点击或按 Enter 打开。
 
+打开多份文档后，点击顶部标签切换；右键标签可固定、关闭其他标签，或重新打开关闭的文档。点击标签栏右侧的列表按钮，按文件名或路径搜索已打开的标签，使用方向键和 Enter 快速切换。
+
 ### 写作，保持想法的流动
 
 切到「编辑」直接修改排版后的文字。顶部的「插入」、撤销与重做集中在同一行；点击「插入」，输入「表格」或「公式」即可过滤内容，正文输入 \`/\` 也能快速插入。
 
 切到「源码」，左右拖动中间分隔线调整源码与预览宽度；方向键可微调，双击恢复均分。切换模式或刷新页面后，继续使用当前浏览器记住的分屏比例。
+
+### 把内容带到需要的地方
+
+点击顶部的 **导出**，把当前草稿下载为 **PDF、HTML 或 PNG**，无需先保存。导出设置中可以调整纸张、方向、页边距、字号和图片倍率。桌面版还支持 Word、EPUB 等更多离线格式。
 
 ## 一个轻盈的日常工作流
 
@@ -215,6 +221,12 @@ Open **Notes.md** and **Markdown.md** to explore file switching, code, tables, f
 Expand **Projects → Marker → Release** to explore nested folders. **Quick note.md** below the workspace is a standalone sample you can select, find with file search, or remove from the sidebar. The desktop app also restores your file list, active document, reading positions, and expanded or collapsed folders after a restart.
 
 Click **Search Files** at the top, or press **⌘ / Ctrl + P**, to find workspace and standalone files by name or path. Switch between **Tree / List** without losing your query or selection. Search **Checklist** to find a file inside collapsed folders, then click it or press Enter to open it.
+
+Open several documents and switch between their tabs. Right-click a tab to pin it, close other tabs, or reopen a closed document. The list button at the right of the tab bar searches open tabs by name or path; use arrow keys and Enter to switch quickly.
+
+### Take your words with you
+
+Use **Export** in the toolbar to download your current draft as **PDF, HTML, or PNG**, without saving first. Export settings let you adjust paper size, orientation, margins, font size, and image scale. The desktop app also supports more offline formats, including Word and EPUB.
 
 Removing a workspace also clears its visited file records. Unsaved edits prompt you to save, discard, or cancel first. Standalone files stay in place, and the desktop app keeps the removed workspace's files out of the restored session after a restart.
 

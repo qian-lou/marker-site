@@ -23,7 +23,14 @@ The Pages staging whitelist publishes `assets/demo/`, not this adapter directory
 The checked-in output lets the website deploy independently of private-source
 access. Rebuild it after a desktop UI change to keep the experience current.
 
-The 0.1.18 experience uses the compact desktop toolbar, with Insert, Undo and
+The 0.1.19 experience adds the desktop app's compact controls, shared tooltips,
+and document tabs. Tabs support reordering, pinning, context actions, and a
+searchable list with keyboard selection. The Export menu downloads PDF, HTML,
+and PNG in the browser; formats requiring the bundled desktop converter show
+the app's desktop-required message. PDF fonts and rendering load on demand.
+Windows native menus remain specific to the installed app.
+
+The experience uses the compact desktop toolbar, with Insert, Undo and
 Redo at the top and no secondary writing toolbar. Insert uses a searchable
 single-column menu; typing `/` opens the compact document menu. Dialog actions
 use consistent dark gray surfaces in dark mode. Source and preview can be resized

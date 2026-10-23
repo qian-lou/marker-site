@@ -170,6 +170,10 @@ jobs:
         working-directory: source
         run: pnpm install --frozen-lockfile
 
+      - name: Prepare bundled offline converter
+        working-directory: source/apps/desktop
+        run: pnpm prepare:pandoc
+
       - name: Build desktop installer
         working-directory: source/apps/desktop
         env:
