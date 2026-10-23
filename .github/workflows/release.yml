@@ -280,7 +280,6 @@ jobs:
             const { data: release } = await github.rest.repos.createRelease({
               ...context.repo,
               tag_name: tag,
-              target_commitish: context.sha,
               name: `Marker ${tag} · Preview`,
               body,
               draft: true,
