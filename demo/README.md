@@ -30,6 +30,10 @@ and PNG in the browser; formats requiring the bundled desktop converter show
 the app's desktop-required message. PDF fonts and rendering load on demand.
 Windows native menus remain specific to the installed app.
 
+The generated output includes `MarkerExport-OFL.txt` for the renamed Noto Sans
+SC export fonts and `MarkerExport-Symbols-OFL.txt` for Noto Sans Symbols 2.
+These unmodified licenses ship alongside the fonts on every rebuild.
+
 The experience uses the compact desktop toolbar, with Insert, Undo and
 Redo at the top and no secondary writing toolbar. Insert uses a searchable
 single-column menu; typing `/` opens the compact document menu. Dialog actions

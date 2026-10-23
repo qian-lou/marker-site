@@ -56,8 +56,14 @@ try {
     },
   }));
   await cp(path.join(desktopRoot, 'public/marker-icon.svg'), path.join(outputRoot, 'marker-icon.svg'));
+  for (const [source, destination] of [
+    ['OFL.txt', 'MarkerExport-OFL.txt'],
+    ['OFL-Symbols.txt', 'MarkerExport-Symbols-OFL.txt'],
+  ]) {
+    await cp(path.join(desktopRoot, 'src/export/fonts', source), path.join(outputRoot, destination));
+  }
   // Only distributable browser files are allowed in the public output.
-  const allowed = new Set(['.html', '.js', '.css', '.woff', '.woff2', '.ttf', '.png', '.svg']);
+  const allowed = new Set(['.html', '.js', '.css', '.woff', '.woff2', '.ttf', '.png', '.svg', '.txt']);
   const pending = [outputRoot];
   let count = 0;
   while (pending.length > 0) {
