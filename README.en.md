@@ -64,10 +64,12 @@ The [interactive workspace on the website](https://qian-lou.github.io/marker-sit
 - Open `Markdown.md` to see code, tables, math notation, and Mermaid diagrams.
 - Switch to Edit to try the single-row code toolbar, task checkboxes, and tables. Switch back to Read or Source with your current draft preserved.
 - Select text to try paragraph styles, underline, text colors, and highlights in the floating toolbar. Enter a custom hex color, then reopen the panel to use a recent color. Press Alt+F10 to focus the toolbar and Esc to return to the document.
+- Try the shared rounded selection in Read, Edit, Source, and code blocks. Switch between light and dark appearances to compare text, quotes, and tables.
 - Drag the six-dot handle beside a paragraph to reorder sibling blocks, then undo or redo. Switch to Read or Source to review the formatting and draft.
 - Use Insert at the top and type Table or Math to filter content blocks. Typing `/` in the document also opens the compact insert menu.
 - Switch to Source, drag the middle divider, then change modes or reload. The split ratio is kept in your current browser.
 - Use the diagram’s ＋ / − controls to zoom, scroll horizontally to explore an enlarged diagram, click the percentage to reset, or open its popout preview.
+- The diagram popout fits the canvas on opening and resizing, with drag-to-pan, scroll-to-zoom, and source copying. Choose Fit to window, double-click the canvas, or press 0 to fit again; press Esc to close.
 - Expand `Projects → Marker → Release` to explore nested folders. Open `Quick note.md` to try switching, searching, and removing standalone files.
 - Click Search sample files and enter `Checklist`. Switch between Tree and List and open a deeply nested file, or search `Quick note` to open a standalone file.
 - Open several documents, switch tabs, right-click to pin a frequent document, and search the tab list for an open file.

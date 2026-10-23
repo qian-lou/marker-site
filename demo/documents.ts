@@ -43,6 +43,8 @@ const samples: Record<DemoLocale, DemoDocument[]> = {
 
 选中这段文字，试试浮动工具栏中的段落格式、加粗、下划线和颜色。颜色面板支持文字颜色、高亮与自定义十六进制颜色，最近使用的颜色会保存在当前浏览器中。按 Alt + F10 可用键盘进入工具栏，Esc 返回正文；撤销与重做保留选区。
 
+在只读、编辑、源码和代码块中拖动选中文字，体验统一的圆角选区；切换浅色与深色，查看正文、引用和表格的对比度。
+
 把鼠标移到段落左侧，拖动六点把手调整同级内容的顺序。切回只读或源码，查看保留下来的格式与草稿。
 
 切到「源码」，左右拖动中间分隔线调整源码与预览宽度；方向键可微调，双击恢复均分。切换模式或刷新页面后，继续使用当前浏览器记住的分屏比例。
@@ -141,6 +143,8 @@ $$e^{i\\pi} + 1 = 0$$
 
 使用图表上方的 **＋ / −** 连续缩放，放大后可横向滚动查看完整图表；点击百分比重置为 100%，或点击「弹窗」在大视图中查看。
 
+弹窗打开时自动适配画布，调整窗口大小也会重新适配。拖动可平移，滚轮可缩放；点击「适应窗口」、双击画布或按 **0** 回到完整视图，按 **＋ / −** 缩放、**Esc** 关闭。右上角可以复制图表源码。
+
 \`\`\`mermaid
 flowchart LR
   A[收集灵感] --> B[整理结构]
@@ -208,6 +212,8 @@ Choose Auto-hide under Settings → Appearance → Top toolbar for more reading 
 Choose Edit to write directly on the page. Insert, Undo and Redo share the top toolbar. Use Insert and type Table or Math to find a content block, or type \`/\` in the document to insert quickly.
 
 Select this paragraph to try paragraph styles, bold, underline, and colors in the floating toolbar. The color panel includes text colors, highlights, and custom hex colors. Recent colors stay in this browser. Press Alt + F10 to focus the toolbar and Esc to return to the document; undo and redo preserve your selection.
+
+Drag to select text in Read, Edit, Source, and code blocks to try the shared rounded selection. Switch between light and dark appearances to compare text, quotes, and tables.
 
 Move the pointer to the left of a paragraph and drag its six-dot handle to reorder sibling blocks. Switch back to Read or Source to review your formatting and draft.
 
@@ -310,6 +316,8 @@ $$e^{i\\pi} + 1 = 0$$
 ## Sketch the flow
 
 Use **＋ / −** above the diagram to zoom in or out. Scroll horizontally to explore an enlarged diagram, click the percentage to reset to 100%, or choose Popout for a larger view.
+
+The popout fits the diagram on opening and when the window resizes. Drag to pan and scroll to zoom. Choose Fit to window, double-click the canvas, or press **0** to fit again. Press **＋ / −** to zoom and **Esc** to close, or copy the diagram source from the top right.
 
 \`\`\`mermaid
 flowchart LR

@@ -23,7 +23,15 @@ The Pages staging whitelist publishes `assets/demo/`, not this adapter directory
 The checked-in output lets the website deploy independently of private-source
 access. Rebuild it after a desktop UI change to keep the experience current.
 
-The 0.1.20 experience adds the grouped selection toolbar, paragraph styles,
+The 0.1.21 experience synchronizes rounded text selections across Read, Edit,
+Source, and code blocks, compact editor menus and dialogs, and improved light
+appearance contrast for text, quotes, and tables. The diagram popout fits its
+canvas on opening and resizing. Its compact toolbar provides zoom, fit, source
+copying, and close controls. Drag to pan, scroll to zoom, and double-click or
+press 0 to fit again; + / - zoom and Escape closes the dialog. Both languages
+include matching instructions in the sample documents.
+
+The experience also includes the grouped selection toolbar, paragraph styles,
 underline, theme-aware text colors and highlights, custom hex colors, and bounded
 recent colors saved in browser storage. The adapter installs the same formatting
 CSS as the desktop bootstrap so preset colors render in both appearances and
