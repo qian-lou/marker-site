@@ -33,6 +33,7 @@ Your current draft is preserved when switching between the three modes, so you c
 - **Workspace file management**: Removing a workspace also clears its open-file records, so the desktop app will not restore them after a restart. You are prompted about unsaved changes first; other workspaces and standalone files are unaffected.
 - **Pick up where you left off**: Hover over the filename at the top to close the current document while keeping it in the sidebar. Reopening or switching back to a document restores its reading position. The desktop app also restores the file list, active file, and expanded or collapsed folders after a restart.
 - **A compact writing surface**: Insert, Undo, and Redo share the top toolbar, leaving more space for the document. Filter content in the insert menu and use consistent dark gray dialog buttons in dark mode.
+- **Selection formatting and block dragging**: Select text to change paragraph styles, bold, underline, text colors, and highlights, including custom and recent colors. Drag the handle beside a paragraph to reorder sibling blocks, then undo or redo your changes.
 - **A split that remembers**: Drag the source-preview divider, adjust with arrow keys, or double-click for equal panes. The ratio survives mode changes and reopening; narrow windows adapt without overwriting it.
 - **Built for technical documents**: Supports code highlighting and folding, GFM tables, task lists, math notation, and Mermaid diagrams.
 - **Reading settings that suit you**: Choose from 12 reading themes, light and dark appearances, and settings for font, font size, line height, and content width. Fine-tune font size in 0.1px steps and line height in 0.01 steps with synchronized sliders and live numeric inputs. Click a value to select it for replacement.
@@ -62,6 +63,8 @@ The [interactive workspace on the website](https://qian-lou.github.io/marker-sit
 
 - Open `Markdown.md` to see code, tables, math notation, and Mermaid diagrams.
 - Switch to Edit to try the single-row code toolbar, task checkboxes, and tables. Switch back to Read or Source with your current draft preserved.
+- Select text to try paragraph styles, underline, text colors, and highlights in the floating toolbar. Enter a custom hex color, then reopen the panel to use a recent color. Press Alt+F10 to focus the toolbar and Esc to return to the document.
+- Drag the six-dot handle beside a paragraph to reorder sibling blocks, then undo or redo. Switch to Read or Source to review the formatting and draft.
 - Use Insert at the top and type Table or Math to filter content blocks. Typing `/` in the document also opens the compact insert menu.
 - Switch to Source, drag the middle divider, then change modes or reload. The split ratio is kept in your current browser.
 - Use the diagram’s ＋ / − controls to zoom, scroll horizontally to explore an enlarged diagram, click the percentage to reset, or open its popout preview.
@@ -73,4 +76,4 @@ The [interactive workspace on the website](https://qian-lou.github.io/marker-sit
 - Open Settings and drag a slider, or click a numeric value to select and replace the font size or line height. The document updates as you type.
 - Edit a sample document, change the reading theme, or choose a local file to try in the browser. Your local files are never uploaded.
 
-Sample edits stay in the current page. Refresh the page or click Reset demo to restore the samples. Use the desktop app for full disk saving, workspace restoration, and in-app updates.
+Sample edits stay in the current page. Refresh the page or click Reset demo to restore the samples; the split ratio and recent colors stay in your browser. Use the desktop app for full disk saving, workspace restoration, and in-app updates.

@@ -41,6 +41,10 @@ const samples: Record<DemoLocale, DemoDocument[]> = {
 
 切到「编辑」直接修改排版后的文字。顶部的「插入」、撤销与重做集中在同一行；点击「插入」，输入「表格」或「公式」即可过滤内容，正文输入 \`/\` 也能快速插入。
 
+选中这段文字，试试浮动工具栏中的段落格式、加粗、下划线和颜色。颜色面板支持文字颜色、高亮与自定义十六进制颜色，最近使用的颜色会保存在当前浏览器中。按 Alt + F10 可用键盘进入工具栏，Esc 返回正文；撤销与重做保留选区。
+
+把鼠标移到段落左侧，拖动六点把手调整同级内容的顺序。切回只读或源码，查看保留下来的格式与草稿。
+
 切到「源码」，左右拖动中间分隔线调整源码与预览宽度；方向键可微调，双击恢复均分。切换模式或刷新页面后，继续使用当前浏览器记住的分屏比例。
 
 ### 把内容带到需要的地方
@@ -202,6 +206,10 @@ Choose Auto-hide under Settings → Appearance → Top toolbar for more reading 
 ### Keep your writing in flow
 
 Choose Edit to write directly on the page. Insert, Undo and Redo share the top toolbar. Use Insert and type Table or Math to find a content block, or type \`/\` in the document to insert quickly.
+
+Select this paragraph to try paragraph styles, bold, underline, and colors in the floating toolbar. The color panel includes text colors, highlights, and custom hex colors. Recent colors stay in this browser. Press Alt + F10 to focus the toolbar and Esc to return to the document; undo and redo preserve your selection.
+
+Move the pointer to the left of a paragraph and drag its six-dot handle to reorder sibling blocks. Switch back to Read or Source to review your formatting and draft.
 
 Choose Source and drag the middle divider to resize the source and preview. Use arrow keys for fine adjustments or double-click for equal widths. Your split ratio stays in this browser across mode changes and page reloads.
 

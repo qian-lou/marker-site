@@ -23,7 +23,15 @@ The Pages staging whitelist publishes `assets/demo/`, not this adapter directory
 The checked-in output lets the website deploy independently of private-source
 access. Rebuild it after a desktop UI change to keep the experience current.
 
-The 0.1.19 experience adds the desktop app's compact controls, shared tooltips,
+The 0.1.20 experience adds the grouped selection toolbar, paragraph styles,
+underline, theme-aware text colors and highlights, custom hex colors, and bounded
+recent colors saved in browser storage. The adapter installs the same formatting
+CSS as the desktop bootstrap so preset colors render in both appearances and
+persist across editing and reading. Alt+F10 enters the toolbar; menu actions,
+undo, and redo preserve the selection. Paragraph handles reorder sibling blocks
+with undo and redo. The welcome document includes instructions in both languages.
+
+The experience also includes the desktop app's compact controls, shared tooltips,
 and document tabs. Tabs support reordering, pinning, context actions, and a
 searchable list with keyboard selection. The Export menu downloads PDF, HTML,
 and PNG in the browser; formats requiring the bundled desktop converter show

@@ -12,9 +12,14 @@ import { useWorkspaceStore } from '@/stores/workspace-store';
 import { usePreferencesStore } from '@/stores/preferences-store';
 import { getSampleDocuments, type DemoLocale } from './documents';
 import { installEmbeddedScrollBoundary } from './scroll-boundary';
+import { TEXT_FORMATTING_CSS } from '@/editor/text-colors';
 import '@/styles/index.css';
 
 installEmbeddedScrollBoundary();
+
+const textFormattingStyle = document.createElement('style');
+textFormattingStyle.textContent = TEXT_FORMATTING_CSS;
+document.head.append(textFormattingStyle);
 
 const search = new URLSearchParams(window.location.search);
 const detectLocale = (value: unknown): DemoLocale | null =>
