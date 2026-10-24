@@ -62,6 +62,7 @@ The desktop app supports in-app updates. When a new version is available, an upd
 The [interactive workspace on the website](https://qian-lou.github.io/marker-site/#experience) runs the actual Marker frontend. Use the mode icons to switch between reading, editing, and source, and explore the file tree, file switching, outline, and reading settings.
 
 - Open `Markdown.md` to see code, tables, math notation, and Mermaid diagrams.
+- Click a diagram title to collapse or expand the block. The state survives file and mode changes, and clears on reload or Reset demo. The interface also uses softer dark selections and subtle dividers.
 - Switch to Edit to try the single-row code toolbar, task checkboxes, and tables. Switch back to Read or Source with your current draft preserved.
 - Select text to try paragraph styles, underline, text colors, and highlights in the floating toolbar. Enter a custom hex color, then reopen the panel to use a recent color. Press Alt+F10 to focus the toolbar and Esc to return to the document.
 - Try the shared rounded selection in Read, Edit, Source, and code blocks. Switch between light and dark appearances to compare text, quotes, and tables.

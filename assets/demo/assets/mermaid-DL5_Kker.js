@@ -123,6 +123,8 @@ $$e^{i\\pi} + 1 = 0$$
 
 ## 用图表梳理思路
 
+点击图表左上角的 **MERMAID DIAGRAM** 折叠或展开整块图表。切换文件或模式后会保留状态；网页示例仅保留在当前会话，点击「重置体验」或刷新页面即可恢复，桌面版会保存折叠记录。
+
 使用图表上方的 **＋ / −** 连续缩放，放大后可横向滚动查看完整图表；点击百分比重置为 100%，或点击「弹窗」在大视图中查看。
 
 弹窗打开时自动适配画布，调整窗口大小也会重新适配。拖动可平移，滚轮可缩放；点击「适应窗口」、双击画布或按 **0** 回到完整视图，按 **＋ / −** 缩放、**Esc** 关闭。右上角可以复制图表源码。
@@ -278,6 +280,8 @@ Sometimes a short equation says it best:
 $$e^{i\\pi} + 1 = 0$$
 
 ## Sketch the flow
+
+Click **MERMAID DIAGRAM** at the top left to collapse or expand the whole block. The state survives file and mode changes. Sample folding stays in this page session; Reset demo or reload restores it. The desktop app saves folding metadata on disk.
 
 Use **＋ / −** above the diagram to zoom in or out. Scroll horizontally to explore an enlarged diagram, click the percentage to reset to 100%, or choose Popout for a larger view.
 

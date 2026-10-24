@@ -10,6 +10,8 @@ import { parseReadingPosition, serializeReadingPosition } from '@/ipc/reading-po
 import { useDocumentStore } from '@/stores/document-store';
 import { useWorkspaceStore } from '@/stores/workspace-store';
 import { usePreferencesStore } from '@/stores/preferences-store';
+import { useCodeFoldStore } from '@/components/code/code-fold-state';
+import { useCodeFoldPersistenceStatus } from '@/components/code/code-fold-persistence';
 import { getSampleDocuments, type DemoLocale } from './documents';
 import { installEmbeddedScrollBoundary } from './scroll-boundary';
 import { TEXT_FORMATTING_CSS } from '@/editor/text-colors';
@@ -217,16 +219,27 @@ async function synchronize(next: { language?: unknown; locale?: unknown; theme?:
   });
 }
 
-window.addEventListener('message', event => {
-  if (event.origin !== window.location.origin || event.source !== window.parent ||
-      !event.data || typeof event.data !== 'object') return;
-  if (event.data.type === 'marker-site:preferences' || event.data.type === 'marker-demo:preferences') {
-    void synchronize(event.data);
-  } else if (event.data.type === 'marker-demo:search-files') {
-    window.dispatchEvent(new KeyboardEvent('keydown', { key: 'p', ctrlKey: true, cancelable: true }));
-  } else if (event.data.type === 'marker-demo:reset') {
+let resetting = false;
+
+async function resetDemo(): Promise<void> {
+  const demoRoot = document.getElementById('root');
+  if (resetting || !demoRoot) return;
+  resetting = true;
+  const wasInert = demoRoot.inert;
+  demoRoot.inert = true;
+  try {
     window.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape', cancelable: true }));
     useDocumentStore.getState().closeAllTabs();
+    // Drain writes from closed documents before clearing sample metadata.
+    // 先排空已关闭文档的写入，避免异步保存重新填入已清空的示例记录。
+    if (useCodeFoldPersistenceStatus.getState().saving) {
+      await new Promise<void>(resolve => {
+        const unsubscribe = useCodeFoldPersistenceStatus.subscribe(state => {
+          if (!state.saving) { unsubscribe(); resolve(); }
+        });
+      });
+    }
+    useCodeFoldStore.getState().clear();
     folds.clear();
     positions.clear();
     recentDocuments.clear();
@@ -239,6 +252,21 @@ window.addEventListener('message', event => {
     useWorkspaceStore.getState().registerDocument('welcome', workspaceId, 'Welcome.md');
     useDocumentStore.getState().openDocument(rememberSample(requireDocument('welcome')));
     useDocumentStore.getState().setViewMode('preview');
+  } finally {
+    demoRoot.inert = wasInert;
+    resetting = false;
+  }
+}
+
+window.addEventListener('message', event => {
+  if (event.origin !== window.location.origin || event.source !== window.parent ||
+      !event.data || typeof event.data !== 'object') return;
+  if (event.data.type === 'marker-site:preferences' || event.data.type === 'marker-demo:preferences') {
+    void synchronize(event.data);
+  } else if (event.data.type === 'marker-demo:search-files') {
+    window.dispatchEvent(new KeyboardEvent('keydown', { key: 'p', ctrlKey: true, cancelable: true }));
+  } else if (event.data.type === 'marker-demo:reset') {
+    void resetDemo();
   }
 });
 

@@ -23,7 +23,17 @@ The Pages staging whitelist publishes `assets/demo/`, not this adapter directory
 The checked-in output lets the website deploy independently of private-source
 access. Rebuild it after a desktop UI change to keep the experience current.
 
-The 0.1.22 experience anchors the Export dropdown below its trigger and keeps it
+The 0.1.23 experience adds Mermaid block collapse controls. Collapse state shares
+the existing per-document folding metadata and survives file and mode changes.
+Sample folding stays in memory for this page session; resetting the demo or
+reloading clears it. Reset waits for pending fold saves before clearing sample
+metadata, so late writes cannot restore the old state. The desktop app saves the
+same metadata on disk. The chrome
+uses fewer decorative borders, subtle sidebar and status-bar dividers, and softer
+dark-appearance selection highlights. Both languages include collapse guidance
+in Markdown.md.
+
+The experience also anchors the Export dropdown below its trigger and keeps it
 inside viewport bounds. New-tab and insert-block controls use distinct icons.
 The tab list includes the owning workspace path and omits a duplicate subtitle
 when only a filename is available. Operation results use compact colored,
