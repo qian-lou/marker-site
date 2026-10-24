@@ -1,0 +1,1 @@
+import{n as i}from"./formats-CTW0Z-s3.js";const g=.75;function p(e){const t=i(e),[n,o]=t.paper==="A4"?[595.28,841.89]:[612,792],r=(t.landscape?o:n)-t.margin*2,a=(t.landscape?n:o)-t.margin*2;return{width:r,height:a,imageHeight:a-Math.max(16,t.fontSize*1.5)}}export{g as POINTS_PER_PIXEL,p as exportPageBounds};

@@ -1,4 +1,5 @@
 /** Public sample content only. The workspace uses the desktop app's real UI. */
+import sampleImage from './sample-image.png';
 export type DemoLocale = 'zh-CN' | 'en-US';
 
 interface DemoDocument {
@@ -136,6 +137,14 @@ function collectIdeas(notes) {
     .map(note => ({ text: note, ready: true }));
 }
 \`\`\`
+
+## 图片，也能自然排版
+
+切到「编辑」并点击图片，试试下方的说明、缩放和区域尺寸控件，或拖动边缘与角落的把手。图片始终完整显示，切回「只读」或「源码」查看保留的尺寸；修改也支持撤销与重做。
+
+![Marker](${sampleImage} "Marker")
+
+<!-- marker:image-frame {"width":480,"height":320} -->
 
 ## 用公式表达
 
@@ -316,6 +325,14 @@ function collectIdeas(notes) {
     .map(note => ({ text: note, ready: true }));
 }
 \`\`\`
+
+## Images that fit the page
+
+Choose Edit and select the image to try its caption, scale, and area dimensions, or drag an edge or corner handle. The whole image stays visible. Switch to Read or Source to review its saved dimensions; changes support undo and redo.
+
+![Marker](${sampleImage} "Marker")
+
+<!-- marker:image-frame {"width":480,"height":320} -->
 
 ## Say it with a formula
 

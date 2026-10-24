@@ -23,7 +23,20 @@ The Pages staging whitelist publishes `assets/demo/`, not this adapter directory
 The checked-in output lets the website deploy independently of private-source
 access. Rebuild it after a desktop UI change to keep the experience current.
 
-The 0.1.23 experience adds Mermaid block collapse controls. Collapse state shares
+The 0.1.24 experience adds a bundled image sample to Markdown.md, using the
+existing Marker icon as an inline bitmap. Visitors can adjust its caption,
+scale, and area dimensions and compare Edit, Read, Source, and browser exports.
+Drafts, unsaved indicators, undo/redo history, selections, and positions survive
+document switches in this page. Links reveal underlines on hover or keyboard
+focus.
+
+The adapter disables browser recovery storage and hides the disk-protection
+indicator: sample drafts and history remain page-scoped and clear on reload or
+Reset demo. Background dirty samples also keep their original content when the
+website language changes. Durable restart and crash recovery use the desktop
+app; the web demo does not claim those guarantees.
+
+The experience also includes Mermaid block collapse controls. Collapse state shares
 the existing per-document folding metadata and survives file and mode changes.
 Sample folding stays in memory for this page session; resetting the demo or
 reloading clears it. Reset waits for pending fold saves before clearing sample

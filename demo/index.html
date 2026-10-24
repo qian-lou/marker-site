@@ -10,6 +10,8 @@
       html,body,#root{height:100%;margin:0}
       html,body{overscroll-behavior:contain}
       body{background:#faf9f5}
+      /* Disk-backed recovery belongs to the desktop app. / 磁盘恢复保护属于桌面版能力。 */
+      #root [data-recovery-state]{display:none}
       @media(max-width:799px){
         #root>div>[data-titlebar-mode="always"]{height:auto}
         #root>div>[data-titlebar-mode="always"]>header{

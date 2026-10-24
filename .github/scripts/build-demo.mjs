@@ -52,6 +52,7 @@ try {
       target: 'es2022',
       minify: 'esbuild',
       sourcemap: false,
+      assetsInlineLimit: file => path.basename(file) === 'sample-image.png' ? true : undefined,
       rollupOptions: { output: { sourcemap: false } },
     },
   }));

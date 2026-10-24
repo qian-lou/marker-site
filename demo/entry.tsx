@@ -107,10 +107,10 @@ function documentAtPath(path: string): RenderDocument {
 /** Preserve visitor edits on language changes; only untouched sample content is translated. */
 function seedDocuments(nextLocale: DemoLocale, reset = false): void {
   const previousSamples = new Map(getSampleDocuments(locale).map(sample => [sample.id, sample.markdown]));
+  const dirtyDocuments = new Set(useDocumentStore.getState().tabs.filter(tab => tab.isDirty).map(tab => tab.documentId));
   for (const sample of getSampleDocuments(nextLocale)) {
     const existing = documents.get(sample.id);
-    const active = useDocumentStore.getState();
-    const hasDraft = active.activeDocument?.documentId === sample.id && active.isDirty;
+    const hasDraft = dirtyDocuments.has(sample.id);
     if (reset || !existing || (!hasDraft && existing.rawMarkdown === previousSamples.get(sample.id))) {
       documents.set(sample.id, createBrowserRenderDocument(sample.id, sample.title, sample.markdown, sample.path));
     }
@@ -125,6 +125,10 @@ ipcClient.getPreferences = async () => preferences;
 ipcClient.savePreferences = async next => { preferences = { ...next }; };
 ipcClient.restoreWorkspaces = async () => [createWorkspace()];
 ipcClient.saveWorkspaceSession = async () => {};
+// Samples and visitor drafts remain page-scoped, including editor history.
+// 示例和访客草稿（包括编辑历史）仅保留在当前页面，不写入浏览器恢复存储。
+ipcClient.restoreReaderSession = async () => ({ documents: [], activeDocumentId: null });
+ipcClient.saveReaderSession = async () => {};
 ipcClient.openWorkspaceByPath = async () => createWorkspace();
 ipcClient.openWorkspaceDocument = async (id, path) => {
   if (id !== workspaceId) return browserIpc.openWorkspaceDocument(id, path);

@@ -1,4 +1,4 @@
-import{L as E}from"./index-DrOl6QmL.js";import{i as j,l as H}from"./index-DbdsqPSd.js";import{U as v}from"./marked.esm-Dc6Miqd8.js";import"./preload-helper-CmsKOCeN.js";const S=new Set(["mermaid","math","latex","katex"]);function D(n){return n.trim().split(/\s+/,1)[0].toLowerCase()}function w(n){return n.replace(/\r\n?/g,`
+import{L as E}from"./index-DrOl6QmL.js";import{i as j,l as H}from"./index-DbdsqPSd.js";import{U as v}from"./marked.esm-B2qbVDgk.js";import"./preload-helper-CmsKOCeN.js";const S=new Set(["mermaid","math","latex","katex"]);function D(n){return n.trim().split(/\s+/,1)[0].toLowerCase()}function w(n){return n.replace(/\r\n?/g,`
 `)}function N(n,t){const l=w(n),e=w(t);return l===e||`${l}
 `===e||l===`${e}
 `}function B(n,t){const l=w(t);for(let e=0;e<=3;e+=1){const i=w(n).replace(new RegExp(`^ {0,${e}}`,"gm"),"");if(i===l||`${i}
