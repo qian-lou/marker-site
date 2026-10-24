@@ -73,7 +73,9 @@ The [interactive workspace on the website](https://qian-lou.github.io/marker-sit
 - Expand `Projects → Marker → Release` to explore nested folders. Open `Quick note.md` to try switching, searching, and removing standalone files.
 - Click Search sample files and enter `Checklist`. Switch between Tree and List and open a deeply nested file, or search `Quick note` to open a standalone file.
 - Open several documents, switch tabs, right-click to pin a frequent document, and search the tab list for an open file.
+- The tab list includes the workspace path and omits a duplicate filename subtitle. New tab and Insert use distinct icons.
 - Use Export in the toolbar to download PDF, HTML, or PNG, or adjust export settings. Use the desktop app for Word, EPUB, and other formats.
+- The Export dropdown opens below its button and stays within the viewport. Operation results use compact colored toasts that dismiss automatically, pause on hover or focus, and can be closed manually.
 - Hover over the filename at the top and click `×` to close the document. Reopen it from the sidebar or recent files to resume at your previous reading position.
 - Open Settings and drag a slider, or click a numeric value to select and replace the font size or line height. The document updates as you type.
 - Edit a sample document, change the reading theme, or choose a local file to try in the browser. Your local files are never uploaded.

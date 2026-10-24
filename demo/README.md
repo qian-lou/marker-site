@@ -23,7 +23,15 @@ The Pages staging whitelist publishes `assets/demo/`, not this adapter directory
 The checked-in output lets the website deploy independently of private-source
 access. Rebuild it after a desktop UI change to keep the experience current.
 
-The 0.1.21 experience synchronizes rounded text selections across Read, Edit,
+The 0.1.22 experience anchors the Export dropdown below its trigger and keeps it
+inside viewport bounds. New-tab and insert-block controls use distinct icons.
+The tab list includes the owning workspace path and omits a duplicate subtitle
+when only a filename is available. Operation results use compact colored,
+non-modal toasts that dismiss automatically, pause on hover or focus, and can be
+closed manually. The sample instructions describe these interactions in both
+languages.
+
+The experience also synchronizes rounded text selections across Read, Edit,
 Source, and code blocks, compact editor menus and dialogs, and improved light
 appearance contrast for text, quotes, and tables. The diagram popout fits its
 canvas on opening and resizing. Its compact toolbar provides zoom, fit, source
