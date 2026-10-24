@@ -44,6 +44,8 @@ const samples: Record<DemoLocale, DemoDocument[]> = {
 
 切到「编辑」直接修改排版后的文字。顶部的「插入」、撤销与重做集中在同一行；点击「插入」，输入「表格」或「公式」即可过滤内容，正文输入 \`/\` 也能快速插入。
 
+在正文中右键，也可打开同一个插入菜单。输入关键词过滤，用方向键选择、Enter 插入，或按 Esc 返回正文。
+
 选中这段文字，试试浮动工具栏中的段落格式、加粗、下划线和颜色。颜色面板支持文字颜色、高亮与自定义十六进制颜色，最近使用的颜色会保存在当前浏览器中。按 Alt + F10 可用键盘进入工具栏，Esc 返回正文；撤销与重做保留选区。
 
 在只读、编辑、源码和代码块中拖动选中文字，体验统一的圆角选区；切换浅色与深色，查看正文、引用和表格的对比度。
@@ -51,6 +53,8 @@ const samples: Record<DemoLocale, DemoDocument[]> = {
 把鼠标移到段落左侧，拖动六点把手调整同级内容的顺序。切回只读或源码，查看保留下来的格式与草稿。
 
 切到「源码」，左右拖动中间分隔线调整源码与预览宽度；方向键可微调，双击恢复均分。切换模式或刷新页面后，继续使用当前浏览器记住的分屏比例。
+
+在「设置 → 外观」关闭「显示状态栏」，把更多空间留给正文；需要文档信息和阅读进度时可再次打开。网页中的设置保留在当前页面，桌面版会在重启后恢复。
 
 ### 把内容带到需要的地方
 
@@ -136,6 +140,17 @@ function collectIdeas(notes) {
     .filter(note => note.trim().length > 0)
     .map(note => ({ text: note, ready: true }));
 }
+\`\`\`
+
+## 在原位预览 HTML
+
+点击下面代码块顶部的「渲染 HTML」，在同一区域查看静态页面；点击「查看源码」返回。切到「编辑」，把鼠标移到代码块底边拖动，或聚焦底边后用上下方向键调整高度。切换文档回来会保留高度；网页体验仅保留在当前页面，桌面版重启后也会恢复。
+
+\`\`\`html
+<article style="padding:24px;border-radius:12px;background:#faf5ed;color:#332a23;font-family:system-ui">
+  <h2 style="margin:0 0 12px">Marker HTML</h2>
+  <p style="margin:0">同一个代码块里，切换源码与预览。</p>
+</article>
 \`\`\`
 
 ## 图片，也能自然排版
@@ -226,6 +241,8 @@ Choose Auto-hide under Settings → Appearance → Top toolbar for more reading 
 
 Choose Edit to write directly on the page. Insert, Undo and Redo share the top toolbar. Use Insert and type Table or Math to find a content block, or type \`/\` in the document to insert quickly.
 
+Right-click in the document body to open the same insert menu. Type to filter, use arrow keys and Enter to insert, or press Esc to return to the document.
+
 Select this paragraph to try paragraph styles, bold, underline, and colors in the floating toolbar. The color panel includes text colors, highlights, and custom hex colors. Recent colors stay in this browser. Press Alt + F10 to focus the toolbar and Esc to return to the document; undo and redo preserve your selection.
 
 Drag to select text in Read, Edit, Source, and code blocks to try the shared rounded selection. Switch between light and dark appearances to compare text, quotes, and tables.
@@ -233,6 +250,8 @@ Drag to select text in Read, Edit, Source, and code blocks to try the shared rou
 Move the pointer to the left of a paragraph and drag its six-dot handle to reorder sibling blocks. Switch back to Read or Source to review your formatting and draft.
 
 Choose Source and drag the middle divider to resize the source and preview. Use arrow keys for fine adjustments or double-click for equal widths. Your split ratio stays in this browser across mode changes and page reloads.
+
+Turn off Show status bar under Settings → Appearance to make more room for the document. Turn it back on for document information and reading progress. Demo settings stay in this page; the desktop app restores them after a restart.
 
 ## A lighter everyday workflow
 
@@ -324,6 +343,17 @@ function collectIdeas(notes) {
     .filter(note => note.trim().length > 0)
     .map(note => ({ text: note, ready: true }));
 }
+\`\`\`
+
+## Preview HTML in place
+
+Choose Render HTML above the following code block to view a static page in the same surface, or View source to return. In Edit mode, drag the bottom edge of a code block or focus the edge and use the up and down arrows to change its height. Heights survive document switches in this page; the desktop app also restores them after a restart.
+
+\`\`\`html
+<article style="padding:24px;border-radius:12px;background:#faf5ed;color:#332a23;font-family:system-ui">
+  <h2 style="margin:0 0 12px">Marker HTML</h2>
+  <p style="margin:0">Switch between source and preview in one code block.</p>
+</article>
 \`\`\`
 
 ## Images that fit the page

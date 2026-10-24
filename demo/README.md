@@ -23,7 +23,14 @@ The Pages staging whitelist publishes `assets/demo/`, not this adapter directory
 The checked-in output lets the website deploy independently of private-source
 access. Rebuild it after a desktop UI change to keep the experience current.
 
-The 0.1.24 experience adds a bundled image sample to Markdown.md, using the
+The 0.1.25 experience adds a static HTML sample to Markdown.md. Render HTML
+replaces the code surface in place, and View source restores it. Code blocks can
+be resized from the bottom edge or with up/down arrow keys; heights survive file
+switches in this page. The desktop app also restores them after a restart.
+Right-clicking the editor body opens the searchable insert menu. Settings →
+Appearance exposes Show status bar; this demo preference stays in the page.
+
+The experience also includes a bundled image sample in Markdown.md, using the
 existing Marker icon as an inline bitmap. Visitors can adjust its caption,
 scale, and area dimensions and compare Edit, Read, Source, and browser exports.
 Drafts, unsaved indicators, undo/redo history, selections, and positions survive

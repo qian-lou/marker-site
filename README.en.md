@@ -24,6 +24,8 @@ Your current draft is preserved when switching between the three modes, so you c
 
 ## Key features
 
+- **HTML preview and code block sizing**: Switch between static HTML preview and source in the code block. In Edit mode, drag the bottom edge or use up and down arrows to resize it. Heights survive document switches, and the desktop app restores them after a restart.
+- **Right-click insertion and an optional status bar**: Right-click the editor body for a searchable insert menu with arrow-key, Enter, and Esc support. Toggle the status bar under Settings → Appearance, or use the desktop View menu.
 - **Image editing and consistent layout**: Adjust captions, scale, and image-area dimensions, or drag an edge or corner. Reading, preview, and exports preserve the whole image and its proportions; paged exports keep image blocks together.
 - **Draft and editing recovery**: Keep each document's draft, visual/source undo and redo, cursor, selection, and scroll position when switching tabs. The desktop app restores unsaved and untitled documents after restart, shows protection status, and uses committed recovery records after an unexpected exit.
 - **A clear document workspace**: Browse files, content, and the outline in separate panes. Drag the dividers or collapse the sidebars to give your content more room.
@@ -64,6 +66,8 @@ The desktop app supports in-app updates. When a new version is available, an upd
 The [interactive workspace on the website](https://qian-lou.github.io/marker-site/#experience) runs the actual Marker frontend. Use the mode icons to switch between reading, editing, and source, and explore the file tree, file switching, outline, and reading settings.
 
 - Open `Markdown.md` to see code, tables, math notation, and Mermaid diagrams.
+- Use Render HTML above the HTML code block and View source to switch back. In Edit mode, drag the bottom edge or use up and down arrows, then switch files and return to check the remembered height.
+- Right-click the editor body and filter the insert menu by Table. Use arrow keys and Enter to insert or Esc to return. Toggle Show status bar under Settings → Appearance.
 - Adjust the sample image caption, scale, and area dimensions, then compare Read and Source. Image changes support undo/redo and browser exports.
 - Edit a document, switch tabs, and return to its draft, cursor, and mode-specific undo/redo history. Unsaved indicators remain visible. Web records clear on reload or Reset demo; use the desktop app for restart and crash recovery.
 - Click a diagram title to collapse or expand the block. The state survives file and mode changes, and clears on reload or Reset demo. The interface also uses softer dark selections and subtle dividers.
