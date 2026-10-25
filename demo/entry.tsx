@@ -278,7 +278,18 @@ const root = document.getElementById('root');
 if (!root) throw new Error('Marker demo root is missing.');
 function DemoApp() {
   React.useEffect(() => {
+    let focusedDialog: Element | null = null;
+    const revealDialog = (event: FocusEvent) => {
+      const dialog = event.target instanceof Element
+        ? event.target.closest('[role="dialog"][aria-modal="true"], dialog[open]') : null;
+      if (dialog && dialog !== focusedDialog) {
+        window.parent.postMessage({ type: 'marker-demo:dialog-open' }, window.location.origin);
+      }
+      focusedDialog = dialog;
+    };
+    document.addEventListener('focusin', revealDialog);
     window.parent.postMessage({ type: 'marker-demo:ready' }, window.location.origin);
+    return () => document.removeEventListener('focusin', revealDialog);
   }, []);
   return <App />;
 }

@@ -23,7 +23,22 @@ The Pages staging whitelist publishes `assets/demo/`, not this adapter directory
 The checked-in output lets the website deploy independently of private-source
 access. Rebuild it after a desktop UI change to keep the experience current.
 
-The 0.1.26 experience includes the formula workspace with highlighted LaTeX,
+The 0.1.27 experience includes the visual flowchart editor. In Edit mode, Visual
+editor opens a canvas with a shape library, connections, style/text/arrangement
+inspectors, alignment, routing controls, and independent undo/redo. Done applies
+one document edit. Layout and style metadata travel in Mermaid comments; advanced
+syntax keeps source editing and a live preview instead of a lossy conversion.
+Both languages include a labeled sample and matching instructions in Markdown.md.
+
+The diagram preview's bottom edge supports pointer and keyboard resizing. Its
+height is shared between Edit and Read, fits the diagram, and survives file
+switches in this page. Reload and Reset demo clear sample heights; the desktop
+app also restores them after a restart. Read and Edit share tighter top spacing.
+Opening a modal reveals the embedded workspace when the host page has cropped
+it, keeping header actions visible. The host accepts this message only from its
+own demo iframe and origin.
+
+The experience also includes the formula workspace with highlighted LaTeX,
 command completion, parameter navigation, and independent undo/redo. My formulas
 supports named snippets, shortcuts, categories, tags, pins, and JSON import/export.
 The focus workspace remembers the library width and source/preview split.

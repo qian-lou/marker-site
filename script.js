@@ -113,8 +113,15 @@
   window.MarkerSite?.subscribe(updateDemoLink);
 
   window.addEventListener('message', (event) => {
-    if (event.origin === window.location.origin && event.source === frame?.contentWindow &&
-        event.data?.type === 'marker-demo:ready' && searchFiles) searchFiles.disabled = false;
+    if (event.origin !== window.location.origin || event.source !== frame?.contentWindow) return;
+    if (event.data?.type === 'marker-demo:ready' && searchFiles) searchFiles.disabled = false;
+    if (event.data?.type === 'marker-demo:dialog-open' && viewport) {
+      const bounds = viewport.getBoundingClientRect();
+      // Keep embedded modal actions visible. / 确保嵌入弹窗的操作按钮留在屏幕内。
+      if (bounds.top < 0 || bounds.bottom > window.innerHeight) {
+        viewport.scrollIntoView({ block: 'start', inline: 'nearest', behavior: 'instant' });
+      }
+    }
   });
   searchFiles?.addEventListener('click', () => {
     if (!frame?.contentWindow) return;

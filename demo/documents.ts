@@ -175,18 +175,24 @@ $$e^{i\\pi} + 1 = 0$$
 
 ## 用图表梳理思路
 
+切到「编辑」，点击图表顶部的「可视化编辑」，在画布中拖动图形、双击改字，或从左侧插入新的流程符号。按住 Shift 多选后，可整组移动、对齐或等距分布；右侧按所选对象显示样式、文本与排列属性。
+
+\`\`\`mermaid
+flowchart LR
+  A([收集灵感]) --> B{整理结构}
+  B -->|开始写作| C[专注写作]
+  C --> D([回顾分享])
+\`\`\`
+
+使用连接点添加连线，拖动端点换接图形；选中连线后，调整折线、曲线、箭头、拐点、线段与文字位置。支持网格、标尺、自动布局和独立撤销重做。点击「完成」作为一次修改写回正文，可再用正文撤销；布局与样式随 Mermaid 注释保存。高级语法使用源码与实时预览继续编辑。
+
+编辑模式下拖动图表预览底边，或聚焦底边后用上下方向键调高。切换到「只读」沿用同一高度，图表会自适应显示；切换文档后保留高度，网页刷新或重置后清空，桌面版重启可恢复。阅读与编辑也同步了更紧凑的正文顶部间距。
+
 点击图表左上角的 **MERMAID DIAGRAM** 折叠或展开整块图表。切换文件或模式后会保留状态；网页示例仅保留在当前会话，点击「重置体验」或刷新页面即可恢复，桌面版会保存折叠记录。
 
 使用图表上方的 **＋ / −** 连续缩放，放大后可横向滚动查看完整图表；点击百分比重置为 100%，或点击「弹窗」在大视图中查看。
 
 弹窗打开时自动适配画布，调整窗口大小也会重新适配。拖动可平移，滚轮可缩放；点击「适应窗口」、双击画布或按 **0** 回到完整视图，按 **＋ / −** 缩放、**Esc** 关闭。右上角可以复制图表源码。
-
-\`\`\`mermaid
-flowchart LR
-  A[收集灵感] --> B[整理结构]
-  B --> C[专注写作]
-  C --> D[回顾分享]
-\`\`\`
 `,
     },
     {
@@ -384,18 +390,24 @@ In the focus workspace, drag the formula library edge to resize it and the horiz
 
 ## Sketch the flow
 
+Choose Edit, then Visual editor above the diagram to drag shapes, double-click to edit text, or insert a flow symbol from the library. Hold Shift to select several shapes, then move, align, or distribute them together. The inspector shows style, text, and arrangement properties for your selection.
+
+\`\`\`mermaid
+flowchart LR
+  A([Collect ideas]) --> B{Find a structure}
+  B -->|Start writing| C[Focus and write]
+  C --> D([Review and share])
+\`\`\`
+
+Use connection points to add an edge and drag its endpoints to reconnect shapes. Select an edge to adjust its route, arrows, waypoints, segments, and label position. Grid, rulers, automatic layout, and independent undo/redo are available. Done applies one document edit that can be undone; layout and styles travel in Mermaid comments. Advanced syntax remains editable as source with a live preview.
+
+In Edit mode, drag the diagram preview's bottom edge or focus it and use the up/down arrows to change its height. Read mode uses the same height and fits the diagram to it. Heights survive document switches in this page; reload or Reset demo clears them, while the desktop app also restores them after a restart. Read and Edit now share tighter spacing above the document.
+
 Click **MERMAID DIAGRAM** at the top left to collapse or expand the whole block. The state survives file and mode changes. Sample folding stays in this page session; Reset demo or reload restores it. The desktop app saves folding metadata on disk.
 
 Use **＋ / −** above the diagram to zoom in or out. Scroll horizontally to explore an enlarged diagram, click the percentage to reset to 100%, or choose Popout for a larger view.
 
 The popout fits the diagram on opening and when the window resizes. Drag to pan and scroll to zoom. Choose Fit to window, double-click the canvas, or press **0** to fit again. Press **＋ / −** to zoom and **Esc** to close, or copy the diagram source from the top right.
-
-\`\`\`mermaid
-flowchart LR
-  A[Collect ideas] --> B[Find a structure]
-  B --> C[Focus and write]
-  C --> D[Review and share]
-\`\`\`
 `,
     },
     {
