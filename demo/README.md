@@ -23,7 +23,18 @@ The Pages staging whitelist publishes `assets/demo/`, not this adapter directory
 The checked-in output lets the website deploy independently of private-source
 access. Rebuild it after a desktop UI change to keep the experience current.
 
-The 0.1.25 experience adds a static HTML sample to Markdown.md. Render HTML
+The 0.1.26 experience includes the formula workspace with highlighted LaTeX,
+command completion, parameter navigation, and independent undo/redo. My formulas
+supports named snippets, shortcuts, categories, tags, pins, and JSON import/export.
+The focus workspace remembers the library width and source/preview split.
+Both languages include guidance beside the equation in Markdown.md.
+
+Formula snippets, recent items, favorites, and formula layout use the desktop
+frontend's browser storage. Reset demo preserves this personal library and layout.
+Unconfirmed formula edits remain page-scoped with the sample documents; durable
+restart recovery requires the desktop app.
+
+The experience also adds a static HTML sample to Markdown.md. Render HTML
 replaces the code surface in place, and View source restores it. Code blocks can
 be resized from the bottom edge or with up/down arrow keys; heights survive file
 switches in this page. The desktop app also restores them after a restart.

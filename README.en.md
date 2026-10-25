@@ -24,6 +24,7 @@ Your current draft is preserved when switching between the three modes, so you c
 
 ## Key features
 
+- **Formula workspace and snippet library**: Edit in place or expand to the focus workspace, with highlighted LaTeX, command completion, parameter navigation, and independent undo/redo. Organize reusable formulas by category, tags, and pins, and import/export JSON backups. The desktop app also restores unconfirmed formula drafts and workspace layout.
 - **HTML preview and code block sizing**: Switch between static HTML preview and source in the code block. In Edit mode, drag the bottom edge or use up and down arrows to resize it. Heights survive document switches, and the desktop app restores them after a restart.
 - **Right-click insertion and an optional status bar**: Right-click the editor body for a searchable insert menu with arrow-key, Enter, and Esc support. Toggle the status bar under Settings → Appearance, or use the desktop View menu.
 - **Image editing and consistent layout**: Adjust captions, scale, and image-area dimensions, or drag an edge or corner. Reading, preview, and exports preserve the whole image and its proportions; paged exports keep image blocks together.
@@ -66,6 +67,7 @@ The desktop app supports in-app updates. When a new version is available, an upd
 The [interactive workspace on the website](https://qian-lou.github.io/marker-site/#experience) runs the actual Marker frontend. Use the mode icons to switch between reading, editing, and source, and explore the file tree, file switching, outline, and reading settings.
 
 - Open `Markdown.md` to see code, tables, math notation, and Mermaid diagrams.
+- Choose Edit and click a formula, expand the focus workspace, and try command completion, parameter navigation, undo/redo, and error location. Save a custom formula, filter My formulas by category or tag, pin it, and export or import a JSON backup.
 - Use Render HTML above the HTML code block and View source to switch back. In Edit mode, drag the bottom edge or use up and down arrows, then switch files and return to check the remembered height.
 - Right-click the editor body and filter the insert menu by Table. Use arrow keys and Enter to insert or Esc to return. Toggle Show status bar under Settings → Appearance.
 - Adjust the sample image caption, scale, and area dimensions, then compare Read and Source. Image changes support undo/redo and browser exports.
@@ -89,4 +91,4 @@ The [interactive workspace on the website](https://qian-lou.github.io/marker-sit
 - Open Settings and drag a slider, or click a numeric value to select and replace the font size or line height. The document updates as you type.
 - Edit a sample document, change the reading theme, or choose a local file to try in the browser. Your local files are never uploaded.
 
-Sample edits stay in the current page. Refresh the page or click Reset demo to restore the samples; the split ratio and recent colors stay in your browser. Use the desktop app for full disk saving, workspace restoration, and in-app updates.
+Document and unconfirmed formula edits stay in the current page. Refresh or click Reset demo to restore the samples; formula snippets, recent items, favorites, workspace layout, and recent colors stay in your browser. Reset demo keeps the formula library. Use the desktop app for full disk saving, restart recovery, and in-app updates.

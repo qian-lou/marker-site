@@ -167,6 +167,12 @@ function collectIdeas(notes) {
 
 $$e^{i\\pi} + 1 = 0$$
 
+切到「编辑」并点击公式，直接修改高亮的 LaTeX 源码，或「展开到专注工作台」。输入反斜杠选择命令补全，用 Tab / Shift+Tab 跳转参数；撤销和重做只影响当前公式。语法有误时保留上次有效预览，修正后可用 ⌘ / Ctrl + Enter 确认。
+
+点击源码区的「保存为公式片段」，为常用公式填写名称、快捷缩写、分类和标签，也可置顶。在「我的公式」中搜索或筛选，使用 JSON 导入、导出备份。启用参数占位符后，例如 \`\\frac{\${1:a}}{\${2:b}}\`，插入片段即可依次填写分子与分母。
+
+专注工作台可拖动公式库边缘调整宽度，上下拖动源码与预览之间的分隔线调整比例；方向键微调，双击恢复默认。片段、最近使用、收藏和布局保存在当前浏览器，重置示例不会删除公式库。未确认的公式修改仅保留在当前页面，桌面版还支持重启恢复。
+
 ## 用图表梳理思路
 
 点击图表左上角的 **MERMAID DIAGRAM** 折叠或展开整块图表。切换文件或模式后会保留状态；网页示例仅保留在当前会话，点击「重置体验」或刷新页面即可恢复，桌面版会保存折叠记录。
@@ -369,6 +375,12 @@ Choose Edit and select the image to try its caption, scale, and area dimensions,
 Sometimes a short equation says it best:
 
 $$e^{i\\pi} + 1 = 0$$
+
+Choose Edit and click the formula to change its highlighted LaTeX source, or Expand to focus workspace. Type a backslash for command completion and use Tab / Shift+Tab to move between parameters. Undo and redo affect the current formula. Invalid input keeps the last valid preview; correct it and press ⌘ / Ctrl + Enter to confirm.
+
+Choose Save as formula snippet above the source to add a name, shortcut, category, tags, and an optional pin. Search or filter My formulas, and import or export JSON backups. Enable parameter placeholders to save a template such as \`\\frac{\${1:a}}{\${2:b}}\`; inserting it lets you fill the numerator and denominator in turn.
+
+In the focus workspace, drag the formula library edge to resize it and the horizontal divider to adjust the source and preview ratio. Arrow keys fine-tune the layout; double-click restores the default. Snippets, recent items, favorites, and layout stay in this browser; Reset demo keeps the formula library. Unconfirmed formula edits stay in this page; the desktop app also restores them after a restart.
 
 ## Sketch the flow
 
