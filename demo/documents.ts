@@ -128,11 +128,17 @@ Markdown 让简单的文字拥有清晰的结构。切到「编辑」，试试�
 | 编辑 | 直接修改排版后的内容 |
 | 源码 | 编辑 Markdown，实时查看结果 |
 
+切到「编辑」，悬停表格边缘，使用 ＋ / − 快捷增删行列；在单元格中右键，或按 Shift+F10 打开「表格操作」，插入、删除、选择整行整列或清空内容。菜单支持方向键、Enter 和 Esc。
+
+拖动单元格右边或下边调整列宽、行高，聚焦分隔线后用方向键微调，双击恢复自动尺寸；菜单也可均分列宽。切到「只读」或导出 HTML 检查布局，返回编辑后可撤销、重做。尺寸随 Markdown 注释保留；网页示例草稿仅保留在当前页面，刷新或重置即可还原。
+
 - [x] 标题、引用、列表与表格
 - [x] 代码高亮、数学公式与流程图
 - [ ] 现在，写下你的想法
 
 ## 代码，也有好的阅读体验
+
+打开设置中的字体库，为中文、英文与代码选择 Menlo、Monaco、Inconsolata 或 Space Grotesk；代码预览跟随所选字体。字体未安装时会使用后备字体，网页设置保留在当前页面，桌面版重启后恢复。
 
 \`\`\`javascript
 function collectIdeas(notes) {
@@ -343,11 +349,17 @@ Markdown gives plain text a useful structure. Switch to Edit to check a task, ch
 | Edit | Write directly on the formatted page |
 | Source | Edit Markdown beside a live preview |
 
+Choose Edit and hover near the table edges to add or remove rows and columns with ＋ / −. Right-click a cell or press Shift+F10 to open Table actions for insertion, deletion, row/column selection, and clearing content. Use arrow keys, Enter, and Esc in the menu.
+
+Drag a cell's right or bottom edge to adjust column width or row height. Focus the divider for arrow-key adjustments, or double-click to restore automatic sizing; the menu can also equalize columns. Review the layout in Read or an HTML export, then return to Edit to undo or redo. Dimensions travel in Markdown comments; sample drafts stay in this page and reset on reload or Reset demo.
+
 - [x] Headings, quotes, lists, and tables
 - [x] Highlighted code, formulas, and diagrams
 - [ ] Now, add an idea of your own
 
 ## Code deserves a good reading experience
+
+Open the font library in Settings to choose Menlo, Monaco, Inconsolata, or Space Grotesk for Chinese, English, and code. The code preview uses your selected font, with fallbacks when a font is not installed. Demo preferences stay in this page; the desktop app restores them after restart.
 
 \`\`\`javascript
 function collectIdeas(notes) {

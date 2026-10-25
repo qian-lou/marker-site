@@ -23,7 +23,17 @@ The Pages staging whitelist publishes `assets/demo/`, not this adapter directory
 The checked-in output lets the website deploy independently of private-source
 access. Rebuild it after a desktop UI change to keep the experience current.
 
-The 0.1.27 experience includes the visual flowchart editor. In Edit mode, Visual
+The 0.1.28 experience includes table edge controls, a context menu with keyboard
+navigation, and pointer/keyboard resizing for columns and rows. Layout metadata
+travels in Markdown comments, with the same geometry in Read and browser exports.
+Edits are undoable and remain page-scoped with the sample documents.
+
+The font library shares Menlo, Monaco, Inconsolata, and Space Grotesk across
+Chinese, English, and code. The code preview uses the resolved font family;
+unavailable fonts use the existing CSS fallback stack. Demo preferences remain
+in this page. Both languages include instructions in Markdown.md.
+
+The experience also includes the visual flowchart editor. In Edit mode, Visual
 editor opens a canvas with a shape library, connections, style/text/arrangement
 inspectors, alignment, routing controls, and independent undo/redo. Done applies
 one document edit. Layout and style metadata travel in Mermaid comments; advanced

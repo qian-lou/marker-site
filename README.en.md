@@ -24,6 +24,8 @@ Your current draft is preserved when switching between the three modes, so you c
 
 ## Key features
 
+- **Table editing and layout**: Add or remove rows and columns through edge buttons, right-click actions, or Shift+F10. Select and clear cells, resize columns and rows with a pointer or arrow keys, and double-click for automatic sizing. Layout travels in Markdown comments for reading and export, with undo/redo.
+- **Shared font choices**: Choose Menlo, Monaco, Inconsolata, or Space Grotesk for Chinese, English, and code. Code previews use the chosen font, with CSS fallbacks when it is not installed.
 - **Visual flowcharts**: Insert, move, and resize flow symbols, double-click to edit text, connect or reconnect nodes, and adjust routes, arrows, and labels. Multi-selection, alignment, distribution, styles, and undo/redo are available. Apply changes to Mermaid with layout/style comments; advanced syntax keeps source editing and a live preview.
 - **Remembered diagram heights**: Drag the editor preview's bottom edge or use arrow keys to resize it. Read mode uses the same height and fits the diagram; the desktop app restores it after restart. Read and Edit also share tighter spacing above the document.
 - **Formula workspace and snippet library**: Edit in place or expand to the focus workspace, with highlighted LaTeX, command completion, parameter navigation, and independent undo/redo. Organize reusable formulas by category, tags, and pins, and import/export JSON backups. The desktop app also restores unconfirmed formula drafts and workspace layout.
@@ -69,6 +71,7 @@ The desktop app supports in-app updates. When a new version is available, an upd
 The [interactive workspace on the website](https://qian-lou.github.io/marker-site/#experience) runs the actual Marker frontend. Use the mode icons to switch between reading, editing, and source, and explore the file tree, file switching, outline, and reading settings.
 
 - Open `Markdown.md` to see code, tables, math notation, and Mermaid diagrams.
+- Try the table's ＋ / − edge buttons in Edit, or open Table actions with right-click or Shift+F10. Resize columns and rows, then review in Read or an HTML export. Choose text and code fonts in Settings and check the live preview.
 - Choose Edit and open Visual editor above the diagram. Move shapes, double-click text, try selection and alignment, and adjust connections. Choose Done, review in Read, then return to Edit to undo the document change. Resize the preview's bottom edge and switch modes to check its shared height.
 - Choose Edit and click a formula, expand the focus workspace, and try command completion, parameter navigation, undo/redo, and error location. Save a custom formula, filter My formulas by category or tag, pin it, and export or import a JSON backup.
 - Use Render HTML above the HTML code block and View source to switch back. In Edit mode, drag the bottom edge or use up and down arrows, then switch files and return to check the remembered height.
