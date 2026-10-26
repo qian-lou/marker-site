@@ -34,7 +34,7 @@ Your current draft is preserved when switching between the three modes, so you c
 - **Right-click insertion and an optional status bar**: Right-click the editor body for a searchable insert menu with arrow-key, Enter, and Esc support. Toggle the status bar under Settings → Appearance, or use the desktop View menu.
 - **Image editing and consistent layout**: Adjust captions, scale, and image-area dimensions, or drag an edge or corner. Reading, preview, and exports preserve the whole image and its proportions; paged exports keep image blocks together.
 - **Draft and editing recovery**: Keep each document's draft, visual/source undo and redo, cursor, selection, and scroll position when switching tabs. The desktop app restores unsaved and untitled documents after restart, shows protection status, and uses committed recovery records after an unexpected exit.
-- **A clear document workspace**: Browse files, content, and the outline in separate panes. Drag the dividers or collapse the sidebars to give your content more room.
+- **A clear document workspace**: Browse files, content, and the outline in separate panes. Open, Search, and the file tree toggle align with the left pane. Header and pane transition together, with direct tracking during divider drags. Resize with arrow keys or double-click for the default width; reduced motion disables transitions.
 - **Local files and multi-folder workspaces**: Open existing files or folders and browse nested directories. Standalone files and workspace documents share the same sidebar for easy switching.
 - **Quick file search**: Use the top search button or ⌘/Ctrl+P to find files by name or path. Switch between tree and list views, expand folders, and open files with the keyboard while keeping your query and selected file.
 - **Document tabs**: Switch, reorder, and pin open tabs. Right-click to close other tabs or reopen a closed document. Search the tab list by filename or path and switch with the keyboard.
@@ -72,6 +72,7 @@ The desktop app supports in-app updates. When a new version is available, an upd
 The [interactive workspace on the website](https://qian-lou.github.io/marker-site/#experience) runs the actual Marker frontend. Use the mode icons to switch between reading, editing, and source, and explore the file tree, file switching, outline, and reading settings.
 
 - Open `Markdown.md` to see code, tables, math notation, and Mermaid diagrams.
+- Toggle the file tree to see its header and pane move together. Drag the divider, fine-tune it with arrow keys, or double-click for the default width.
 - Try the table's ＋ / − edge buttons in Edit, or open Table actions with right-click or Shift+F10. Resize columns and rows, then review in Read or an HTML export. Choose text and code fonts in Settings and check the live preview.
 - Choose Edit and open Visual editor above the diagram. Move shapes, double-click text, try selection and alignment, and adjust connections. Choose Done, review in Read, then return to Edit to undo the document change. Resize the preview's bottom edge and switch modes to check its shared height.
 - Choose Edit and click a formula, expand the focus workspace, and try command completion, parameter navigation, undo/redo, and error location. Save a custom formula, filter My formulas by category or tag, pin it, and export or import a JSON backup.

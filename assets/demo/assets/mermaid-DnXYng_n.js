@@ -15,7 +15,9 @@ import{_ as V}from"./preload-helper-CmsKOCeN.js";import{U as Io,$ as ko}from"./m
 
 点击右侧标题跳转章节，拖动两侧分隔线，或收起侧栏，把整个画面留给正文。
 
-在「设置 → 外观 → 顶部工具栏」选择自动隐藏，把更多空间留给文字。鼠标移到工作台顶部即可唤出，移开 1 秒后收起；期间返回工具栏会取消隐藏，正文位置保持不变。
+顶部左侧的打开、搜索和文件树按钮随文件栏宽度对齐。点击文件树按钮，观察侧栏与顶部按钮区域同步展开、收起；拖动文件栏分隔线时直接跟随。聚焦分隔线后用方向键微调、Home / End 调至边界，双击恢复默认宽度。系统启用「减少动态效果」时不播放过渡。
+
+在「设置 → 外观 → 顶部工具栏」选择自动隐藏，把更多空间留给文字。鼠标移到工作台顶部即可唤出，移开 1 秒后收起；期间返回工具栏会取消隐藏，正文位置保持不变。也可用 Tab 聚焦顶部唤出按钮，再继续使用鼠标操作。
 
 ### 找到想看的那份文件
 
@@ -239,7 +241,9 @@ Good tools stay quietly beside you. Read a long article, gather your notes, or c
 
 Jump between sections in the outline. Drag either divider, or hide the sidebars to give the page your full attention.
 
-Choose Auto-hide under Settings → Appearance → Top toolbar for more reading space. Move the pointer to the top of the workspace to reveal it. Leaving starts a one-second hide delay; returning cancels it, and the document stays in place.
+Open, Search, and the file tree toggle align with the file pane width. Toggle the file tree to watch the pane and its header move together; dragging the divider follows directly. Focus a divider to resize with arrow keys, use Home / End for its limits, or double-click to restore its default width. Transitions are disabled when your system requests reduced motion.
+
+Choose Auto-hide under Settings → Appearance → Top toolbar for more reading space. Move the pointer to the top of the workspace to reveal it. Leaving starts a one-second hide delay; returning cancels it, and the document stays in place. You can also Tab to the reveal button, then continue with the pointer.
 
 ### Keep your writing in flow
 

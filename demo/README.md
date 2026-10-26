@@ -23,7 +23,15 @@ The Pages staging whitelist publishes `assets/demo/`, not this adapter directory
 The checked-in output lets the website deploy independently of private-source
 access. Rebuild it after a desktop UI change to keep the experience current.
 
-The 0.1.29 experience adds interactive HTML and JavaScript blocks in Read and Edit.
+The 0.1.30 experience aligns the Open, Search, and file tree controls with the
+left pane. Header and sidebar transition together when toggled, follow divider
+drags directly, and respect reduced motion. Both languages include instructions
+for pointer and keyboard resizing in Welcome.md. The title bar shares the
+workspace layout, including its existing auto-hide behavior. Switching from a
+keyboard-revealed toolbar to a pointer action keeps the toolbar open for the
+click, including Settings.
+
+The experience also adds interactive HTML and JavaScript blocks in Read and Edit.
 The bundled sandbox, network bridge, and sizing scripts are explicitly copied
 into the public output. Samples demonstrate DOM events, console output, and
 automatic preview height without external dependencies. Execution is manual;
