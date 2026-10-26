@@ -23,7 +23,14 @@ The Pages staging whitelist publishes `assets/demo/`, not this adapter directory
 The checked-in output lets the website deploy independently of private-source
 access. Rebuild it after a desktop UI change to keep the experience current.
 
-The 0.1.30 experience aligns the Open, Search, and file tree controls with the
+The 0.1.31 experience adds the actual infinite canvas editor, with sticky notes,
+frames, shapes, text, connectors, freehand tools, templates, context actions,
+layer ordering, and independent undo/redo. Both languages include a canvas block
+near the start of Markdown.md, derived from the app template with localized
+example labels. Done applies one document edit; Read and HTML export use the
+same vector renderer. Drafts remain page-scoped.
+
+The experience also aligns the Open, Search, and file tree controls with the
 left pane. Header and sidebar transition together when toggled, follow divider
 drags directly, and respect reduced motion. Both languages include instructions
 for pointer and keyboard resizing in Welcome.md. The title bar shares the

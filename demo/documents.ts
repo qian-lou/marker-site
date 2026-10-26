@@ -1,6 +1,21 @@
 /** Public sample content only. The workspace uses the desktop app's real UI. */
 import sampleImage from './sample-image.png';
+import { CANVAS_TEMPLATES, serializeCanvas } from '@/canvas/canvas-model';
 export type DemoLocale = 'zh-CN' | 'en-US';
+
+const canvasEnglishLabels: Record<string, string> = {
+  F1: 'Core question', N1: 'Problem and context', N2: 'Boundaries and constraints',
+  C1: 'Approach A', C2: 'Approach B', C3: 'Conclusion',
+};
+const canvasSources: Record<DemoLocale, string> = {
+  'zh-CN': serializeCanvas(CANVAS_TEMPLATES.brainstorm),
+  'en-US': serializeCanvas({
+    ...CANVAS_TEMPLATES.brainstorm,
+    elements: CANVAS_TEMPLATES.brainstorm.elements.map(element => ({
+      ...element, label: canvasEnglishLabels[element.id] ?? element.label,
+    })),
+  }),
+};
 
 interface DemoDocument {
   id: string;
@@ -123,6 +138,20 @@ const samples: Record<DemoLocale, DemoDocument[]> = {
       markdown: `# 让内容，自然成形
 
 Markdown 让简单的文字拥有清晰的结构。切到「编辑」，试试勾选任务、修改表格，或使用代码块顶部的语言、复制与折叠工具；切回「只读」查看排版，草稿会继续保留。
+
+## 在无限画板中整理想法
+
+切到「编辑」，点击下方画板顶部的「可视化编辑」，拖动卡片、双击改字，或用底部工具栏添加便签、画框、文本、图形、连线和手绘。
+
+\`\`\`canvas
+${canvasSources['zh-CN']}
+\`\`\`
+
+右键元素，试试编辑文本、复制副本、删除与置于顶层或底层；菜单支持方向键、Enter 和 Esc。Shift 多选后可对齐或等距分布，画框移动时会带上内部对象。空格拖动平移，⌘ / Ctrl + 滚轮缩放，按 0 适应视口；右下角鸟瞰图帮助定位。
+
+打开「画板模板」，选择头脑风暴、架构蓝图或敏捷看板；模板会替换当前画板，可撤销恢复。在「画板设置」选择点阵、网格或纯白背景，调整磁吸与标尺；对象属性按当前选择显示。
+
+画板内撤销、重做独立于正文。「JSON 源码」可直接编辑数据；点击「完成」作为一次正文修改保存，再切到「只读」或导出 HTML 查看矢量图和图层顺序。取消未完成的编辑会先提示保留或放弃；网页草稿仅保留在当前页面，刷新或重置后还原。
 
 ## 表格与清单
 
@@ -369,6 +398,20 @@ Collect a passage, organize meeting notes, or write down an idea before it has a
       markdown: `# Give your ideas a clear shape
 
 Markdown gives plain text a useful structure. Switch to Edit to check a task, change a table, or try the language, copy, and fold controls above a code block. Switch back to Read to review the layout; your draft stays with you.
+
+## Think on an infinite canvas
+
+Choose Edit, then Visual editor above the canvas block. Move cards, double-click text, or use the bottom tools to add sticky notes, frames, text, shapes, connectors, and freehand drawings.
+
+\`\`\`canvas
+${canvasSources['en-US']}
+\`\`\`
+
+Right-click an element to edit text, duplicate, delete, or move it to the front or back. Menus support arrow keys, Enter, and Esc. Shift-select for alignment and distribution; moving a frame carries its contents. Space-drag to pan, use ⌘ / Ctrl + wheel to zoom, or press 0 to fit. The minimap helps you navigate.
+
+Open Canvas templates for brainstorming, architecture, and kanban layouts. A template replaces the current board and can be undone. Canvas settings offers dots, grid, or a plain background, snapping, and rulers; object properties follow your selection.
+
+Canvas undo and redo are separate from the document. Edit the data in JSON source, or choose Done to save one document edit. Review the vector drawing and layer order in Read or an HTML export. Cancel asks before discarding unfinished changes. Web drafts stay in this page and reset on reload or Reset demo.
 
 ## Tables and tasks
 
