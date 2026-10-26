@@ -57,6 +57,9 @@ try {
     },
   }));
   await cp(path.join(desktopRoot, 'public/marker-icon.svg'), path.join(outputRoot, 'marker-icon.svg'));
+  for (const runtime of ['javascript-sandbox.js', 'preview-network.js', 'preview-size.js']) {
+    await cp(path.join(desktopRoot, 'public', runtime), path.join(outputRoot, runtime));
+  }
   for (const [source, destination] of [
     ['OFL.txt', 'MarkerExport-OFL.txt'],
     ['OFL-Symbols.txt', 'MarkerExport-Symbols-OFL.txt'],

@@ -23,7 +23,19 @@ The Pages staging whitelist publishes `assets/demo/`, not this adapter directory
 The checked-in output lets the website deploy independently of private-source
 access. Rebuild it after a desktop UI change to keep the experience current.
 
-The 0.1.28 experience includes table edge controls, a context menu with keyboard
+The 0.1.29 experience adds interactive HTML and JavaScript blocks in Read and Edit.
+The bundled sandbox, network bridge, and sizing scripts are explicitly copied
+into the public output. Samples demonstrate DOM events, console output, and
+automatic preview height without external dependencies. Execution is manual;
+JavaScript has no network or Node.js access. Static hosting uses browser CORS
+for HTML requests; the desktop app provides its local proxy.
+
+The file tree includes context menus for opening to the side, pinning, copying
+names and paths, refreshing, and expanding or collapsing folders. Sample refresh
+uses the adapter workspace; disk mutations require the desktop app. The actual
+frontend also includes the new warm light palette.
+
+The experience also includes table edge controls, a context menu with keyboard
 navigation, and pointer/keyboard resizing for columns and rows. Layout metadata
 travels in Markdown comments, with the same geometry in Read and browser exports.
 Edits are undoable and remain page-scoped with the sample documents.
@@ -59,7 +71,7 @@ frontend's browser storage. Reset demo preserves this personal library and layou
 Unconfirmed formula edits remain page-scoped with the sample documents; durable
 restart recovery requires the desktop app.
 
-The experience also adds a static HTML sample to Markdown.md. Render HTML
+The experience also adds an interactive HTML sample to Markdown.md. Render HTML
 replaces the code surface in place, and View source restores it. Code blocks can
 be resized from the bottom edge or with up/down arrow keys; heights survive file
 switches in this page. The desktop app also restores them after a restart.

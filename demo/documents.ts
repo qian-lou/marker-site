@@ -77,6 +77,8 @@ const samples: Record<DemoLocale, DemoDocument[]> = {
 
 展开 **Projects → Marker → Release**，体验多层目录；下方的 **Quick note.md** 是一份独立文件示例，可切换、通过搜索弹窗查找，或从侧栏移除。桌面版还会在重启后恢复文件列表、当前文档、阅读位置和目录的展开、折叠状态。
 
+右键文件、文件夹或工作区，试试打开到侧边、固定标签、复制名称和路径，以及刷新、展开与折叠目录。网页示例中的磁盘新建、重命名、复制与删除不可用；这些操作请在桌面版的已授权工作区使用。
+
 移除工作空间时，其打开过的文件记录会一并清理；如有未保存内容，会先提示保存、放弃或取消。独立文件保持不变，桌面版重启后也不会恢复已移除工作空间的文件记录。
 
 也可以通过[发布清单](Projects/Marker/Release/Checklist.md)跳转到深层目录中的文档。
@@ -141,23 +143,44 @@ Markdown 让简单的文字拥有清晰的结构。切到「编辑」，试试�
 打开设置中的字体库，为中文、英文与代码选择 Menlo、Monaco、Inconsolata 或 Space Grotesk；代码预览跟随所选字体。字体未安装时会使用后备字体，网页设置保留在当前页面，桌面版重启后恢复。
 
 \`\`\`javascript
-function collectIdeas(notes) {
-  return notes
-    .filter(note => note.trim().length > 0)
-    .map(note => ({ text: note, ready: true }));
-}
+const button = document.createElement('button');
+let ideas = 0;
+button.textContent = '记录一个灵感 · 0';
+button.style.cssText = 'padding:12px 18px;border:0;border-radius:10px;background:#725542;color:white;cursor:pointer';
+button.addEventListener('click', () => {
+  ideas += 1;
+  button.textContent = '记录一个灵感 · ' + ideas;
+  console.log('已收集灵感：', ideas);
+});
+document.body.append(button);
+console.log('点击按钮，记录你的下一个灵感。');
 \`\`\`
+
+点击代码块顶部的「运行 JavaScript」，在下方点击按钮并查看控制台输出；「停止运行」保留当前画面，「关闭运行结果」收起结果。编辑与只读模式均可手动运行，修改代码或切换文档会清理结果。运行区支持 DOM、Canvas 与顶层 await，不提供 Node.js 或网络访问。
 
 ## 在原位预览 HTML
 
-点击下面代码块顶部的「渲染 HTML」，在同一区域查看静态页面；点击「查看源码」返回。切到「编辑」，把鼠标移到代码块底边拖动，或聚焦底边后用上下方向键调整高度。切换文档回来会保留高度；网页体验仅保留在当前页面，桌面版重启后也会恢复。
+点击下面代码块顶部的「渲染 HTML」，再点击预览中的按钮，查看动态内容、控制台输出与自动高度；点击「查看源码」返回。切到「编辑」，拖动代码块底边或用上下方向键调整源码高度，切换文档后保留；桌面版重启后也会恢复。
 
 \`\`\`html
 <article style="padding:24px;border-radius:12px;background:#faf5ed;color:#332a23;font-family:system-ui">
   <h2 style="margin:0 0 12px">Marker HTML</h2>
-  <p style="margin:0">同一个代码块里，切换源码与预览。</p>
+  <p>同一个代码块里，运行页面并响应点击。</p>
+  <button id="add-idea" style="padding:10px 16px;cursor:pointer">添加一条灵感</button>
+  <ul id="ideas"></ul>
 </article>
+<script>
+document.getElementById('add-idea').addEventListener('click', () => {
+  const list = document.getElementById('ideas');
+  const item = document.createElement('li');
+  item.textContent = '灵感 ' + (list.children.length + 1) + '：从一个小动作开始。';
+  list.append(item);
+  console.log(item.textContent);
+});
+</script>
 \`\`\`
+
+HTML 预览可手动加载 HTTP(S) CDN 脚本和样式；网页中的 fetch / XMLHttpRequest 遵循浏览器 CORS。桌面版提供本地请求代理，无需接口开放 CORS；预览无法访问应用文档或 IPC。示例不依赖外部资源，点击后即可离线体验。
 
 ## 图片，也能自然排版
 
@@ -286,6 +309,8 @@ Open **Notes.md** and **Markdown.md** to explore file switching, code, tables, f
 
 Expand **Projects → Marker → Release** to explore nested folders. **Quick note.md** below the workspace is a standalone sample you can select, find with file search, or remove from the sidebar. The desktop app also restores your file list, active document, reading positions, and expanded or collapsed folders after a restart.
 
+Right-click a file, folder, or workspace to open to the side, pin a tab, copy names and paths, or refresh, expand, and collapse folders. Disk creation, renaming, duplication, and deletion are unavailable in the web sample; use an authorized workspace in the desktop app for those actions.
+
 Click **Search Files** at the top, or press **⌘ / Ctrl + P**, to find workspace and standalone files by name or path. Switch between **Tree / List** without losing your query or selection. Search **Checklist** to find a file inside collapsed folders, then click it or press Enter to open it.
 
 Open several documents and switch between their tabs. Right-click a tab to pin it, close other tabs, or reopen a closed document. The list button at the right of the tab bar searches open tabs by name or path; use arrow keys and Enter to switch quickly.
@@ -362,23 +387,44 @@ Drag a cell's right or bottom edge to adjust column width or row height. Focus t
 Open the font library in Settings to choose Menlo, Monaco, Inconsolata, or Space Grotesk for Chinese, English, and code. The code preview uses your selected font, with fallbacks when a font is not installed. Demo preferences stay in this page; the desktop app restores them after restart.
 
 \`\`\`javascript
-function collectIdeas(notes) {
-  return notes
-    .filter(note => note.trim().length > 0)
-    .map(note => ({ text: note, ready: true }));
-}
+const button = document.createElement('button');
+let ideas = 0;
+button.textContent = 'Capture an idea · 0';
+button.style.cssText = 'padding:12px 18px;border:0;border-radius:10px;background:#725542;color:white;cursor:pointer';
+button.addEventListener('click', () => {
+  ideas += 1;
+  button.textContent = 'Capture an idea · ' + ideas;
+  console.log('Ideas collected:', ideas);
+});
+document.body.append(button);
+console.log('Click the button to capture your next idea.');
 \`\`\`
+
+Choose Run JavaScript above the code block, click the button below, and check the console. Stop keeps the current page; Close output removes the result. Run manually in Read or Edit; code changes and document switches clear the result. The sandbox supports DOM, Canvas, and top-level await, with no Node.js or network access.
 
 ## Preview HTML in place
 
-Choose Render HTML above the following code block to view a static page in the same surface, or View source to return. In Edit mode, drag the bottom edge of a code block or focus the edge and use the up and down arrows to change its height. Heights survive document switches in this page; the desktop app also restores them after a restart.
+Choose Render HTML, then click the button in the preview to try dynamic content, console output, and automatic height. View source returns to the code. In Edit, drag the bottom edge or use up and down arrows to resize the source. Heights survive file switches, and the desktop app also restores them after a restart.
 
 \`\`\`html
 <article style="padding:24px;border-radius:12px;background:#faf5ed;color:#332a23;font-family:system-ui">
   <h2 style="margin:0 0 12px">Marker HTML</h2>
-  <p style="margin:0">Switch between source and preview in one code block.</p>
+  <p>Run a page and respond to clicks in one code block.</p>
+  <button id="add-idea" style="padding:10px 16px;cursor:pointer">Add an idea</button>
+  <ul id="ideas"></ul>
 </article>
+<script>
+document.getElementById('add-idea').addEventListener('click', () => {
+  const list = document.getElementById('ideas');
+  const item = document.createElement('li');
+  item.textContent = 'Idea ' + (list.children.length + 1) + ': start with one small action.';
+  list.append(item);
+  console.log(item.textContent);
+});
+</script>
 \`\`\`
+
+HTML previews can manually load HTTP(S) CDN scripts and styles. Web fetch / XMLHttpRequest follows browser CORS. The desktop app provides a local request proxy without requiring API CORS; previews cannot access application documents or IPC. These samples use no external resources, so you can try them offline after loading.
 
 ## Images that fit the page
 

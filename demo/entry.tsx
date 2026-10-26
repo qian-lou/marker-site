@@ -130,6 +130,8 @@ ipcClient.saveWorkspaceSession = async () => {};
 ipcClient.restoreReaderSession = async () => ({ documents: [], activeDocumentId: null });
 ipcClient.saveReaderSession = async () => {};
 ipcClient.openWorkspaceByPath = async () => createWorkspace();
+ipcClient.listWorkspaceEntries = async id => id === workspaceId
+  ? createWorkspace().entries : browserIpc.listWorkspaceEntries(id);
 ipcClient.openWorkspaceDocument = async (id, path) => {
   if (id !== workspaceId) return browserIpc.openWorkspaceDocument(id, path);
   return rememberSample(documentAtPath(path));
