@@ -2,4 +2,5 @@
 window.MARKER_SITE = {
   downloadUrl: 'https://github.com/qian-lou/marker-site/releases',
   contactUrl: 'https://github.com/qian-lou/marker-site/issues',
+  discordUrl: 'https://discord.gg/7s2YdghNh',
 };

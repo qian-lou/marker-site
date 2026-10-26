@@ -14,6 +14,7 @@
   const config = window.MARKER_SITE;
   const downloadUrl = publicUrl(config?.downloadUrl);
   const contactUrl = publicUrl(config?.contactUrl);
+  const discordUrl = publicUrl(config?.discordUrl);
   const downloadLink = document.getElementById('download-link');
   const pending = document.getElementById('download-pending');
   const contactLink = document.getElementById('contact-link');
@@ -26,6 +27,34 @@
     contactLink.href = contactUrl;
     contactLink.hidden = false;
   }
+
+  async function updateDiscordVisibility() {
+    const link = document.getElementById('discord-link');
+    if (!discordUrl || !link || typeof fetch !== 'function' || typeof AbortController !== 'function') return;
+
+    const controller = new AbortController();
+    const timeout = window.setTimeout(() => controller.abort(), 3000);
+    try {
+      const response = await fetch('https://api.country.is/', {
+        signal: controller.signal,
+        cache: 'no-store',
+        credentials: 'omit',
+        referrerPolicy: 'no-referrer',
+      });
+      if (!response.ok) return;
+      const data = await response.json();
+      const country = typeof data?.country === 'string' ? data.country.trim().toUpperCase() : '';
+      if (controller.signal.aborted || !/^[A-Z]{2}$/.test(country) || ['CN', 'XX', 'ZZ'].includes(country)) return;
+      link.href = discordUrl;
+      link.hidden = false;
+    } catch {
+      // Keep the link hidden when the region is unknown. / 地区未知时保持入口隐藏。
+    } finally {
+      window.clearTimeout(timeout);
+    }
+  }
+  void updateDiscordVisibility();
+
   const year = document.getElementById('year');
   if (year) year.textContent = String(new Date().getFullYear());
 
