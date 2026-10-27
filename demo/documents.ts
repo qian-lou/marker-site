@@ -45,7 +45,7 @@ const samples: Record<DemoLocale, DemoDocument[]> = {
 
 点击右侧标题跳转章节，拖动两侧分隔线，或收起侧栏，把整个画面留给正文。
 
-顶部左侧的打开、搜索和文件树按钮随文件栏宽度对齐。点击文件树按钮，观察侧栏与顶部按钮区域同步展开、收起；拖动文件栏分隔线时直接跟随。聚焦分隔线后用方向键微调、Home / End 调至边界，双击恢复默认宽度。系统启用「减少动态效果」时不播放过渡。
+顶部左侧的打开、搜索和文件树按钮随文件栏宽度对齐。点击文件树按钮，观察侧栏与顶部按钮区域同步展开、收起；拖动文件栏分隔线时同步调整，拖到最窄时仍与顶部按钮区对齐。聚焦分隔线后用方向键微调、Home / End 调至边界，双击恢复默认宽度。系统启用「减少动态效果」时不播放过渡。
 
 在「设置 → 外观 → 顶部工具栏」选择自动隐藏，把更多空间留给文字。鼠标移到工作台顶部即可唤出，移开 1 秒后收起；期间返回工具栏会取消隐藏，正文位置保持不变。也可用 Tab 聚焦顶部唤出按钮，再继续使用鼠标操作。
 
@@ -55,7 +55,7 @@ const samples: Record<DemoLocale, DemoDocument[]> = {
 
 打开多份文档后，点击顶部标签切换；右键标签可固定、关闭其他标签，或重新打开关闭的文档。点击标签栏右侧的列表按钮，按文件名或路径搜索已打开的标签，使用方向键和 Enter 快速切换。
 
-标签列表会显示所属工作区路径；只有文件名时不重复显示第二行。新建标签与插入内容使用不同图标，悬停可查看说明。
+标签列表会显示所属工作区路径；只有文件名时不重复显示第二行。新建标签与插入内容使用不同图标，悬停可查看说明。关闭全部标签后，顶部仍保留「打开新标签」按钮；点击即可创建空白文档并进入编辑。
 
 ### 写作，保持想法的流动
 
@@ -164,11 +164,18 @@ Markdown 让简单的文字拥有清晰的结构。切到「编辑」，试试�
 > [!NOTE] 嵌套提示
 > 折叠内容也能包含提示块与普通段落。
 
+<details>
+<summary>继续展开一层</summary>
+
+在这里右键插入提示块，新内容会留在这一层正文中。
+
+</details>
+
 </details>
 
 切到「编辑」后可修改标题与正文，点击箭头收放；在标题按 Enter 进入正文，在末尾空段按 Enter 或用 ⌘ / Ctrl + Enter 退出块并继续写作。切换源码、文档后，控件仍可继续使用。
 
-顶部「插入」、正文右键和 / 菜单都支持中文、英文与拼音别名。输入 warning 或 tishi 查找提示块，输入 zhedie 或 toggle 查找折叠块；从折叠正文右键插入时，新块放在当前折叠块之后。
+顶部「插入」、正文右键和 / 菜单都支持中文、英文与拼音别名。输入 warning 或 tishi 查找提示块，输入 zhedie 或 toggle 查找折叠块；从提示块或折叠块正文右键插入时，新块保留在当前正文层级；嵌套时使用离光标最近的一层。要在块外继续写作，可先退出当前块再插入。
 
 网页示例修改仅保留在当前页面；导出会展开折叠正文，保留其中的完整内容。桌面版还包含中文 Word 等格式转换修复。
 
@@ -351,7 +358,7 @@ Good tools stay quietly beside you. Read a long article, gather your notes, or c
 
 Jump between sections in the outline. Drag either divider, or hide the sidebars to give the page your full attention.
 
-Open, Search, and the file tree toggle align with the file pane width. Toggle the file tree to watch the pane and its header move together; dragging the divider follows directly. Focus a divider to resize with arrow keys, use Home / End for its limits, or double-click to restore its default width. Transitions are disabled when your system requests reduced motion.
+Open, Search, and the file tree toggle align with the file pane width. Toggle the file tree to watch the pane and its header move together; divider drags resize both, with alignment preserved at the minimum width. Focus a divider to resize with arrow keys, use Home / End for its limits, or double-click to restore its default width. Transitions are disabled when your system requests reduced motion.
 
 Choose Auto-hide under Settings → Appearance → Top toolbar for more reading space. Move the pointer to the top of the workspace to reveal it. Leaving starts a one-second hide delay; returning cancels it, and the document stays in place. You can also Tab to the reveal button, then continue with the pointer.
 
@@ -392,7 +399,7 @@ Click **Search Files** at the top, or press **⌘ / Ctrl + P**, to find workspac
 
 Open several documents and switch between their tabs. Right-click a tab to pin it, close other tabs, or reopen a closed document. The list button at the right of the tab bar searches open tabs by name or path; use arrow keys and Enter to switch quickly.
 
-The tab list includes the owning workspace path and skips the second line when only a filename is available. New tab and Insert use distinct icons; hover to see their labels.
+The tab list includes the owning workspace path and skips the second line when only a filename is available. New tab and Insert use distinct icons; hover to see their labels. After closing every tab, New tab remains in the toolbar. Select it to create a blank document in Edit.
 
 ### Take your words with you
 
@@ -468,11 +475,18 @@ This is editable disclosure content, with lists and nested callouts.
 > [!NOTE] A nested note
 > Disclosures can contain callouts and ordinary paragraphs.
 
+<details>
+<summary>Open one more level</summary>
+
+Right-click here to insert a callout in this body.
+
+</details>
+
 </details>
 
 In Edit, change the title or body and use the chevron to toggle it. Enter in the title moves into the body. Enter in an empty final paragraph, or ⌘ / Ctrl + Enter, exits the block so you can keep writing. Controls keep working after source or document switches.
 
-Insert, the body context menu, and slash commands accept Chinese, English, and pinyin aliases. Search warning or tishi for a callout, and zhedie or toggle for a disclosure. Context insertion from a disclosure body places a new block after its containing disclosure.
+Insert, the body context menu, and slash commands accept Chinese, English, and pinyin aliases. Search warning or tishi for a callout, and zhedie or toggle for a disclosure. Context insertion keeps the new block in the current callout or disclosure body, using the level nearest the cursor when nested. Exit the block first to insert outside it.
 
 Web edits stay in this page. Exports expand disclosures and keep all of their content. The desktop app also fixes Chinese Word and other converted exports.
 

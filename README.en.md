@@ -24,7 +24,7 @@ Your current draft is preserved when switching between the three modes, so you c
 
 ## Key features
 
-- **Callouts and disclosures**: Edit titles and bodies, choose four callout types, and expand or collapse nested content with undo/redo. Read preserves styling; exports expand the full content. Insert accepts Chinese, English, pinyin, and common aliases.
+- **Callouts and disclosures**: Edit titles and bodies, choose four callout types, and expand or collapse nested content with undo/redo. Read preserves styling; exports expand the full content. Insert accepts Chinese, English, pinyin, and common aliases; insertion within a body keeps its current callout or disclosure level.
 - **Infinite canvas**: Arrange sticky notes, frames, cards, text, smart connectors, and freehand drawings. Use templates, alignment, layer ordering, element context actions, and independent undo/redo. Save a canvas JSON block and render the same vector drawing in Read and exports.
 - **Table editing and layout**: Add or remove rows and columns through edge buttons, right-click actions, or Shift+F10. Select and clear cells, resize columns and rows with a pointer or arrow keys, and double-click for automatic sizing. Layout travels in Markdown comments for reading and export, with undo/redo.
 - **Shared font choices**: Choose Menlo, Monaco, Inconsolata, or Space Grotesk for Chinese, English, and code. Code previews use the chosen font, with CSS fallbacks when it is not installed.
@@ -36,7 +36,7 @@ Your current draft is preserved when switching between the three modes, so you c
 - **Right-click insertion and an optional status bar**: Right-click the editor body for a searchable insert menu with arrow-key, Enter, and Esc support. Toggle the status bar under Settings → Appearance, or use the desktop View menu.
 - **Image editing and consistent layout**: Adjust captions, scale, and image-area dimensions, or drag an edge or corner. Reading, preview, and exports preserve the whole image and its proportions; paged exports keep image blocks together.
 - **Draft and editing recovery**: Keep each document's draft, visual/source undo and redo, cursor, selection, and scroll position when switching tabs. The desktop app restores unsaved and untitled documents after restart, shows protection status, and uses committed recovery records after an unexpected exit.
-- **A clear document workspace**: Browse files, content, and the outline in separate panes. Open, Search, and the file tree toggle align with the left pane. Header and pane transition together, with direct tracking during divider drags. Resize with arrow keys or double-click for the default width; reduced motion disables transitions.
+- **A clear document workspace**: Browse files, content, and the outline in separate panes. Open, Search, and the file tree toggle align with the left pane. Header and pane transition together, with direct tracking during divider drags and alignment at the minimum width. Resize with arrow keys or double-click for the default width; reduced motion disables transitions.
 - **Local files and multi-folder workspaces**: Open existing files or folders and browse nested directories. Standalone files and workspace documents share the same sidebar for easy switching.
 - **Quick file search**: Use the top search button or ⌘/Ctrl+P to find files by name or path. Switch between tree and list views, expand folders, and open files with the keyboard while keeping your query and selected file.
 - **Document tabs**: Switch, reorder, and pin open tabs. Right-click to close other tabs or reopen a closed document. Search the tab list by filename or path and switch with the keyboard.
@@ -73,10 +73,11 @@ The desktop app supports in-app updates. When a new version is available, an upd
 
 The [interactive workspace on the website](https://qian-lou.github.io/marker-site/#experience) runs the actual Marker frontend. Use the mode icons to switch between reading, editing, and source, and explore the file tree, file switching, outline, and reading settings.
 
-- Open Give notes and details their own space in Markdown.md. In Edit, try callout types, disclosure toggles, warning / zhedie search, and context insertion. Hover over the long file name to reveal it.
+- Open Give notes and details their own space in Markdown.md. In Edit, try callout types, disclosure toggles, warning / zhedie search, and context insertion within the current body. Hover over the long file name to reveal it.
 - Open Think on an infinite canvas in `Markdown.md`, choose Edit, then Visual editor above the canvas block. Try a template, duplicate or edit an element, then choose Done and review in Read or an HTML export.
 - Open `Markdown.md` to see code, tables, math notation, and Mermaid diagrams.
-- Toggle the file tree to see its header and pane move together. Drag the divider, fine-tune it with arrow keys, or double-click for the default width.
+- Toggle the file tree to see its header and pane move together. Drag the divider to its minimum to check alignment, fine-tune it with arrow keys, or double-click for the default width.
+- Close every tab, then use New tab in the toolbar to create a blank document in Edit.
 - Try the table's ＋ / − edge buttons in Edit, or open Table actions with right-click or Shift+F10. Resize columns and rows, then review in Read or an HTML export. Choose text and code fonts in Settings and check the live preview.
 - Choose Edit and open Visual editor above the diagram. Move shapes, double-click text, try selection and alignment, and adjust connections. Choose Done, review in Read, then return to Edit to undo the document change. Resize the preview's bottom edge and switch modes to check its shared height.
 - Choose Edit and click a formula, expand the focus workspace, and try command completion, parameter navigation, undo/redo, and error location. Save a custom formula, filter My formulas by category or tag, pin it, and export or import a JSON backup.
