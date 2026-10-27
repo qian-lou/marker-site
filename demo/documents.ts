@@ -139,6 +139,39 @@ const samples: Record<DemoLocale, DemoDocument[]> = {
 
 Markdown 让简单的文字拥有清晰的结构。切到「编辑」，试试勾选任务、修改表格，或使用代码块顶部的语言、复制与折叠工具；切回「只读」查看排版，草稿会继续保留。
 
+## 提示与折叠，让信息更有层次
+
+> [!NOTE] 记录一条提示
+> 提示块可直接修改标题与正文，保留 **文字格式** 和[文档链接](Notes.md)。
+
+> [!TIP] 下一步怎么做
+> 在编辑模式悬停提示块，点击右上角类型按钮，选择提示、注意、警告或成功；也可用方向键与 Enter 操作。
+
+> [!WARNING] 操作前检查
+> 切换类型、展开收起和正文修改都支持撤销重做。
+
+> [!SUCCESS] 已经准备好
+> 切到只读或导出，保留提示块样式与全部内容。
+
+<details>
+<summary>展开查看补充说明</summary>
+
+这里是可以继续编辑的折叠正文。试试标题、列表与嵌套提示块。
+
+- [x] 点击箭头展开或收起
+- [ ] 切换到源码，再回到编辑继续操作
+
+> [!NOTE] 嵌套提示
+> 折叠内容也能包含提示块与普通段落。
+
+</details>
+
+切到「编辑」后可修改标题与正文，点击箭头收放；在标题按 Enter 进入正文，在末尾空段按 Enter 或用 ⌘ / Ctrl + Enter 退出块并继续写作。切换源码、文档后，控件仍可继续使用。
+
+顶部「插入」、正文右键和 / 菜单都支持中文、英文与拼音别名。输入 warning 或 tishi 查找提示块，输入 zhedie 或 toggle 查找折叠块；从折叠正文右键插入时，新块放在当前折叠块之后。
+
+网页示例修改仅保留在当前页面；导出会展开折叠正文，保留其中的完整内容。桌面版还包含中文 Word 等格式转换修复。
+
 ## 在无限画板中整理想法
 
 切到「编辑」，点击下方画板顶部的「可视化编辑」，拖动卡片、双击改字，或用底部工具栏添加便签、画框、文本、图形、连线和手绘。
@@ -253,6 +286,17 @@ flowchart LR
 使用图表上方的 **＋ / −** 连续缩放，放大后可横向滚动查看完整图表；点击百分比重置为 100%，或点击「弹窗」在大视图中查看。
 
 弹窗打开时自动适配画布，调整窗口大小也会重新适配。拖动可平移，滚轮可缩放；点击「适应窗口」、双击画布或按 **0** 回到完整视图，按 **＋ / −** 缩放、**Esc** 关闭。右上角可以复制图表源码。
+`,
+    },
+    {
+      id: 'rich-blocks-guide', path: 'Callouts, collapsible blocks and multilingual export guide.md', title: '提示、折叠与导出操作指南',
+      markdown: `# 提示、折叠与导出操作指南
+
+这份文件使用较长的名字。缩窄左侧文件栏，悬停文件名查看滚动，移开后恢复省略显示；系统启用减少动态效果时不播放滚动。
+
+打开 Markdown.md 的「提示与折叠，让信息更有层次」，体验四类提示块、嵌套折叠、右键插入和撤销重做。
+
+网页可导出 PDF、HTML 和 PNG，导出时展开折叠正文；Word、EPUB 等转换格式请使用桌面版。
 `,
     },
     {
@@ -399,6 +443,39 @@ Collect a passage, organize meeting notes, or write down an idea before it has a
 
 Markdown gives plain text a useful structure. Switch to Edit to check a task, change a table, or try the language, copy, and fold controls above a code block. Switch back to Read to review the layout; your draft stays with you.
 
+## Give notes and details their own space
+
+> [!NOTE] Keep a useful note
+> Edit the title and body while keeping **text formatting** and [document links](Notes.md).
+
+> [!TIP] Choose the next step
+> In Edit, hover over a callout and use its type menu to choose Note, Tip, Warning, or Success. Arrow keys and Enter work too.
+
+> [!WARNING] Check before you act
+> Type changes, disclosure toggles, and content edits support undo and redo.
+
+> [!SUCCESS] Ready to share
+> Read and exports preserve the callout styling and complete content.
+
+<details>
+<summary>Open the supporting details</summary>
+
+This is editable disclosure content, with lists and nested callouts.
+
+- [x] Use the chevron to expand or collapse
+- [ ] Switch to Source, then return to Edit and try again
+
+> [!NOTE] A nested note
+> Disclosures can contain callouts and ordinary paragraphs.
+
+</details>
+
+In Edit, change the title or body and use the chevron to toggle it. Enter in the title moves into the body. Enter in an empty final paragraph, or ⌘ / Ctrl + Enter, exits the block so you can keep writing. Controls keep working after source or document switches.
+
+Insert, the body context menu, and slash commands accept Chinese, English, and pinyin aliases. Search warning or tishi for a callout, and zhedie or toggle for a disclosure. Context insertion from a disclosure body places a new block after its containing disclosure.
+
+Web edits stay in this page. Exports expand disclosures and keep all of their content. The desktop app also fixes Chinese Word and other converted exports.
+
 ## Think on an infinite canvas
 
 Choose Edit, then Visual editor above the canvas block. Move cards, double-click text, or use the bottom tools to add sticky notes, frames, text, shapes, connectors, and freehand drawings.
@@ -513,6 +590,17 @@ Click **MERMAID DIAGRAM** at the top left to collapse or expand the whole block.
 Use **＋ / −** above the diagram to zoom in or out. Scroll horizontally to explore an enlarged diagram, click the percentage to reset to 100%, or choose Popout for a larger view.
 
 The popout fits the diagram on opening and when the window resizes. Drag to pan and scroll to zoom. Choose Fit to window, double-click the canvas, or press **0** to fit again. Press **＋ / −** to zoom and **Esc** to close, or copy the diagram source from the top right.
+`,
+    },
+    {
+      id: 'rich-blocks-guide', path: 'Callouts, collapsible blocks and multilingual export guide.md', title: 'Callouts, disclosures, and export guide',
+      markdown: `# Callouts, disclosures, and export guide
+
+This file has a long name. Narrow the file pane and hover over the name to reveal it. Moving away restores the ellipsis; reduced motion disables scrolling.
+
+Open Give notes and details their own space in Markdown.md for four callout types, nested disclosures, context insertion, and undo/redo.
+
+The website exports PDF, HTML, and PNG with disclosures expanded. Use the desktop app for Word, EPUB, and other converted formats.
 `,
     },
     {

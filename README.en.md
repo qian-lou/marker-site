@@ -24,6 +24,7 @@ Your current draft is preserved when switching between the three modes, so you c
 
 ## Key features
 
+- **Callouts and disclosures**: Edit titles and bodies, choose four callout types, and expand or collapse nested content with undo/redo. Read preserves styling; exports expand the full content. Insert accepts Chinese, English, pinyin, and common aliases.
 - **Infinite canvas**: Arrange sticky notes, frames, cards, text, smart connectors, and freehand drawings. Use templates, alignment, layer ordering, element context actions, and independent undo/redo. Save a canvas JSON block and render the same vector drawing in Read and exports.
 - **Table editing and layout**: Add or remove rows and columns through edge buttons, right-click actions, or Shift+F10. Select and clear cells, resize columns and rows with a pointer or arrow keys, and double-click for automatic sizing. Layout travels in Markdown comments for reading and export, with undo/redo.
 - **Shared font choices**: Choose Menlo, Monaco, Inconsolata, or Space Grotesk for Chinese, English, and code. Code previews use the chosen font, with CSS fallbacks when it is not installed.
@@ -72,6 +73,7 @@ The desktop app supports in-app updates. When a new version is available, an upd
 
 The [interactive workspace on the website](https://qian-lou.github.io/marker-site/#experience) runs the actual Marker frontend. Use the mode icons to switch between reading, editing, and source, and explore the file tree, file switching, outline, and reading settings.
 
+- Open Give notes and details their own space in Markdown.md. In Edit, try callout types, disclosure toggles, warning / zhedie search, and context insertion. Hover over the long file name to reveal it.
 - Open Think on an infinite canvas in `Markdown.md`, choose Edit, then Visual editor above the canvas block. Try a template, duplicate or edit an element, then choose Done and review in Read or an HTML export.
 - Open `Markdown.md` to see code, tables, math notation, and Mermaid diagrams.
 - Toggle the file tree to see its header and pane move together. Drag the divider, fine-tune it with arrow keys, or double-click for the default width.

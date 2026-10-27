@@ -23,7 +23,14 @@ The Pages staging whitelist publishes `assets/demo/`, not this adapter directory
 The checked-in output lets the website deploy independently of private-source
 access. Rebuild it after a desktop UI change to keep the experience current.
 
-The 0.1.31 experience adds the actual infinite canvas editor, with sticky notes,
+The 0.1.32 experience adds editable callouts and disclosures, multilingual insert
+aliases, the title-bar Marker icon, and long-file-name hover scrolling. Both
+languages include rich block samples near the start of Markdown.md and a long
+file name for the new guide. Reader styling and exported expanded content use
+the real frontend. The desktop app also fixes Chinese Pandoc conversion; that
+converter remains a desktop capability.
+
+The experience also adds the actual infinite canvas editor, with sticky notes,
 frames, shapes, text, connectors, freehand tools, templates, context actions,
 layer ordering, and independent undo/redo. Both languages include a canvas block
 near the start of Markdown.md, derived from the app template with localized
