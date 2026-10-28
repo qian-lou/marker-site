@@ -1,6 +1,7 @@
 /** Public sample content only. The workspace uses the desktop app's real UI. */
 import sampleImage from './sample-image.png';
 import { CANVAS_TEMPLATES, serializeCanvas } from '@/canvas/canvas-model';
+import { DEFAULT_MINDMAP_SAMPLE, DEFAULT_MINDMAP_SAMPLE_EN } from '@/mindmap/mindmap-model';
 export type DemoLocale = 'zh-CN' | 'en-US';
 
 const canvasEnglishLabels: Record<string, string> = {
@@ -138,6 +139,20 @@ const samples: Record<DemoLocale, DemoDocument[]> = {
       markdown: `# 让内容，自然成形
 
 Markdown 让简单的文字拥有清晰的结构。切到「编辑」，试试勾选任务、修改表格，或使用代码块顶部的语言、复制与折叠工具；切回「只读」查看排版，草稿会继续保留。
+
+## 用思维导图梳理层级
+
+切到「编辑」，点击下方导图顶部的「可视化编辑」，打开思维导图工作台。双击主题改字，用 Tab 添加子主题、Enter 添加同级主题；也可右键复制、删除或调整层级。
+
+\`\`\`mermaid
+${DEFAULT_MINDMAP_SAMPLE}
+\`\`\`
+
+试试双向、右向和向下布局，拖动分支后点击「整理布局」回到自动排版；系统启用「减少动态效果」时不播放整理动画。用「导图皮肤」预览 8 款皮肤，切换后可撤销，应用到文档后再次打开仍会保留。
+
+在「大纲」中编辑层级，切到「源码」查看 Mermaid mindmap 语法；还可搜索主题、展开或折叠分支、通过缩略导航定位。导图内支持独立撤销重做、SVG 与 PNG 导出；点击「应用」作为一次正文修改保存，取消未应用修改时会提示确认。
+
+阅读和文档导出沿用同一份矢量导图。网页草稿仅保留在当前页面，刷新或重置体验会还原示例。
 
 ## 提示与折叠，让信息更有层次
 
@@ -449,6 +464,20 @@ Collect a passage, organize meeting notes, or write down an idea before it has a
       markdown: `# Give your ideas a clear shape
 
 Markdown gives plain text a useful structure. Switch to Edit to check a task, change a table, or try the language, copy, and fold controls above a code block. Switch back to Read to review the layout; your draft stays with you.
+
+## Organize ideas with a mind map
+
+Choose Edit, then Visual editor above the map to open the mind map workspace. Double-click a topic to edit it, use Tab for a child and Enter for a sibling, or right-click to duplicate, delete, or change the hierarchy.
+
+\`\`\`mermaid
+${DEFAULT_MINDMAP_SAMPLE_EN}
+\`\`\`
+
+Try Balanced, Rightward, and Top-down layouts. Drag a branch, then choose Tidy up to restore automatic placement; reduced motion disables the tidy animation. Preview eight Map themes, undo a theme change, or apply it and reopen to check the saved theme.
+
+Edit the hierarchy in Outline and inspect Mermaid mindmap syntax in Source. Search topics, fold branches, and navigate with the minimap. The workspace has independent undo/redo and SVG or PNG export. Apply saves one document edit; canceling unapplied changes asks for confirmation.
+
+Read and document exports use the same vector map. Web drafts stay in this page; reload or Reset demo restores the sample.
 
 ## Give notes and details their own space
 

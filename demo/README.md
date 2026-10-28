@@ -23,7 +23,18 @@ The Pages staging whitelist publishes `assets/demo/`, not this adapter directory
 The checked-in output lets the website deploy independently of private-source
 access. Rebuild it after a desktop UI change to keep the experience current.
 
-The 0.1.33 experience keeps block insertions inside the current callout or
+The 0.1.34 experience adds the actual mind map editor with Map, Outline, and
+Source views; keyboard topic editing, branch dragging, eight themes, animated
+tidying, search, folding, a minimap, and SVG/PNG export. Both languages include
+the app default sample near the start of Markdown.md and matching instructions.
+Apply saves one document edit; Read and document exports share the same native
+vector renderer. Unapplied changes have their own history and discard prompt;
+web drafts remain page-scoped.
+
+Canvas and flowchart workspaces also use the updated compact headers and
+neutral Apply controls from the desktop frontend.
+
+The experience keeps block insertions inside the current callout or
 disclosure body, including the nearest nested body. It also retains New tab in
 empty windows, aligns the sidebar divider at its toolbar minimum, and batches
 pointer width updates before paint. Both languages include a nested disclosure
