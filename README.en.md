@@ -48,7 +48,7 @@ Your current draft is preserved when switching between the three modes, so you c
 - **Native Windows menus**: Use the File, Edit, View, and Help menus for common actions. macOS uses the system menu bar.
 - **Workspace file management**: Removing a workspace also clears its open-file records, so the desktop app will not restore them after a restart. You are prompted about unsaved changes first; other workspaces and standalone files are unaffected.
 - **Pick up where you left off**: Hover over the filename at the top to close the current document while keeping it in the sidebar. Reopening or switching back to a document restores its reading position. The desktop app also restores the file list, active file, and expanded or collapsed folders after a restart.
-- **A compact writing surface**: Insert, Undo, and Redo share the top toolbar, leaving more space for the document. Filter content in the insert menu and use consistent dark gray dialog buttons in dark mode.
+- **A compact writing surface**: Undo, Redo, and reading modes stay in the top toolbar. Right-click or type / in the document to open the searchable insert menu. The desktop app exports through File → Export.
 - **Selection formatting and block dragging**: Select text to change paragraph styles, bold, underline, text colors, and highlights, including custom and recent colors. Drag the handle beside a paragraph to reorder sibling blocks, then undo or redo your changes.
 - **A split that remembers**: Drag the source-preview divider, adjust with arrow keys, or double-click for equal panes. The ratio survives mode changes and reopening; narrow windows adapt without overwriting it.
 - **Built for technical documents**: Supports code highlighting and folding, GFM tables, task lists, math notation, and Mermaid diagrams.
@@ -97,16 +97,16 @@ The [interactive workspace on the website](https://qian-lou.github.io/marker-sit
 - Select text to try paragraph styles, underline, text colors, and highlights in the floating toolbar. Enter a custom hex color, then reopen the panel to use a recent color. Press Alt+F10 to focus the toolbar and Esc to return to the document.
 - Try the shared rounded selection in Read, Edit, Source, and code blocks. Switch between light and dark appearances to compare text, quotes, and tables.
 - Drag the six-dot handle beside a paragraph to reorder sibling blocks, then undo or redo. Switch to Read or Source to review the formatting and draft.
-- Use Insert at the top and type Table or Math to filter content blocks. Typing `/` in the document also opens the compact insert menu.
+- Right-click or type `/` in the document, then search for Table or Math. Use arrow keys and Enter to insert, or Esc to return to the document.
 - Switch to Source, drag the middle divider, then change modes or reload. The split ratio is kept in your current browser.
 - Use the diagram’s ＋ / − controls to zoom, scroll horizontally to explore an enlarged diagram, click the percentage to reset, or open its popout preview.
 - The diagram popout fits the canvas on opening and resizing, with drag-to-pan, scroll-to-zoom, and source copying. Choose Fit to window, double-click the canvas, or press 0 to fit again; press Esc to close.
 - Expand `Projects → Marker → Release` to explore nested folders. Open `Quick note.md` to try switching, searching, and removing standalone files.
 - Click Search sample files and enter `Checklist`. Switch between Tree and List and open a deeply nested file, or search `Quick note` to open a standalone file.
 - Open several documents, switch tabs, right-click to pin a frequent document, and search the tab list for an open file.
-- The tab list includes the workspace path and omits a duplicate filename subtitle. New tab and Insert use distinct icons.
-- Use Export in the toolbar to download PDF, HTML, or PNG, or adjust export settings. Use the desktop app for Word, EPUB, and other formats.
-- The Export dropdown opens below its button and stays within the viewport. Operation results use compact colored toasts that dismiss automatically, pause on hover or focus, and can be closed manually.
+- The tab list includes the workspace path and omits a duplicate filename subtitle. Hover over tab bar buttons for their hints.
+- Use Export current document below the website workspace to download PDF, HTML, or PNG, or choose Export settings. Return from a separate demo window to the website for export controls. The desktop app provides more formats through File → Export.
+- Export controls pause during a download to prevent duplicate operations. Operation results use compact colored toasts that dismiss automatically, pause on hover or focus, and can be closed manually.
 - Hover over the filename at the top and click `×` to close the document. Reopen it from the sidebar or recent files to resume at your previous reading position.
 - Open Settings and drag a slider, or click a numeric value to select and replace the font size or line height. The document updates as you type.
 - Edit a sample document, change the reading theme, or choose a local file to try in the browser. Your local files are never uploaded.

@@ -57,11 +57,11 @@ const samples: Record<DemoLocale, DemoDocument[]> = {
 
 打开多份文档后，点击顶部标签切换；右键标签可固定、关闭其他标签，或重新打开关闭的文档。点击标签栏右侧的列表按钮，按文件名或路径搜索已打开的标签，使用方向键和 Enter 快速切换。
 
-标签列表会显示所属工作区路径；只有文件名时不重复显示第二行。新建标签与插入内容使用不同图标，悬停可查看说明。关闭全部标签后，顶部仍保留「打开新标签」按钮；点击即可创建空白文档并进入编辑。
+标签列表会显示所属工作区路径；只有文件名时不重复显示第二行。悬停标签栏的按钮可查看说明。关闭全部标签后，顶部仍保留「打开新标签」按钮；点击即可创建空白文档并进入编辑。
 
 ### 写作，保持想法的流动
 
-切到「编辑」直接修改排版后的文字。顶部的「插入」、撤销与重做集中在同一行；点击「插入」，输入「表格」或「公式」即可过滤内容，正文输入 \`/\` 也能快速插入。
+切到「编辑」直接修改排版后的文字。顶部保留撤销与重做；在正文中右键或输入 \`/\` 打开插入菜单，输入「表格」或「公式」即可过滤内容。
 
 在正文中右键，也可打开同一个插入菜单。输入关键词过滤，用方向键选择、Enter 插入，或按 Esc 返回正文。
 
@@ -77,9 +77,9 @@ const samples: Record<DemoLocale, DemoDocument[]> = {
 
 ### 把内容带到需要的地方
 
-点击顶部的 **导出**，把当前草稿下载为 **PDF、HTML 或 PNG**，无需先保存。导出设置中可以调整纸张、方向、页边距、字号和图片倍率。桌面版还支持 Word、EPUB 等更多离线格式。
+使用官网工作台下方的 **导出当前文档**，把当前草稿下载为 **PDF、HTML 或 PNG**，无需先保存；也可选择「导出设置」调整纸张、方向、页边距、字号和图片倍率。在新窗口体验时，请返回官网使用导出入口。桌面版通过「文件 → 导出」提供 Word、EPUB 等更多离线格式。
 
-导出菜单在按钮下方展开，并保持在窗口内。操作结果通过右上角的轻量彩色提示条显示，短暂出现后自动关闭；悬停或聚焦可暂停，也可以点击关闭按钮。
+操作结果通过右上角的轻量彩色提示条显示，短暂出现后自动关闭；悬停或聚焦可暂停，也可以点击关闭按钮。
 
 ## 一个轻盈的日常工作流
 
@@ -205,7 +205,7 @@ ${DEFAULT_MINDMAP_SAMPLE}
 
 切到「编辑」后可修改标题与正文，点击箭头收放；在标题按 Enter 进入正文，在末尾空段按 Enter 或用 ⌘ / Ctrl + Enter 退出块并继续写作。切换源码、文档后，控件仍可继续使用。
 
-顶部「插入」、正文右键和 / 菜单都支持中文、英文与拼音别名。输入 warning 或 tishi 查找提示块，输入 zhedie 或 toggle 查找折叠块；从提示块或折叠块正文右键插入时，新块保留在当前正文层级；嵌套时使用离光标最近的一层。要在块外继续写作，可先退出当前块再插入。
+正文右键和 / 菜单都支持中文、英文与拼音别名。输入 warning 或 tishi 查找提示块，输入 zhedie 或 toggle 查找折叠块；从提示块或折叠块正文右键插入时，新块保留在当前正文层级；嵌套时使用离光标最近的一层。要在块外继续写作，可先退出当前块再插入。
 
 网页示例修改仅保留在当前页面；导出会展开折叠正文，保留其中的完整内容。桌面版还包含中文 Word 等格式转换修复。
 
@@ -394,7 +394,7 @@ Choose Auto-hide under Settings → Appearance → Top toolbar for more reading 
 
 ### Keep your writing in flow
 
-Choose Edit to write directly on the page. Insert, Undo and Redo share the top toolbar. Use Insert and type Table or Math to find a content block, or type \`/\` in the document to insert quickly.
+Choose Edit to write directly on the page. Undo and Redo stay in the top toolbar. Right-click or type \`/\` in the document, then search for Table or Math to insert a content block.
 
 Right-click in the document body to open the same insert menu. Type to filter, use arrow keys and Enter to insert, or press Esc to return to the document.
 
@@ -429,13 +429,13 @@ Click **Search Files** at the top, or press **⌘ / Ctrl + P**, to find workspac
 
 Open several documents and switch between their tabs. Right-click a tab to pin it, close other tabs, or reopen a closed document. The list button at the right of the tab bar searches open tabs by name or path; use arrow keys and Enter to switch quickly.
 
-The tab list includes the owning workspace path and skips the second line when only a filename is available. New tab and Insert use distinct icons; hover to see their labels. After closing every tab, New tab remains in the toolbar. Select it to create a blank document in Edit.
+The tab list includes the owning workspace path and skips the second line when only a filename is available. Hover over tab bar buttons to see their labels. After closing every tab, New tab remains in the toolbar. Select it to create a blank document in Edit.
 
 ### Take your words with you
 
-Use **Export** in the toolbar to download your current draft as **PDF, HTML, or PNG**, without saving first. Export settings let you adjust paper size, orientation, margins, font size, and image scale. The desktop app also supports more offline formats, including Word and EPUB.
+Use **Export current document** below the website workspace to download your draft as **PDF, HTML, or PNG**, without saving first. Choose Export settings to adjust paper size, orientation, margins, font size, and image scale. When using a separate demo window, return to the website for export controls. In the desktop app, use File → Export for more offline formats, including Word and EPUB.
 
-The Export dropdown opens below its button and stays within the window. Operation results appear as compact colored toasts at the top right and close automatically. Hover or focus pauses dismissal; the close button dismisses the toast immediately.
+Operation results appear as compact colored toasts at the top right and close automatically. Hover or focus pauses dismissal; the close button dismisses the toast immediately.
 
 Removing a workspace also clears its visited file records. Unsaved edits prompt you to save, discard, or cancel first. Standalone files stay in place, and the desktop app keeps the removed workspace's files out of the restored session after a restart.
 

@@ -122,6 +122,14 @@
   const frame = document.getElementById('marker-demo');
   const fullscreen = document.getElementById('demo-fullscreen');
   const searchFiles = document.getElementById('demo-search');
+  const exportDocument = document.getElementById('demo-export');
+  let exportSession = null;
+  frame?.addEventListener('load', () => {
+    exportSession = null;
+    if (searchFiles) searchFiles.disabled = true;
+    if (exportDocument) exportDocument.disabled = true;
+    frame.contentWindow?.postMessage({ type: 'marker-demo:query-state' }, window.location.origin);
+  });
   if (viewport && frame) {
     const resize = () => {
       frame.style.setProperty('--demo-scale', String(viewport.clientWidth / 1100));
@@ -144,6 +152,11 @@
   window.addEventListener('message', (event) => {
     if (event.origin !== window.location.origin || event.source !== frame?.contentWindow) return;
     if (event.data?.type === 'marker-demo:ready' && searchFiles) searchFiles.disabled = false;
+    if (event.data?.type === 'marker-demo:export-state' && exportDocument) {
+      exportSession = event.data.session;
+      exportDocument.disabled = event.data.available !== true;
+      exportDocument.setAttribute('aria-busy', String(event.data.busy === true));
+    }
     if (event.data?.type === 'marker-demo:dialog-open' && viewport) {
       const bounds = viewport.getBoundingClientRect();
       // Keep embedded modal actions visible. / 确保嵌入弹窗的操作按钮留在屏幕内。
@@ -157,6 +170,14 @@
     viewport?.scrollIntoView({ block: 'center' });
     frame.focus({ preventScroll: true });
     frame.contentWindow.postMessage({ type: 'marker-demo:search-files' }, window.location.origin);
+  });
+
+  exportDocument?.addEventListener('change', () => {
+    const format = exportDocument.value;
+    exportDocument.value = '';
+    if (!frame?.contentWindow || exportDocument.disabled || !['pdf', 'html', 'png', 'settings'].includes(format)) return;
+    viewport?.scrollIntoView({ block: 'center' });
+    frame.contentWindow.postMessage({ type: 'marker-demo:export', format, session: exportSession }, window.location.origin);
   });
 
   document.getElementById('demo-reset')?.addEventListener('click', () => {

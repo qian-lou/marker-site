@@ -23,7 +23,15 @@ The Pages staging whitelist publishes `assets/demo/`, not this adapter directory
 The checked-in output lets the website deploy independently of private-source
 access. Rebuild it after a desktop UI change to keep the experience current.
 
-The 0.1.35 experience adds the actual data chart editor, with table editing,
+The 0.1.36 experience follows the simplified desktop title bar: Undo/Redo and
+view modes remain, with insertion through the body context menu or slash menu.
+The website provides a native select below the iframe for PDF, HTML, PNG, and
+export settings, using the real export pipeline. Same-origin parent messages
+carry a document session; stale sessions, unsupported formats, active dialogs,
+and concurrent exports are rejected. Controls track document and export state.
+Standalone demo windows use the website for export controls.
+
+The experience also includes the actual data chart editor, with table editing,
 TSV/CSV/Markdown import, header detection, bar/line/pie previews, theme-aware
 palettes, validation, and independent history. Both languages include the app
 default sample and matching instructions. Apply stores one chart code block;
@@ -148,8 +156,8 @@ uses fewer decorative borders, subtle sidebar and status-bar dividers, and softe
 dark-appearance selection highlights. Both languages include collapse guidance
 in Markdown.md.
 
-The experience also anchors the Export dropdown below its trigger and keeps it
-inside viewport bounds. New-tab and insert-block controls use distinct icons.
+The website export select stays below the workspace and wraps with the other
+website actions on narrow screens.
 The tab list includes the owning workspace path and omits a duplicate subtitle
 when only a filename is available. Operation results use compact colored,
 non-modal toasts that dismiss automatically, pause on hover or focus, and can be
@@ -174,18 +182,18 @@ with undo and redo. The welcome document includes instructions in both languages
 
 The experience also includes the desktop app's compact controls, shared tooltips,
 and document tabs. Tabs support reordering, pinning, context actions, and a
-searchable list with keyboard selection. The Export menu downloads PDF, HTML,
-and PNG in the browser; formats requiring the bundled desktop converter show
-the app's desktop-required message. PDF fonts and rendering load on demand.
+searchable list with keyboard selection. The website export select downloads PDF, HTML,
+and PNG in the browser. Formats requiring the bundled converter remain in the
+desktop app. PDF fonts and rendering load on demand.
 Windows native menus remain specific to the installed app.
 
 The generated output includes `MarkerExport-OFL.txt` for the renamed Noto Sans
 SC export fonts and `MarkerExport-Symbols-OFL.txt` for Noto Sans Symbols 2.
 These unmodified licenses ship alongside the fonts on every rebuild.
 
-The experience uses the compact desktop toolbar, with Insert, Undo and
-Redo at the top and no secondary writing toolbar. Insert uses a searchable
-single-column menu; typing `/` opens the compact document menu. Dialog actions
+The experience uses the compact desktop toolbar, with Undo and
+Redo at the top and no secondary writing toolbar. Body context insertion uses a
+searchable single-column menu; typing `/` opens the compact document menu. Dialog actions
 use consistent dark gray surfaces in dark mode. Source and preview can be resized
 by dragging or with arrow keys, and double-clicking restores equal panes. The
 split ratio is kept in browser local storage across mode changes and reloads;

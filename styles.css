@@ -78,6 +78,9 @@ p,h1,h2,h3{margin:0}
 .demo-actions button:disabled{opacity:.5;cursor:wait}
 .demo-actions .text-link{font-size:10px;min-height:26px;padding:0;white-space:nowrap}
 .demo-actions .icon{width:13px;height:13px}
+.demo-export{max-width:100%;min-height:32px;border:1px solid var(--line);border-radius:6px;padding:4px 6px;background:var(--surface);color:var(--muted);font:inherit;font-size:11px;cursor:pointer}
+.demo-export:disabled{opacity:.5;cursor:wait}
+.demo-export:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
 .demo-hint{font-size:10px;color:var(--subtle);margin-top:6px}
 .features{padding-block:112px 104px}
 .section-heading{text-align:center;max-width:760px;margin-inline:auto}

@@ -15,6 +15,9 @@ import { useCodeFoldPersistenceStatus } from '@/components/code/code-fold-persis
 import { getSampleDocuments, type DemoLocale } from './documents';
 import { installEmbeddedScrollBoundary } from './scroll-boundary';
 import { TEXT_FORMATTING_CSS } from '@/editor/text-colors';
+import { exportDocument } from '@/export/export-document';
+import { useExportStore } from '@/export/export-store';
+import { hasActiveModal } from '@/components/common/use-modal-focus';
 import '@/styles/index.css';
 
 installEmbeddedScrollBoundary();
@@ -227,10 +230,26 @@ async function synchronize(next: { language?: unknown; locale?: unknown; theme?:
 
 let resetting = false;
 
+function publishExportState(): void {
+  const state = useDocumentStore.getState();
+  const exports = useExportStore.getState();
+  window.parent.postMessage({ type: 'marker-demo:export-state',
+    available: !!state.activeDocument && !state.isLoading && !state.isSaving
+      && !exports.busy && !resetting && !hasActiveModal(),
+    busy: exports.busy, session: state.documentSessionId,
+  }, window.location.origin);
+}
+
+function refreshExportState(): void {
+  publishExportState();
+  requestAnimationFrame(publishExportState);
+}
+
 async function resetDemo(): Promise<void> {
   const demoRoot = document.getElementById('root');
   if (resetting || !demoRoot) return;
   resetting = true;
+  publishExportState();
   const wasInert = demoRoot.inert;
   demoRoot.inert = true;
   try {
@@ -261,6 +280,7 @@ async function resetDemo(): Promise<void> {
   } finally {
     demoRoot.inert = wasInert;
     resetting = false;
+    publishExportState();
   }
 }
 
@@ -269,10 +289,20 @@ window.addEventListener('message', event => {
       !event.data || typeof event.data !== 'object') return;
   if (event.data.type === 'marker-site:preferences' || event.data.type === 'marker-demo:preferences') {
     void synchronize(event.data);
+  } else if (event.data.type === 'marker-demo:query-state') {
+    window.parent.postMessage({ type: 'marker-demo:ready' }, window.location.origin);
+    publishExportState();
   } else if (event.data.type === 'marker-demo:search-files') {
     window.dispatchEvent(new KeyboardEvent('keydown', { key: 'p', ctrlKey: true, cancelable: true }));
   } else if (event.data.type === 'marker-demo:reset') {
-    void resetDemo();
+    if (!useExportStore.getState().busy) void resetDemo();
+  } else if (event.data.type === 'marker-demo:export') {
+    const state = useDocumentStore.getState();
+    if (resetting || hasActiveModal() || useExportStore.getState().busy || !state.activeDocument
+        || state.isLoading || state.isSaving || event.data.session !== state.documentSessionId) return;
+    const format: unknown = event.data.format;
+    if (format === 'settings') useExportStore.getState().configure(true);
+    else if (format === 'pdf' || format === 'html' || format === 'png') void exportDocument(format);
   }
 });
 
@@ -280,6 +310,8 @@ const root = document.getElementById('root');
 if (!root) throw new Error('Marker demo root is missing.');
 function DemoApp() {
   React.useEffect(() => {
+    const stopDocuments = useDocumentStore.subscribe(refreshExportState);
+    const stopExports = useExportStore.subscribe(refreshExportState);
     let focusedDialog: Element | null = null;
     const revealDialog = (event: FocusEvent) => {
       const dialog = event.target instanceof Element
@@ -288,10 +320,20 @@ function DemoApp() {
         window.parent.postMessage({ type: 'marker-demo:dialog-open' }, window.location.origin);
       }
       focusedDialog = dialog;
+      queueMicrotask(publishExportState);
     };
     document.addEventListener('focusin', revealDialog);
+    document.addEventListener('click', refreshExportState, true);
+    document.addEventListener('keydown', refreshExportState, true);
     window.parent.postMessage({ type: 'marker-demo:ready' }, window.location.origin);
-    return () => document.removeEventListener('focusin', revealDialog);
+    publishExportState();
+    return () => {
+      stopDocuments();
+      stopExports();
+      document.removeEventListener('focusin', revealDialog);
+      document.removeEventListener('click', refreshExportState, true);
+      document.removeEventListener('keydown', refreshExportState, true);
+    };
   }, []);
   return <App />;
 }
