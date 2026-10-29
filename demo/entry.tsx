@@ -1,7 +1,7 @@
 /** Website-only adapter. All workspace, reader, editor and settings UI comes from Marker. */
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import type { CodeFoldSnapshot, ReadingPosition, RenderDocument, UserPreferences, WorkspaceEntry, WorkspaceTree } from '@marker/contracts';
+import type { CodeFoldSnapshot, ContentSearchTarget, ReadingPosition, RenderDocument, UserPreferences, WorkspaceEntry, WorkspaceTree } from '@marker/contracts';
 import { App } from '@/app/app';
 import { ipcClient } from '@/ipc/client';
 import { createBrowserRenderDocument } from '@/ipc/browser-markdown';
@@ -18,6 +18,7 @@ import { TEXT_FORMATTING_CSS } from '@/editor/text-colors';
 import { exportDocument } from '@/export/export-document';
 import { useExportStore } from '@/export/export-store';
 import { hasActiveModal } from '@/components/common/use-modal-focus';
+import { CONTENT_SEARCH_LIMIT, searchTextTargets, throwIfSearchAborted } from '@/search/content-search';
 import '@/styles/index.css';
 
 installEmbeddedScrollBoundary();
@@ -115,7 +116,8 @@ function seedDocuments(nextLocale: DemoLocale, reset = false): void {
     const existing = documents.get(sample.id);
     const hasDraft = dirtyDocuments.has(sample.id);
     if (reset || !existing || (!hasDraft && existing.rawMarkdown === previousSamples.get(sample.id))) {
-      documents.set(sample.id, createBrowserRenderDocument(sample.id, sample.title, sample.markdown, sample.path));
+      const title = sample.path.split('/').pop()?.replace(/\.(md|markdown)$/i, '') || sample.title;
+      documents.set(sample.id, createBrowserRenderDocument(sample.id, title, sample.markdown, sample.path));
     }
   }
   locale = nextLocale;
@@ -173,6 +175,33 @@ ipcClient.getRecentItems = async () => [...recentDocuments].reverse().flatMap(([
     path: document.displayPath, isFolder: false, lastOpenedAt }] : [];
 });
 ipcClient.clearRecentItems = async () => { recentDocuments.clear(); };
+ipcClient.resolveSearchDocumentLocations = async (ids, roots) => {
+  const external = await browserIpc.resolveSearchDocumentLocations(ids, roots);
+  if (!roots.includes(workspaceId)) return external;
+  const requested = new Set(ids);
+  return [...external, ...getSampleDocuments(locale).flatMap(sample => requested.has(sample.id) && !sample.standalone
+    ? [{ documentId: sample.id, workspaceId, relativePath: sample.path }] : [])];
+};
+ipcClient.searchDocumentContents = async (request, signal) => {
+  throwIfSearchAborted(signal);
+  const sampleTargets: ContentSearchTarget[] = [];
+  const externalTargets: ContentSearchTarget[] = [];
+  for (const target of request.targets) {
+    const sample = target.documentId !== undefined ? documents.has(target.documentId) : target.workspaceId === workspaceId;
+    (sample ? sampleTargets : externalTargets).push(target);
+  }
+  const limit = Math.max(1, Math.min(CONTENT_SEARCH_LIMIT, Math.floor(request.limit) || CONTENT_SEARCH_LIMIT));
+  const local = await searchTextTargets({ ...request, targets: sampleTargets, limit }, async target =>
+    (target.documentId !== undefined ? requireDocument(target.documentId) : documentAtPath(target.relativePath)).rawMarkdown, signal);
+  throwIfSearchAborted(signal);
+  const external = !local.truncated && externalTargets.length > 0
+    ? await browserIpc.searchDocumentContents({ ...request, targets: externalTargets, limit: Math.max(1, limit - local.matches.length) }, signal)
+    : { matches: [], scannedFiles: 0, skippedFiles: 0, truncated: false };
+  throwIfSearchAborted(signal);
+  const matches = [...local.matches, ...external.matches];
+  return { matches: matches.slice(0, limit), scannedFiles: local.scannedFiles + external.scannedFiles,
+    skippedFiles: local.skippedFiles + external.skippedFiles, truncated: local.truncated || external.truncated || matches.length > limit };
+};
 ipcClient.getReadingPosition = async id => {
   const position = positions.get(id);
   return position ? { ...position } : null;
@@ -294,6 +323,8 @@ window.addEventListener('message', event => {
     publishExportState();
   } else if (event.data.type === 'marker-demo:search-files') {
     window.dispatchEvent(new KeyboardEvent('keydown', { key: 'p', ctrlKey: true, cancelable: true }));
+  } else if (event.data.type === 'marker-demo:search-contents') {
+    window.dispatchEvent(new KeyboardEvent('keydown', { key: 'f', ctrlKey: true, shiftKey: true, cancelable: true }));
   } else if (event.data.type === 'marker-demo:reset') {
     if (!useExportStore.getState().busy) void resetDemo();
   } else if (event.data.type === 'marker-demo:export') {

@@ -122,11 +122,13 @@
   const frame = document.getElementById('marker-demo');
   const fullscreen = document.getElementById('demo-fullscreen');
   const searchFiles = document.getElementById('demo-search');
+  const searchContents = document.getElementById('demo-content-search');
   const exportDocument = document.getElementById('demo-export');
   let exportSession = null;
   frame?.addEventListener('load', () => {
     exportSession = null;
     if (searchFiles) searchFiles.disabled = true;
+    if (searchContents) searchContents.disabled = true;
     if (exportDocument) exportDocument.disabled = true;
     frame.contentWindow?.postMessage({ type: 'marker-demo:query-state' }, window.location.origin);
   });
@@ -152,6 +154,7 @@
   window.addEventListener('message', (event) => {
     if (event.origin !== window.location.origin || event.source !== frame?.contentWindow) return;
     if (event.data?.type === 'marker-demo:ready' && searchFiles) searchFiles.disabled = false;
+    if (event.data?.type === 'marker-demo:ready' && searchContents) searchContents.disabled = false;
     if (event.data?.type === 'marker-demo:export-state' && exportDocument) {
       exportSession = event.data.session;
       exportDocument.disabled = event.data.available !== true;
@@ -170,6 +173,12 @@
     viewport?.scrollIntoView({ block: 'center' });
     frame.focus({ preventScroll: true });
     frame.contentWindow.postMessage({ type: 'marker-demo:search-files' }, window.location.origin);
+  });
+  searchContents?.addEventListener('click', () => {
+    if (!frame?.contentWindow) return;
+    viewport?.scrollIntoView({ block: 'center' });
+    frame.focus({ preventScroll: true });
+    frame.contentWindow.postMessage({ type: 'marker-demo:search-contents' }, window.location.origin);
   });
 
   exportDocument?.addEventListener('change', () => {

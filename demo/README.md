@@ -23,7 +23,17 @@ The Pages staging whitelist publishes `assets/demo/`, not this adapter directory
 The checked-in output lets the website deploy independently of private-source
 access. Rebuild it after a desktop UI change to keep the experience current.
 
-The 0.1.36 experience follows the simplified desktop title bar: Undo/Redo and
+The 0.1.37 experience includes ranked name/path/abbreviation lookup and the real
+content search dialog. Search samples before opening them, or search current
+unsaved drafts, with workspace/open-document scope, case matching, snippets,
+line/column positions, and source selection. The website offers a direct content
+search button and bilingual LaunchReady examples in the release checklist.
+Sample targets use the shared bounded raw-text search; imported local files keep
+the browser IPC path, and sample aliases avoid duplicate open-buffer results.
+The persistent SQLite/Bloom index and rebuild action belong to the desktop app;
+the website does not create a disk index.
+
+The experience follows the simplified desktop title bar: Undo/Redo and
 view modes remain, with insertion through the body context menu or slash menu.
 The website provides a native select below the iframe for PDF, HTML, PNG, and
 export settings, using the real export pipeline. Same-origin parent messages

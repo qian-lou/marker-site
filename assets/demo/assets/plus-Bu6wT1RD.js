@@ -1,4 +1,4 @@
-import{c as e}from"./code-fold-state-Dsx3_yJb.js";/**
+import{c as e}from"./workspace-store-CoL-qqGx.js";/**
  * @license lucide-react v0.446.0 - ISC
  *
  * This source code is licensed under the ISC license.

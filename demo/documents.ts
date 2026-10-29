@@ -55,6 +55,12 @@ const samples: Record<DemoLocale, DemoDocument[]> = {
 
 点击顶部的 **搜索文件**，或按 **⌘ / Ctrl + P**，按文件名或路径找到工作区与独立文件。在弹窗中切换 **树形 / 列表**，搜索词和选中文件会保留；输入 **Checklist**，即可找到折叠目录里的发布清单，点击或按 Enter 打开。
 
+
+
+点击文件搜索底部的「搜索文档内容」、官网下方的同名按钮，或按 **⌘ / Ctrl + Shift + F**，跨文档搜索正文。试试 **LaunchReady**，在结果中查看片段、文件路径及行列号，用方向键和 Enter 打开并选中对应源码。
+
+在「搜索范围」中选择全部、已打开文档或某个工作区；切换「区分大小写」比较结果。已打开文档使用当前草稿，未保存的新内容也能找到。桌面版会刷新工作区目录并复用本地索引，还可重建索引；网页仅搜索当前页面的示例及主动导入的文件，不创建磁盘索引。
+
 打开多份文档后，点击顶部标签切换；右键标签可固定、关闭其他标签，或重新打开关闭的文档。点击标签栏右侧的列表按钮，按文件名或路径搜索已打开的标签，使用方向键和 Enter 快速切换。
 
 标签列表会显示所属工作区路径；只有文件名时不重复显示第二行。悬停标签栏的按钮可查看说明。关闭全部标签后，顶部仍保留「打开新标签」按钮；点击即可创建空白文档并进入编辑。
@@ -348,6 +354,10 @@ flowchart LR
 - [x] 在多层目录中定位 Markdown 文档
 - [ ] 切换到源码模式，补充自己的检查项
 
+## 发布前的核对
+
+发布状态：LaunchReady。核对安装包、更新清单与官网体验，再记录检查结果。
+
 ## 保存与回顾
 
 编辑后保存，再打开其他文档并切回来，修改仍保留在当前网页会话中。这里的示例不会写入你的磁盘，点击官网的「重置体验」即可还原。
@@ -426,6 +436,12 @@ Expand **Projects → Marker → Release** to explore nested folders. **Quick no
 Right-click a file, folder, or workspace to open to the side, pin a tab, copy names and paths, or refresh, expand, and collapse folders. Disk creation, renaming, duplication, and deletion are unavailable in the web sample; use an authorized workspace in the desktop app for those actions.
 
 Click **Search Files** at the top, or press **⌘ / Ctrl + P**, to find workspace and standalone files by name or path. Switch between **Tree / List** without losing your query or selection. Search **Checklist** to find a file inside collapsed folders, then click it or press Enter to open it.
+
+
+
+Choose **Search document contents** at the bottom of file search or below the website workspace, or press **⌘ / Ctrl + Shift + F**. Search for **LaunchReady** to see snippets, paths, and line/column positions. Use arrow keys and Enter to open a result and select its source text.
+
+Choose all workspaces, open documents, or a workspace under Scope; toggle Match case to compare results. Open documents use their current drafts, including unsaved text. The desktop app refreshes directories and reuses a local index, with a rebuild action. The website searches page-scoped samples and files you choose to import, without creating a disk index.
 
 Open several documents and switch between their tabs. Right-click a tab to pin it, close other tabs, or reopen a closed document. The list button at the right of the tab bar searches open tabs by name or path; use arrow keys and Enter to switch quickly.
 
@@ -686,6 +702,10 @@ This document lives in **Projects / Marker / Release**. Expand the nested folder
 - [x] Group related ideas in folders
 - [x] Find Markdown documents at any folder level
 - [ ] Switch to Source and add a checklist item of your own
+
+## Before release
+
+Release status: LaunchReady. Check installers, the update manifest, and the website experience, then record the results.
 
 ## Save and revisit
 
