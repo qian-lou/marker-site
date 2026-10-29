@@ -24,6 +24,8 @@ Your current draft is preserved when switching between the three modes, so you c
 
 ## Key features
 
+- **Data charts**: Edit a table or paste TSV, CSV, and Markdown data. Preview bar, line, and pie charts; adjust titles, units, palettes, legends, and values. Charts follow the current reading skin, preserve missing values, validate data, and support independent undo, applying to the document, reading, and document exports.
+
 - **Mind maps**: Switch between Map, Outline, and Mermaid source; add, delete, reorder, and drag topics. Choose Balanced, Rightward, or Top-down layouts and eight themes, with animated tidying, search, folding, a minimap, and independent undo/redo. Apply stores Mermaid mindmap syntax; Read and document exports share vector rendering, with separate SVG and PNG export.
 
 - **Callouts and disclosures**: Edit titles and bodies, choose four callout types, and expand or collapse nested content with undo/redo. Read preserves styling; exports expand the full content. Insert accepts Chinese, English, pinyin, and common aliases; insertion within a body keeps its current callout or disclosure level.
@@ -75,6 +77,7 @@ The desktop app supports in-app updates. When a new version is available, an upd
 
 The [interactive workspace on the website](https://qian-lou.github.io/marker-site/#experience) runs the actual Marker frontend. Use the mode icons to switch between reading, editing, and source, and explore the file tree, file switching, outline, and reading settings.
 
+- Open Compare data with charts in Markdown.md, choose Edit and Visual editor, and try pasted data, chart types, titles, and styles. Choose Done to review in Read or a document export.
 - Open Organize ideas with a mind map in Markdown.md, choose Edit, then Visual editor above the map. Try topic editing, branch dragging, themes, Outline/Source synchronization, applying to the document, and SVG or PNG export.
 - Open Give notes and details their own space in Markdown.md. In Edit, try callout types, disclosure toggles, warning / zhedie search, and context insertion within the current body. Hover over the long file name to reveal it.
 - Open Think on an infinite canvas in `Markdown.md`, choose Edit, then Visual editor above the canvas block. Try a template, duplicate or edit an element, then choose Done and review in Read or an HTML export.

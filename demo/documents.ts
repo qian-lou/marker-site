@@ -2,6 +2,7 @@
 import sampleImage from './sample-image.png';
 import { CANVAS_TEMPLATES, serializeCanvas } from '@/canvas/canvas-model';
 import { DEFAULT_MINDMAP_SAMPLE, DEFAULT_MINDMAP_SAMPLE_EN } from '@/mindmap/mindmap-model';
+import { createDefaultChart, serializeChart } from '@/chart/chart-model';
 export type DemoLocale = 'zh-CN' | 'en-US';
 
 const canvasEnglishLabels: Record<string, string> = {
@@ -139,6 +140,20 @@ const samples: Record<DemoLocale, DemoDocument[]> = {
       markdown: `# 让内容，自然成形
 
 Markdown 让简单的文字拥有清晰的结构。切到「编辑」，试试勾选任务、修改表格，或使用代码块顶部的语言、复制与折叠工具；切回「只读」查看排版，草稿会继续保留。
+
+## 用数据图表呈现对比与趋势
+
+切到「编辑」，点击图表顶部的「可视化编辑」，直接修改下方表格；上方实时预览同步更新。选择柱状图、折线图或饼图，在「标题与单位」和「样式」中调整标题、单位、配色、图例与数值。
+
+\`\`\`chart
+${serializeChart(createDefaultChart())}
+\`\`\`
+
+点击「粘贴数据」，导入 Excel / WPS 复制的制表符数据、CSV 或 Markdown 表格，并选择自动识别、首行表头或无表头。导入会替换当前表格，可用图表内的撤销恢复；拖动粘贴区底边只调整输入区高度。
+
+首列为分类，其余列为数值。空单元格保留为缺失，折线不跨越缺口；数值与百分比不能共用坐标轴。数据最多 200 行、5 个数值系列，饼图最多 12 个分类；发现无效数据时会提示并暂停应用。
+
+点击「完成」作为一次正文修改保存。切到只读、导出 HTML / PDF / PNG，或双击图表重新编辑；图表、表格色标和控件随当前皮肤的深浅模式变化。数据随 Markdown 内的 chart 代码块保存，网页草稿仅保留在当前页面。
 
 ## 用思维导图梳理层级
 
@@ -464,6 +479,20 @@ Collect a passage, organize meeting notes, or write down an idea before it has a
       markdown: `# Give your ideas a clear shape
 
 Markdown gives plain text a useful structure. Switch to Edit to check a task, change a table, or try the language, copy, and fold controls above a code block. Switch back to Read to review the layout; your draft stays with you.
+
+## Compare data with charts
+
+Choose Edit, then Visual editor above the chart. Edit the table below and watch the report preview update. Switch between bar, line, and pie charts; use Title and unit or Style to change labels, units, palettes, legends, and values.
+
+\`\`\`chart
+${serializeChart(createDefaultChart(true))}
+\`\`\`
+
+Use Paste data for tab-separated Excel / WPS data, CSV, or Markdown tables. Choose automatic header detection, a first-row header, or no header. Import replaces the current table and can be undone inside the chart. Drag the paste area's bottom edge to resize only that input.
+
+The first column holds categories, and the rest hold numbers. Blanks stay missing and lines break at gaps. Numbers and percentages cannot share an axis. Charts support up to 200 rows and five numeric series, with up to 12 categories in pie charts. Invalid data shows a message and prevents applying it.
+
+Done saves one document edit. Review in Read, export HTML / PDF / PNG, or double-click the chart to edit it again. The chart, series swatches, and controls follow the current reading skin. Data stays in a chart code block within Markdown; web drafts stay in this page.
 
 ## Organize ideas with a mind map
 

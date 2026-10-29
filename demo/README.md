@@ -23,7 +23,14 @@ The Pages staging whitelist publishes `assets/demo/`, not this adapter directory
 The checked-in output lets the website deploy independently of private-source
 access. Rebuild it after a desktop UI change to keep the experience current.
 
-The 0.1.34 experience adds the actual mind map editor with Map, Outline, and
+The 0.1.35 experience adds the actual data chart editor, with table editing,
+TSV/CSV/Markdown import, header detection, bar/line/pie previews, theme-aware
+palettes, validation, and independent history. Both languages include the app
+default sample and matching instructions. Apply stores one chart code block;
+Read and document exports share the chart SVG renderer. The public build also
+includes the compact, higher-contrast tabs and thinner sidebar header divider.
+
+The experience adds the actual mind map editor with Map, Outline, and
 Source views; keyboard topic editing, branch dragging, eight themes, animated
 tidying, search, folding, a minimap, and SVG/PNG export. Both languages include
 the app default sample near the start of Markdown.md and matching instructions.
