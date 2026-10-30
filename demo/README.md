@@ -23,7 +23,18 @@ The Pages staging whitelist publishes `assets/demo/`, not this adapter directory
 The checked-in output lets the website deploy independently of private-source
 access. Rebuild it after a desktop UI change to keep the experience current.
 
-The 0.1.37 experience includes ranked name/path/abbreviation lookup and the real
+The 0.1.38 experience separates Chinese/Latin content fonts from interface fonts,
+with the shared monospace choice for code. Body text and headings keep their own
+font stack when the interface font changes. The updated frontend also refines
+reading defaults and dark code-block styling. Both languages include mixed-script
+samples and matching settings instructions.
+
+Closing a standalone tab now keeps its sidebar/file-search entry. Reopen from
+that entry, or remove it explicitly. Reset clears these page-scoped records.
+Native restart persistence is covered by the desktop session implementation;
+the adapter continues to disable disk-backed session restoration.
+
+The experience includes ranked name/path/abbreviation lookup and the real
 content search dialog. Search samples before opening them, or search current
 unsaved drafts, with workspace/open-document scope, case matching, snippets,
 line/column positions, and source selection. The website offers a direct content

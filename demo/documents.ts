@@ -51,6 +51,14 @@ const samples: Record<DemoLocale, DemoDocument[]> = {
 
 在「设置 → 外观 → 顶部工具栏」选择自动隐藏，把更多空间留给文字。鼠标移到工作台顶部即可唤出，移开 1 秒后收起；期间返回工具栏会取消隐藏，正文位置保持不变。也可用 Tab 聚焦顶部唤出按钮，再继续使用鼠标操作。
 
+### 内容与界面，各有合适的字体
+
+打开「设置 → 外观 → 字体设置」，在「内容字体」中分别选择中文、英文和代码等宽字体；在「界面字体」中设置文件树、大纲、工具栏与设置面板的中英文字体。更改界面字体后，正文和标题仍使用自己的内容字体。
+
+试试正文中文「宋体·简」、英文 Georgia、代码 Menlo，再给界面选择苹方或其他字体。Marker makes room for your words. 阅读与写作，也可以有自己的节奏。
+
+切换深浅皮肤，比较正文与代码块的字重、行距和边框。字体未安装时使用系统回退，不会自动下载。网页偏好仅保留在当前页面，桌面版会保存并在重启后恢复。
+
 ### 找到想看的那份文件
 
 点击顶部的 **搜索文件**，或按 **⌘ / Ctrl + P**，按文件名或路径找到工作区与独立文件。在弹窗中切换 **树形 / 列表**，搜索词和选中文件会保留；输入 **Checklist**，即可找到折叠目录里的发布清单，点击或按 Enter 打开。
@@ -100,7 +108,7 @@ const samples: Record<DemoLocale, DemoDocument[]> = {
 
 打开左侧的 **Notes.md** 与 **Markdown.md**，继续体验文件切换、代码、表格、数学公式和流程图。将鼠标移到顶部文件名旁，点击 **×** 关闭当前文档；文件仍保留在左侧，再次打开或切换回来会恢复之前的阅读位置。
 
-展开 **Projects → Marker → Release**，体验多层目录；下方的 **Quick note.md** 是一份独立文件示例，可切换、通过搜索弹窗查找，或从侧栏移除。桌面版还会在重启后恢复文件列表、当前文档、阅读位置和目录的展开、折叠状态。
+展开 **Projects → Marker → Release**，体验多层目录；下方的 **Quick note.md** 是一份独立文件示例。关闭它的标签，文件仍保留在侧栏；点击即可重新打开，也能从文件搜索中找到。使用侧栏的移除按钮会清理列表记录。桌面版重启后恢复侧栏文件列表，并让已关闭的标签保持关闭；网页仅保留当前页面的状态。
 
 右键文件、文件夹或工作区，试试打开到侧边、固定标签、复制名称和路径，以及刷新、展开与折叠目录。网页示例中的磁盘新建、重命名、复制与删除不可用；这些操作请在桌面版的已授权工作区使用。
 
@@ -247,7 +255,7 @@ ${canvasSources['zh-CN']}
 
 ## 代码，也有好的阅读体验
 
-打开设置中的字体库，为中文、英文与代码选择 Menlo、Monaco、Inconsolata 或 Space Grotesk；代码预览跟随所选字体。字体未安装时会使用后备字体，网页设置保留在当前页面，桌面版重启后恢复。
+打开「设置 → 外观 → 字体设置」，分别选择内容与界面的中英文字体；代码等宽字体可试试 Menlo、Monaco 或 Inconsolata。代码预览跟随所选字体，未安装时使用系统回退。网页设置保留在当前页面，桌面版重启后恢复。
 
 \`\`\`javascript
 const button = document.createElement('button');
@@ -402,6 +410,14 @@ Open, Search, and the file tree toggle align with the file pane width. Toggle th
 
 Choose Auto-hide under Settings → Appearance → Top toolbar for more reading space. Move the pointer to the top of the workspace to reveal it. Leaving starts a one-second hide delay; returning cancels it, and the document stays in place. You can also Tab to the reveal button, then continue with the pointer.
 
+### Give content and interface their own fonts
+
+Open Settings → Appearance → Font settings. Under Content fonts, choose Chinese, English / Latin, and monospace fonts for body text, headings, and code. Interface fonts separately control the file tree, outline, toolbar, and settings. Changing interface fonts keeps the content and heading fonts intact.
+
+Try Songti SC and Georgia for content, Menlo for code, and PingFang or another font for the interface. Marker makes room for your words. 阅读与写作，也可以有自己的节奏。
+
+Compare light and dark skins for text weight, line spacing, and code-block borders. Uninstalled fonts use system fallbacks without automatic downloads. Web preferences stay in this page; the desktop app restores them after restart.
+
 ### Keep your writing in flow
 
 Choose Edit to write directly on the page. Undo and Redo stay in the top toolbar. Right-click or type \`/\` in the document, then search for Table or Math to insert a content block.
@@ -431,7 +447,7 @@ The desktop app opens local Markdown files and folders, works offline, and needs
 
 Open **Notes.md** and **Markdown.md** to explore file switching, code, tables, formulas, and diagrams. Hover beside the filename in the toolbar and click **×** to close the document. It stays in the sidebar, and reopening it or switching back restores your reading position.
 
-Expand **Projects → Marker → Release** to explore nested folders. **Quick note.md** below the workspace is a standalone sample you can select, find with file search, or remove from the sidebar. The desktop app also restores your file list, active document, reading positions, and expanded or collapsed folders after a restart.
+Expand **Projects → Marker → Release** to explore nested folders. **Quick note.md** below the workspace is a standalone sample. Close its tab: the file stays in the sidebar, where you can reopen it or find it through file search. The sidebar remove action clears its list entry. The desktop app restores sidebar files after restart while keeping closed tabs closed; the website keeps this state in the current page only.
 
 Right-click a file, folder, or workspace to open to the side, pin a tab, copy names and paths, or refresh, expand, and collapse folders. Disk creation, renaming, duplication, and deletion are unavailable in the web sample; use an authorized workspace in the desktop app for those actions.
 
@@ -596,7 +612,7 @@ Drag a cell's right or bottom edge to adjust column width or row height. Focus t
 
 ## Code deserves a good reading experience
 
-Open the font library in Settings to choose Menlo, Monaco, Inconsolata, or Space Grotesk for Chinese, English, and code. The code preview uses your selected font, with fallbacks when a font is not installed. Demo preferences stay in this page; the desktop app restores them after restart.
+Open Settings → Appearance → Font settings to separate content and interface fonts. Content includes Chinese, English / Latin, and monospace choices; try Menlo, Monaco, or Inconsolata for code. Uninstalled fonts use system fallbacks. Demo preferences stay in this page; the desktop app restores them after restart.
 
 \`\`\`javascript
 const button = document.createElement('button');
