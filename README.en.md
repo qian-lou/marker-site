@@ -50,6 +50,7 @@ Your current draft is preserved when switching between the three modes, so you c
 - **Native Windows menus**: Use the File, Edit, View, and Help menus for common actions. macOS uses the system menu bar.
 - **Workspace file management**: Removing a workspace also clears its open-file records, so the desktop app will not restore them after a restart. You are prompted about unsaved changes first; other workspaces and standalone files are unaffected.
 - **Pick up where you left off**: Hover over the filename at the top to close the current document while keeping it in the sidebar. Reopening or switching back to a document restores its reading position. The desktop app also restores the file list, active file, and expanded or collapsed folders after a restart.
+- **Fewer repeated hover hints**: File, folder, tab, and content rows keep their labels and accessible path descriptions without redundant popups. Icon actions keep useful hints. Font groups, names, vendors, and previews are clearer, and long names wrap.
 - **Separate content and interface fonts**: Under Settings → Appearance → Font settings, choose content fonts for prose, headings, and code, and interface fonts for the file tree, outline, toolbar, and settings. Chinese and Latin fonts are independent. Skin defaults and dark code blocks are refined; uninstalled fonts use system fallbacks.
 - **A compact writing surface**: Undo, Redo, and reading modes stay in the top toolbar. Right-click or type / in the document to open the searchable insert menu. The desktop app exports through File → Export.
 - **Selection formatting and block dragging**: Select text to change paragraph styles, bold, underline, text colors, and highlights, including custom and recent colors. Drag the handle beside a paragraph to reorder sibling blocks, then undo or redo your changes.
@@ -98,7 +99,7 @@ The [interactive workspace on the website](https://qian-lou.github.io/marker-sit
 - Click a diagram title to collapse or expand the block. The state survives file and mode changes, and clears on reload or Reset demo. The interface also uses softer dark selections and subtle dividers.
 - Switch to Edit to try the single-row code toolbar, task checkboxes, and tables. Switch back to Read or Source with your current draft preserved.
 - Select text to try paragraph styles, underline, text colors, and highlights in the floating toolbar. Enter a custom hex color, then reopen the panel to use a recent color. Press Alt+F10 to focus the toolbar and Esc to return to the document.
-- Try the shared rounded selection in Read, Edit, Source, and code blocks. Switch between light and dark appearances to compare text, quotes, and tables.
+- Open Reading.md and repeat selections in paragraphs, lists, and tables. Try Shift extension, double-click, context menus, and copy; scroll to the end and resize the window to keep the highlight aligned. Read, Edit, Source, and code blocks share rounded selections.
 - Drag the six-dot handle beside a paragraph to reorder sibling blocks, then undo or redo. Switch to Read or Source to review the formatting and draft.
 - Right-click or type `/` in the document, then search for Table or Math. Use arrow keys and Enter to insert, or Esc to return to the document.
 - Switch to Source, drag the middle divider, then change modes or reload. The split ratio is kept in your current browser.

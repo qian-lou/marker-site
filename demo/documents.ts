@@ -81,7 +81,7 @@ const samples: Record<DemoLocale, DemoDocument[]> = {
 
 选中这段文字，试试浮动工具栏中的段落格式、加粗、下划线和颜色。颜色面板支持文字颜色、高亮与自定义十六进制颜色，最近使用的颜色会保存在当前浏览器中。按 Alt + F10 可用键盘进入工具栏，Esc 返回正文；撤销与重做保留选区。
 
-在只读、编辑、源码和代码块中拖动选中文字，体验统一的圆角选区；切换浅色与深色，查看正文、引用和表格的对比度。
+打开 **Reading.md**，在段落、列表与表格中重复划词，试试 Shift 扩选、双击选词和复制；滚动到末尾或调整窗口宽度后，选区仍应贴合文字。只读、编辑、源码和代码块保持统一的圆角选区。
 
 把鼠标移到段落左侧，拖动六点把手调整同级内容的顺序。切回只读或源码，查看保留下来的格式与草稿。
 
@@ -115,6 +115,53 @@ const samples: Record<DemoLocale, DemoDocument[]> = {
 移除工作空间时，其打开过的文件记录会一并清理；如有未保存内容，会先提示保存、放弃或取消。独立文件保持不变，桌面版重启后也不会恢复已移除工作空间的文件记录。
 
 也可以通过[发布清单](Projects/Marker/Release/Checklist.md)跳转到深层目录中的文档。
+`,
+    },
+    {
+      id: 'reading', path: 'Reading.md', title: '把值得留下的文字选出来',
+      markdown: `# 把值得留下的文字选出来
+
+在这里试试中文、English 与 \`src/views\` 的混合选择：从已有选区内部向左或向右重新拖动，开始一次新的摘录。
+
+## 从一个段落开始
+
+先选中一句话，再从选区中间开始拖动，留下更短的一段。按住 Shift 扩展范围，双击选择一个词，或用右键复制。普通链接仍可直接打开。
+
+- 先选中一整行，再从选区内部选取更短的一段。
+- 在列表中向左、向右重复选择，比较每次留下的文字。
+- 保留一段选区，滚动页面，再调整窗口宽度观察它的位置。
+
+| 笔记主题 | 想留下的内容 | 下一步 |
+| --- | --- | --- |
+| Reading notes | 中文和 English 可以放在同一份笔记里 | 摘录一个句子 |
+| Project ideas | 把路径、术语与解释放在一起 | 补充自己的理解 |
+| Daily review | 用简单的话记录一天的收获 | 明天再读一遍 |
+
+## 留下自己的理解
+
+阅读时，不必把整篇文章都搬进笔记。选出一句让自己停下来的话，写清楚它为什么有用，再补一个真实的例子。这样留下来的内容，更容易在需要的时候重新找到。
+
+摘录与理解可以放在相邻的段落中。原文保留作者的表达，自己的文字记录当时的判断。回头翻看时，就能分清哪一部分来自阅读，哪一部分是后来形成的新想法。
+
+## 让笔记之间有联系
+
+一份项目笔记可能同时出现任务清单、代码路径和讨论记录。用标题区分话题，用表格比较相近的信息，再通过链接把有关的文档连在一起，逐渐建立自己的阅读线索。
+
+遇到不熟悉的词，可以先保留原文，再用熟悉的语言解释一次。中文与 English 混排、行内代码和普通文字都可以一起选择；复制后，继续在自己的笔记中整理。
+
+## 按自己的节奏回顾
+
+长文读到一半，可以先停下来回顾前面的内容。哪些信息值得记住，哪些判断还需要查证，哪些问题适合留到下一次讨论，都可以成为继续阅读的起点。
+
+滚动到这里后，再尝试划词。选区应继续贴合文字，而不是只在最上面一屏显示。你也可以缩窄窗口，让段落重新换行，再观察选中的句子。
+
+## 把今天的摘录带走
+
+好的笔记不一定很长。它可以只是一段原文、一句解释和一个准备继续追问的问题。不断回看与补充，比一次写下所有细节更容易坚持。
+
+把这段文字留作今天的摘录，明天再回头读一遍。
+
+[回到欢迎文档](Welcome.md)
 `,
     },
     {
@@ -426,7 +473,7 @@ Right-click in the document body to open the same insert menu. Type to filter, u
 
 Select this paragraph to try paragraph styles, bold, underline, and colors in the floating toolbar. The color panel includes text colors, highlights, and custom hex colors. Recent colors stay in this browser. Press Alt + F10 to focus the toolbar and Esc to return to the document; undo and redo preserve your selection.
 
-Drag to select text in Read, Edit, Source, and code blocks to try the shared rounded selection. Switch between light and dark appearances to compare text, quotes, and tables.
+Open **Reading.md** to reselect text in paragraphs, lists, and tables. Try Shift extension, double-click, and copy; scroll to the end or resize the window and watch the highlight follow the text. Read, Edit, Source, and code blocks share rounded selection styling.
 
 Move the pointer to the left of a paragraph and drag its six-dot handle to reorder sibling blocks. Switch back to Read or Source to review your formatting and draft.
 
@@ -472,6 +519,53 @@ Operation results appear as compact colored toasts at the top right and close au
 Removing a workspace also clears its visited file records. Unsaved edits prompt you to save, discard, or cancel first. Standalone files stay in place, and the desktop app keeps the removed workspace's files out of the restored session after a restart.
 
 You can also follow the [release checklist](Projects/Marker/Release/Checklist.md) to open a document inside the nested folders.
+`,
+    },
+    {
+      id: 'reading', path: 'Reading.md', title: 'Keep the words worth returning to',
+      markdown: `# Keep the words worth returning to
+
+Try selecting 中文, English, and \`src/views\` together. Start inside an existing selection and drag left or right to make a fresh excerpt.
+
+## Begin with one paragraph
+
+Select a sentence, then start in its middle and keep a shorter passage. Hold Shift to extend a selection, double-click a word, or use the context menu to copy. Ordinary links remain available.
+
+- Select a complete line, then choose a shorter passage from inside it.
+- Repeat a leftward or rightward selection inside a list.
+- Keep a selection while scrolling or resizing the window and watch its position.
+
+| Note topic | What to keep | Next step |
+| --- | --- | --- |
+| Reading notes | Chinese and English can share one note | Save one sentence |
+| Project ideas | Keep paths, terminology, and explanations together | Add your interpretation |
+| Daily review | Record a useful thought in plain words | Revisit it tomorrow |
+
+## Leave room for your interpretation
+
+A reading note does not need to repeat an entire article. Choose a sentence that made you pause, explain why it matters, and add an example from your own work. A small, useful record is often easier to find and reuse than a long collection of copied passages.
+
+Keep the original passage beside your interpretation. The excerpt preserves the author's wording; your note records what you understood at that moment. When you return later, the distinction makes it easier to see how your thinking has changed.
+
+## Connect related notes
+
+A project note can contain a task list, a source path, and a discussion summary. Use headings to separate topics, a table to compare related information, and links to connect documents that belong together. Those simple connections create a useful route through a growing collection.
+
+When a term is unfamiliar, keep its original form and explain it in words you already use. Chinese, English, inline code, and ordinary prose can be selected together. Copy the passage and continue shaping the explanation in your own note.
+
+## Revisit at your own pace
+
+Pause halfway through a long article and look back. Decide which details deserve attention, which claims need another source, and which questions can wait for a later discussion. Each question can become a clear starting point for the next reading session.
+
+Try another selection after scrolling here. The highlight should continue to follow the text beyond the first screen. Make the window narrower, let the paragraph wrap again, and watch the selected words remain aligned.
+
+## Take a passage with you
+
+A useful note can be brief: one excerpt, one explanation, and one question to explore next. Returning to it and adding context over time is often more practical than trying to capture every detail at once.
+
+Keep this passage for today's notes and return to it tomorrow.
+
+[Back to Welcome](Welcome.md)
 `,
     },
     {

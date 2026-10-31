@@ -1,4 +1,4 @@
-import{c as y}from"./workspace-store-DAuYInqD.js";/**
+import{c as y}from"./workspace-store-BkpvBmi2.js";/**
  * @license lucide-react v0.446.0 - ISC
  *
  * This source code is licensed under the ISC license.

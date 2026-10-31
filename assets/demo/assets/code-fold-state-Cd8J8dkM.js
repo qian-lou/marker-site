@@ -1,5 +1,5 @@
 const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["./javascript-execution-guard-DqGtoO94.js","./index-JbG1ROtM.js","./index-PEnGzW--.js","./index-DrOl6QmL.js","./index-oJnEE4WO.js"])))=>i.map(i=>d[i]);
-import{c as M}from"./workspace-store-DAuYInqD.js";import{c as U,u as G}from"./document-store-DovaLW6K.js";import{g as K}from"./index-DrOl6QmL.js";import{_ as V}from"./preload-helper-CmsKOCeN.js";import{p as Z}from"./purify.es-DowdsyMd.js";import{c as Y}from"./skins-CeN0JzpT.js";import{f as B,g as ee}from"./code-presentation-CZU1G6O6.js";import{i as te}from"./index-DbdsqPSd.js";/**
+import{c as M}from"./workspace-store-BkpvBmi2.js";import{c as U,u as G}from"./document-store-B-0R6O4l.js";import{g as K}from"./index-DrOl6QmL.js";import{_ as V}from"./preload-helper-CmsKOCeN.js";import{p as Z}from"./purify.es-DowdsyMd.js";import{c as Y}from"./skins-SvSw2d8Q.js";import{f as B,g as ee}from"./code-presentation-CZU1G6O6.js";import{i as te}from"./index-DbdsqPSd.js";/**
  * @license lucide-react v0.446.0 - ISC
  *
  * This source code is licensed under the ISC license.

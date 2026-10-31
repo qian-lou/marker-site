@@ -23,7 +23,18 @@ The Pages staging whitelist publishes `assets/demo/`, not this adapter directory
 The checked-in output lets the website deploy independently of private-source
 access. Rebuild it after a desktop UI change to keep the experience current.
 
-The 0.1.38 experience separates Chinese/Latin content fonts from interface fonts,
+The 0.1.39 experience keeps rounded reading highlights aligned throughout the
+article after scrolling and resizing. Fresh pointer selections start inside an
+existing selection without initiating text dragging; Shift, copy, context menus,
+and double-click remain native. Both languages include Reading.md for paragraphs,
+lists, tables, mixed-script text, and selections near the end of a long document.
+
+Content rows omit redundant hover hints while preserving accessible names and
+path descriptions. Icon actions retain useful hints. Font settings now group
+metadata, pickers, and previews in desktop columns, stack at narrow widths, and
+wrap long names and vendor text.
+
+The experience separates Chinese/Latin content fonts from interface fonts,
 with the shared monospace choice for code. Body text and headings keep their own
 font stack when the interface font changes. The updated frontend also refines
 reading defaults and dark code-block styling. Both languages include mixed-script
