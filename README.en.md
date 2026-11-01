@@ -99,6 +99,7 @@ The [interactive workspace on the website](https://qian-lou.github.io/marker-sit
 - Click a diagram title to collapse or expand the block. The state survives file and mode changes, and clears on reload or Reset demo. The interface also uses softer dark selections and subtle dividers.
 - Switch to Edit to try the single-row code toolbar, task checkboxes, and tables. Switch back to Read or Source with your current draft preserved.
 - Select text to try paragraph styles, underline, text colors, and highlights in the floating toolbar. Enter a custom hex color, then reopen the panel to use a recent color. Press Alt+F10 to focus the toolbar and Esc to return to the document.
+- Open Layout.md to resize a visual block by its right or bottom edge, use arrow keys for fine adjustments, and type or insert another diagram beside it. Compare Read, Edit, and Source, then narrow the window to stack content. Right-click or type /canvas to open an empty canvas before inserting it with Done.
 - Open Reading.md and repeat selections in paragraphs, lists, and tables. Try Shift extension, double-click, context menus, and copy; scroll to the end and resize the window to keep the highlight aligned. Read, Edit, Source, and code blocks share rounded selections.
 - Drag the six-dot handle beside a paragraph to reorder sibling blocks, then undo or redo. Switch to Read or Source to review the formatting and draft.
 - Right-click or type `/` in the document, then search for Table or Math. Use arrow keys and Enter to insert, or Esc to return to the document.

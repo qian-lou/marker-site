@@ -1,6 +1,6 @@
 /** Public sample content only. The workspace uses the desktop app's real UI. */
 import sampleImage from './sample-image.png';
-import { CANVAS_TEMPLATES, serializeCanvas } from '@/canvas/canvas-model';
+import { CANVAS_TEMPLATES, EMPTY_CANVAS_SOURCE, serializeCanvas } from '@/canvas/canvas-model';
 import { DEFAULT_MINDMAP_SAMPLE, DEFAULT_MINDMAP_SAMPLE_EN } from '@/mindmap/mindmap-model';
 import { createDefaultChart, serializeChart } from '@/chart/chart-model';
 export type DemoLocale = 'zh-CN' | 'en-US';
@@ -115,6 +115,60 @@ const samples: Record<DemoLocale, DemoDocument[]> = {
 移除工作空间时，其打开过的文件记录会一并清理；如有未保存内容，会先提示保存、放弃或取消。独立文件保持不变，桌面版重启后也不会恢复已移除工作空间的文件记录。
 
 也可以通过[发布清单](Projects/Marker/Release/Checklist.md)跳转到深层目录中的文档。
+`,
+    },
+    {
+      id: 'layout', path: 'Layout.md', title: '让图块与文字一起排版',
+      markdown: `# 让图块与文字一起排版
+
+先切到「编辑」，拖动画板右边缘把它收窄，再到右侧留白处输入文字。也可以聚焦边缘后用左右方向键微调宽度，用底边的上下方向键调整高度。
+
+\`\`\`canvas
+${EMPTY_CANVAS_SOURCE}
+\`\`\`
+
+把画板收窄到约 320px，这段文字会自然留在旁边。点击「可视化编辑」，在空白画板中放入自己的第一个想法；也可以从画板模板开始。
+
+继续写一个段落，或在右侧通过右键、/ 菜单插入另一张图。空间不足时内容会移到下方，重新放宽窗口后再回到并排布局。
+
+<br />
+
+<br />
+
+<br />
+
+<br />
+
+<br />
+
+<br />
+
+<br />
+
+<br />
+
+<br />
+
+<br />
+
+<br />
+
+<br />
+
+## 把下一张图留在下方
+
+\`\`\`mermaid
+flowchart LR
+  A[一个想法] --> B[画成图形]
+  B --> C[补充说明]
+\`\`\`
+
+在「编辑」「只读」「源码」之间切换，比较图块大小、文字位置与空白段落。宽高会随当前页面的文档保留，网页刷新或重置体验后还原；桌面版还会在重启后恢复。
+
+> [!TIP] 从空白开始
+> 在正文中右键或输入 /canvas，选择「无限画板」。新画板从空白开始，点击「完成」才插入文档；可以取消，也可以随后选用模板。
+
+[查看更多图表与提示块](Markdown.md)
 `,
     },
     {
@@ -272,7 +326,7 @@ ${DEFAULT_MINDMAP_SAMPLE}
 
 ## 在无限画板中整理想法
 
-切到「编辑」，点击下方画板顶部的「可视化编辑」，拖动卡片、双击改字，或用底部工具栏添加便签、画框、文本、图形、连线和手绘。
+在正文中右键或输入 /canvas 新建空白画板，点击「完成」才插入文档。也可以切到「编辑」，点击下方示例画板顶部的「可视化编辑」，拖动卡片、双击改字，或用底部工具栏添加便签、画框、文本、图形、连线和手绘。
 
 \`\`\`canvas
 ${canvasSources['zh-CN']}
@@ -377,7 +431,7 @@ flowchart LR
 
 使用连接点添加连线，拖动端点换接图形；选中连线后，调整折线、曲线、箭头、拐点、线段与文字位置。支持网格、标尺、自动布局和独立撤销重做。点击「完成」作为一次修改写回正文，可再用正文撤销；布局与样式随 Mermaid 注释保存。高级语法使用源码与实时预览继续编辑。
 
-编辑模式下拖动图表预览底边，或聚焦底边后用上下方向键调高。切换到「只读」沿用同一高度，图表会自适应显示；切换文档后保留高度，网页刷新或重置后清空，桌面版重启可恢复。阅读与编辑也同步了更紧凑的正文顶部间距。
+打开 **Layout.md**，在编辑模式拖动图块右边或底边，或聚焦边缘后用方向键调整宽高。收窄后可在右侧继续输入或插入另一张图；窄窗口会恢复上下排列。切换到只读或源码后保留宽高、段落空白与排版位置；切换文档后也会保留，网页刷新或重置后清空，桌面版重启可恢复。
 
 点击图表左上角的 **MERMAID DIAGRAM** 折叠或展开整块图表。切换文件或模式后会保留状态；网页示例仅保留在当前会话，点击「重置体验」或刷新页面即可恢复，桌面版会保存折叠记录。
 
@@ -519,6 +573,60 @@ Operation results appear as compact colored toasts at the top right and close au
 Removing a workspace also clears its visited file records. Unsaved edits prompt you to save, discard, or cancel first. Standalone files stay in place, and the desktop app keeps the removed workspace's files out of the restored session after a restart.
 
 You can also follow the [release checklist](Projects/Marker/Release/Checklist.md) to open a document inside the nested folders.
+`,
+    },
+    {
+      id: 'layout', path: 'Layout.md', title: 'Make room for diagrams and words',
+      markdown: `# Make room for diagrams and words
+
+Choose Edit and drag the canvas's right edge to make it narrower, then type in the space beside it. Focus the edge and use Left / Right to adjust width, or use Up / Down on the bottom edge to adjust height.
+
+\`\`\`canvas
+${EMPTY_CANVAS_SOURCE}
+\`\`\`
+
+Make the canvas about 320px wide and this paragraph can sit beside it. Choose Visual editor to place your first idea on an empty canvas, or choose a canvas template to get started.
+
+Continue with another paragraph, or use the context or / menu to insert a second diagram beside the first. When space becomes limited, the content stacks below; a wider window brings the side layout back.
+
+<br />
+
+<br />
+
+<br />
+
+<br />
+
+<br />
+
+<br />
+
+<br />
+
+<br />
+
+<br />
+
+<br />
+
+<br />
+
+<br />
+
+## Keep the next diagram below
+
+\`\`\`mermaid
+flowchart LR
+  A[One idea] --> B[Draw it]
+  B --> C[Add context]
+\`\`\`
+
+Switch between Edit, Read, and Source to compare block sizes, text positions, and blank paragraphs. Widths and heights stay with the document in this page; reload or Reset demo restores the samples. The desktop app also restores them after restart.
+
+> [!TIP] Begin with a blank canvas
+> Right-click in the document or type /canvas and choose Canvas. A new canvas starts empty and is inserted only when you choose Done. Cancel it, or pick a template when you need one.
+
+[Explore more diagrams and callouts](Markdown.md)
 `,
     },
     {
@@ -676,7 +784,7 @@ Web edits stay in this page. Exports expand disclosures and keep all of their co
 
 ## Think on an infinite canvas
 
-Choose Edit, then Visual editor above the canvas block. Move cards, double-click text, or use the bottom tools to add sticky notes, frames, text, shapes, connectors, and freehand drawings.
+Right-click in the document or type /canvas to create a blank canvas; Done inserts it into the document. You can also choose Edit, then Visual editor above the sample canvas block. Move cards, double-click text, or use the bottom tools to add sticky notes, frames, text, shapes, connectors, and freehand drawings.
 
 \`\`\`canvas
 ${canvasSources['en-US']}
@@ -781,7 +889,7 @@ flowchart LR
 
 Use connection points to add an edge and drag its endpoints to reconnect shapes. Select an edge to adjust its route, arrows, waypoints, segments, and label position. Grid, rulers, automatic layout, and independent undo/redo are available. Done applies one document edit that can be undone; layout and styles travel in Mermaid comments. Advanced syntax remains editable as source with a live preview.
 
-In Edit mode, drag the diagram preview's bottom edge or focus it and use the up/down arrows to change its height. Read mode uses the same height and fits the diagram to it. Heights survive document switches in this page; reload or Reset demo clears them, while the desktop app also restores them after a restart. Read and Edit now share tighter spacing above the document.
+Open **Layout.md** and drag the right or bottom edge of a visual block in Edit, or focus an edge and use arrow keys to adjust width or height. Narrow blocks leave room for text or another diagram beside them; narrow windows stack the content. Read and Source preserve block sizes, blank paragraphs, and layout positions. Sizes survive document switches in this page; reload or Reset demo clears them, while the desktop app also restores them after restart.
 
 Click **MERMAID DIAGRAM** at the top left to collapse or expand the whole block. The state survives file and mode changes. Sample folding stays in this page session; Reset demo or reload restores it. The desktop app saves folding metadata on disk.
 

@@ -23,7 +23,16 @@ The Pages staging whitelist publishes `assets/demo/`, not this adapter directory
 The checked-in output lets the website deploy independently of private-source
 access. Rebuild it after a desktop UI change to keep the experience current.
 
-The 0.1.39 experience keeps rounded reading highlights aligned throughout the
+The 0.1.40 experience includes resizable visual blocks and side-by-side prose or
+diagrams. Reading and editing share document gutters, block frames, toolbar
+heights, and explicit blank-paragraph boxes. Both languages include Layout.md to
+try width/height handles, keyboard resizing, side insertion, and narrow stacking.
+Block dimensions stay in the page session; native restart persistence belongs to
+the desktop app. Canvas insertion opens an empty editor and commits only on Done;
+templates remain available. Callout titles, text, borders, and surfaces follow the
+updated reading skin in both modes.
+
+The experience keeps rounded reading highlights aligned throughout the
 article after scrolling and resizing. Fresh pointer selections start inside an
 existing selection without initiating text dragging; Shift, copy, context menus,
 and double-click remain native. Both languages include Reading.md for paragraphs,
