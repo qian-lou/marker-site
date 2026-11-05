@@ -23,7 +23,15 @@ The Pages staging whitelist publishes `assets/demo/`, not this adapter directory
 The checked-in output lets the website deploy independently of private-source
 access. Rebuild it after a desktop UI change to keep the experience current.
 
-The 0.1.40 experience includes resizable visual blocks and side-by-side prose or
+The 0.1.41 experience lets users select a visual block from its preview and
+remove it with Backspace or Delete as an isolated undoable edit. At adjacent text
+boundaries, the first press selects and the second deletes. Selection keeps focus
+in the document; source editing, resize handles, preview controls, and double-click
+visual editing remain available. Read-only and composition guards are covered by
+the editor tests. Both languages explain selection, deletion, and undo in Layout.md
+and Markdown.md, with matching website guidance.
+
+The experience includes resizable visual blocks and side-by-side prose or
 diagrams. Reading and editing share document gutters, block frames, toolbar
 heights, and explicit blank-paragraph boxes. Both languages include Layout.md to
 try width/height handles, keyboard resizing, side insertion, and narrow stacking.

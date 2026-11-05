@@ -123,6 +123,8 @@ const samples: Record<DemoLocale, DemoDocument[]> = {
 
 先切到「编辑」，拖动画板右边缘把它收窄，再到右侧留白处输入文字。也可以聚焦边缘后用左右方向键微调宽度，用底边的上下方向键调整高度。
 
+单击图块预览，看到整块选中边框后，按 Backspace / Delete 删除；用 ⌘ / Ctrl + Z 撤销恢复。在图块后方段首按 Backspace，或前方段末按 Delete，会先选中，再按一次删除。
+
 \`\`\`canvas
 ${EMPTY_CANVAS_SOURCE}
 \`\`\`
@@ -130,6 +132,8 @@ ${EMPTY_CANVAS_SOURCE}
 把画板收窄到约 320px，这段文字会自然留在旁边。点击「可视化编辑」，在空白画板中放入自己的第一个想法；也可以从画板模板开始。
 
 继续写一个段落，或在右侧通过右键、/ 菜单插入另一张图。空间不足时内容会移到下方，重新放宽窗口后再回到并排布局。
+
+在图块源码区，Backspace / Delete 继续编辑源码文字；双击预览或点击「可视化编辑」仍会打开专用编辑器。
 
 <br />
 
@@ -255,6 +259,8 @@ flowchart LR
       markdown: `# 让内容，自然成形
 
 Markdown 让简单的文字拥有清晰的结构。切到「编辑」，试试勾选任务、修改表格，或使用代码块顶部的语言、复制与折叠工具；切回「只读」查看排版，草稿会继续保留。
+
+单击图块预览，看到整块选中边框后，按 Backspace / Delete 删除；用 ⌘ / Ctrl + Z 撤销恢复。在图块后方段首按 Backspace，或前方段末按 Delete，会先选中，再按一次删除。 在图块源码区，Backspace / Delete 继续编辑源码文字；双击预览或点击「可视化编辑」仍会打开专用编辑器。
 
 ## 用数据图表呈现对比与趋势
 
@@ -581,6 +587,8 @@ You can also follow the [release checklist](Projects/Marker/Release/Checklist.md
 
 Choose Edit and drag the canvas's right edge to make it narrower, then type in the space beside it. Focus the edge and use Left / Right to adjust width, or use Up / Down on the bottom edge to adjust height.
 
+Click a block preview to select it, then press Backspace or Delete to remove it. Use ⌘ / Ctrl + Z to restore it. At the start of the paragraph after a block (Backspace), or the end of the paragraph before it (Delete), the first press selects and the next deletes.
+
 \`\`\`canvas
 ${EMPTY_CANVAS_SOURCE}
 \`\`\`
@@ -588,6 +596,8 @@ ${EMPTY_CANVAS_SOURCE}
 Make the canvas about 320px wide and this paragraph can sit beside it. Choose Visual editor to place your first idea on an empty canvas, or choose a canvas template to get started.
 
 Continue with another paragraph, or use the context or / menu to insert a second diagram beside the first. When space becomes limited, the content stacks below; a wider window brings the side layout back.
+
+Inside the source area, Backspace and Delete keep editing source text. Double-click the preview or choose Visual editor to open the dedicated editor.
 
 <br />
 
@@ -713,6 +723,8 @@ Collect a passage, organize meeting notes, or write down an idea before it has a
       markdown: `# Give your ideas a clear shape
 
 Markdown gives plain text a useful structure. Switch to Edit to check a task, change a table, or try the language, copy, and fold controls above a code block. Switch back to Read to review the layout; your draft stays with you.
+
+Click a block preview to select it, then press Backspace or Delete to remove it. Use ⌘ / Ctrl + Z to restore it. At the start of the paragraph after a block (Backspace), or the end of the paragraph before it (Delete), the first press selects and the next deletes. Inside the source area, Backspace and Delete keep editing source text. Double-click the preview or choose Visual editor to open the dedicated editor.
 
 ## Compare data with charts
 
