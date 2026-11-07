@@ -176,6 +176,44 @@ flowchart LR
 `,
     },
     {
+      id: 'mindmap-guide', path: 'Mindmap.md', title: '把思路带到需要的地方',
+      markdown: `# 把思路带到需要的地方
+
+切到「编辑」，双击导图预览或点击「可视化编辑」，打开思维导图工作台。修改一个主题，试试「复制图片」和「导出 SVG / PNG」，把当前想法带到笔记或演示中。
+
+\`\`\`mermaid
+${DEFAULT_MINDMAP_SAMPLE}
+\`\`\`
+
+## 带走当前的想法
+
+编辑主题时直接点导出，图片会使用新文字；在「源码」里写下有效的 Mermaid mindmap 后，也可以直接复制或导出当前草稿。未通过校验的源码会显示提示。
+
+桌面版可选择保存位置，并写入系统图片剪贴板。网页会下载图片；复制图片需要浏览器支持并允许剪贴板访问，无法复制时可改用 PNG 导出。操作期间按钮暂停重复提交，完成后可继续使用。
+
+## 找到顺手的控制
+
+悬停底部图标，查看工具栏上方的提示；按 Esc 先收起提示，再按可关闭工作台。主题旁的新增、折叠与展开控件也有提示。双击主题后直接打开「导图皮肤」，试试一次点击切换与撤销。
+
+切换深浅外观，比较工具按钮、输入框、主题选中状态与焦点。选择整块图表时，预览文字不会再盖上正文的选择底色；回到文字或源码中，仍可正常划词。
+
+## 一段话，一条思路
+
+> 把 **值得留下的想法** 放在一起，用 \`project/notes\` 记录它们之间的联系。
+>
+> > 换一个角度，再给问题一点时间。
+
+> [!NOTE] 补充一段说明
+> 提示块保留自己的标题与表面层级。
+>
+> > 说明里的引用，也有自己的侧边线。
+
+切到只读与编辑，对比普通引用的侧边线、留白和嵌套层级；链接、代码与文字仍可编辑和选择。
+
+[回到完整 Markdown 示例](Markdown.md)
+`,
+    },
+    {
       id: 'reading', path: 'Reading.md', title: '把值得留下的文字选出来',
       markdown: `# 把值得留下的文字选出来
 
@@ -287,6 +325,8 @@ ${DEFAULT_MINDMAP_SAMPLE}
 试试双向、右向和向下布局，拖动分支后点击「整理布局」回到自动排版；系统启用「减少动态效果」时不播放整理动画。用「导图皮肤」预览 8 款皮肤，切换后可撤销，应用到文档后再次打开仍会保留。
 
 在「大纲」中编辑层级，切到「源码」查看 Mermaid mindmap 语法；还可搜索主题、展开或折叠分支、通过缩略导航定位。导图内支持独立撤销重做、SVG 与 PNG 导出；点击「应用」作为一次正文修改保存，取消未应用修改时会提示确认。
+
+打开 **Mindmap.md**，试试当前主题或有效源码的图片复制、SVG / PNG 导出。桌面版选择保存位置，网页直接下载；复制不可用时会给出提示。悬停底部图标和 SVG 上的主题控件，可查看统一提示。
 
 阅读和文档导出沿用同一份矢量导图。网页草稿仅保留在当前页面，刷新或重置体验会还原示例。
 
@@ -640,6 +680,44 @@ Switch between Edit, Read, and Source to compare block sizes, text positions, an
 `,
     },
     {
+      id: 'mindmap-guide', path: 'Mindmap.md', title: 'Take your ideas with you',
+      markdown: `# Take your ideas with you
+
+Choose Edit, then double-click the map preview or choose Visual editor to open the mind map workspace. Change a topic and try Copy image or Export SVG / PNG to bring the current idea into a note or presentation.
+
+\`\`\`mermaid
+${DEFAULT_MINDMAP_SAMPLE_EN}
+\`\`\`
+
+## Keep the latest idea
+
+Export while editing a topic to include its new words. In Source, enter valid Mermaid mindmap text and copy or export that current draft directly. Invalid source shows a message before exporting.
+
+The desktop app offers a save location and writes images to the system clipboard. The website downloads images; Copy image needs browser support and clipboard permission, with PNG export as an alternative. Image controls pause repeat submissions while an action is running.
+
+## Find the right control
+
+Hover a bottom icon to see its hint above the toolbar. Esc dismisses the hint first; a second press can close the workspace. Add, collapse, and expand controls beside topics have hints too. Double-click a topic, then open Map themes directly to try a single-click change and undo.
+
+Compare tool buttons, inputs, selected themes, and focus in light and dark appearances. Whole-block selection keeps preview text free of the prose selection fill; ordinary text and source keep their normal text selection.
+
+## One passage, one idea
+
+> Keep **ideas worth returning to** together, and use \`project/notes\` to record their connections.
+>
+> > Look from another angle, then give the question a little time.
+
+> [!NOTE] A little more context
+> Callouts retain their own title and surface hierarchy.
+>
+> > A quote inside this explanation keeps its own side rule.
+
+Switch between Read and Edit to compare the side rule, spacing, and nested hierarchy. Links, code, and ordinary text remain available for editing and selection.
+
+[Back to the full Markdown sample](Markdown.md)
+`,
+    },
+    {
       id: 'reading', path: 'Reading.md', title: 'Keep the words worth returning to',
       markdown: `# Keep the words worth returning to
 
@@ -753,6 +831,8 @@ Try Balanced, Rightward, and Top-down layouts. Drag a branch, then choose Tidy u
 Edit the hierarchy in Outline and inspect Mermaid mindmap syntax in Source. Search topics, fold branches, and navigate with the minimap. The workspace has independent undo/redo and SVG or PNG export. Apply saves one document edit; canceling unapplied changes asks for confirmation.
 
 Read and document exports use the same vector map. Web drafts stay in this page; reload or Reset demo restores the sample.
+
+Open **Mindmap.md** to copy the current topic or valid source draft as an image, or export SVG / PNG. The desktop app offers a save location; the website downloads the image. Copy failures show a message. Bottom icons and SVG topic controls use the shared hints.
 
 ## Give notes and details their own space
 

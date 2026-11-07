@@ -23,7 +23,19 @@ The Pages staging whitelist publishes `assets/demo/`, not this adapter directory
 The checked-in output lets the website deploy independently of private-source
 access. Rebuild it after a desktop UI change to keep the experience current.
 
-The 0.1.41 experience lets users select a visual block from its preview and
+The 0.1.42 experience restores mind map image copying and PNG/SVG exports from
+the current inline edit or valid source draft. Native saves reuse destination
+grants and image clipboard commands; browser downloads keep Blob URLs alive for
+handoff and request clipboard access during the click. Busy, cancellation, invalid
+source, and error feedback are covered by the native/frontend tests.
+
+Both languages include Mindmap.md for image actions, SVG/tool hints, focus and
+selected states, and nested quote examples. Editors share clearer control colors;
+whole-block selection keeps preview fills separate from prose/source selection.
+Ordinary quotes use the same quiet side rule and spacing in Read and Edit, with
+nested quotes and callouts retaining distinct hierarchy.
+
+The experience lets users select a visual block from its preview and
 remove it with Backspace or Delete as an isolated undoable edit. At adjacent text
 boundaries, the first press selects and the second deletes. Selection keeps focus
 in the document; source editing, resize handles, preview controls, and double-click
