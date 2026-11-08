@@ -49,11 +49,11 @@ const samples: Record<DemoLocale, DemoDocument[]> = {
 
 顶部左侧的打开、搜索和文件树按钮随文件栏宽度对齐。点击文件树按钮，观察侧栏与顶部按钮区域同步展开、收起；拖动文件栏分隔线时同步调整，拖到最窄时仍与顶部按钮区对齐。聚焦分隔线后用方向键微调、Home / End 调至边界，双击恢复默认宽度。系统启用「减少动态效果」时不播放过渡。
 
-在「设置 → 外观 → 顶部工具栏」选择自动隐藏，把更多空间留给文字。鼠标移到工作台顶部即可唤出，移开 1 秒后收起；期间返回工具栏会取消隐藏，正文位置保持不变。也可用 Tab 聚焦顶部唤出按钮，再继续使用鼠标操作。
+在左下角「偏好设置 → 界面与视图 → 顶部工具栏」选择自动隐藏，把更多空间留给文字。鼠标移到工作台顶部即可唤出，移开 1 秒后收起；期间返回工具栏会取消隐藏，正文位置保持不变。也可用 Tab 聚焦顶部唤出按钮，再继续使用鼠标操作。
 
 ### 内容与界面，各有合适的字体
 
-打开「设置 → 外观 → 字体设置」，在「内容字体」中分别选择中文、英文和代码等宽字体；在「界面字体」中设置文件树、大纲、工具栏与设置面板的中英文字体。更改界面字体后，正文和标题仍使用自己的内容字体。
+打开左下角「偏好设置 → 字体与排版」，在「内容字体」中分别选择中文、英文和代码等宽字体；在「界面字体」中设置文件树、大纲、工具栏与设置面板的中英文字体。更改界面字体后，正文和标题仍使用自己的内容字体。
 
 试试正文中文「宋体·简」、英文 Georgia、代码 Menlo，再给界面选择苹方或其他字体。Marker makes room for your words. 阅读与写作，也可以有自己的节奏。
 
@@ -87,7 +87,7 @@ const samples: Record<DemoLocale, DemoDocument[]> = {
 
 切到「源码」，左右拖动中间分隔线调整源码与预览宽度；方向键可微调，双击恢复均分。切换模式或刷新页面后，继续使用当前浏览器记住的分屏比例。
 
-在「设置 → 外观」关闭「显示状态栏」，把更多空间留给正文；需要文档信息和阅读进度时可再次打开。网页中的设置保留在当前页面，桌面版会在重启后恢复。
+在左下角「偏好设置 → 界面与视图」关闭「显示状态栏」，把更多空间留给正文；需要文档信息和阅读进度时可再次打开。网页中的设置保留在当前页面，桌面版会在重启后恢复。
 
 ### 把内容带到需要的地方
 
@@ -115,6 +115,55 @@ const samples: Record<DemoLocale, DemoDocument[]> = {
 移除工作空间时，其打开过的文件记录会一并清理；如有未保存内容，会先提示保存、放弃或取消。独立文件保持不变，桌面版重启后也不会恢复已移除工作空间的文件记录。
 
 也可以通过[发布清单](Projects/Marker/Release/Checklist.md)跳转到深层目录中的文档。
+`,
+    },
+    {
+      id: 'workspace-guide', path: 'Workspace.md', title: '让工作区跟上思路',
+      markdown: `# 让工作区跟上思路
+
+打开另一份示例，再把它的标签拖到正文左、右边缘，或顶部、底部，组成多文档分栏。拖动分隔线调整大小，双击恢复均分；也可以聚焦分隔线，用方向键微调。
+
+## 留住上下文
+
+试着让 Workspace.md 与 Notes.md 同时可见。点击另一栏的正文切换活动文档，每栏保留自己的滚动位置和大纲；选中文字、点击链接或操作图表时不会意外切换。移除分栏会保留标签页。单文档不显示重复的栏内目录。
+
+网页的文档、草稿和分栏保留在当前页面，刷新或重置体验会恢复示例；桌面版会保存分栏和阅读位置，供下次打开时继续。
+
+## 把设置放在手边
+
+点击左下角 Marker 菜单切换语言和深浅外观，或点击旁边的「偏好设置」。设置按代码与终端、界面与视图、安全与同步、主题与色彩、字体与排版分组，可搜索关键词，也可清空搜索回到全部选项。
+
+在「界面与视图」切换标准阅读、带目录阅读或源码分屏，观察当前文档立即响应。设置可按 Esc 关闭，回到刚才的阅读与编辑位置。
+
+## 只调整选中的文字
+
+切到「编辑」，选中下面一句话，在浮动工具栏的「字号」中选 24 px，再切回只读比较。可撤销、重做，或选默认字号恢复；切换模式和导出 HTML 都会保留文字字号。
+
+<span data-marker-font-size="24" style="font-size:24px">给这一句，多一点空间。</span>
+
+其他段落保持自己的大小；正文排版设置继续控制整篇文档。
+
+## 试试终端命令模拟
+
+下面是终端模拟示例。点击「运行终端命令」查看输出，也可输入命令、清空或关闭面板。pwd 和 ls 使用当前示例工作区的路径与条目；这是命令模拟，操作不会运行系统 Shell 或安装软件。
+
+\`\`\`terminal
+$ echo Marker workspace
+$ pwd
+$ ls
+\`\`\`
+
+## 让代码焦点更清楚
+
+编辑代码时，当前行只在聚焦且没有范围选区时显示内缩圆角背景，行号槽保持连续。拖选一段代码或点击正文，对比高亮变化；单击仍可回到原来的编辑位置。
+
+\`\`\`javascript
+const workspace = 'Marker';
+const nextStep = 'Keep writing';
+console.log(workspace, nextStep);
+\`\`\`
+
+[打开另一份笔记](Notes.md) · [查看完整 Markdown 示例](Markdown.md)
 `,
     },
     {
@@ -402,7 +451,7 @@ ${canvasSources['zh-CN']}
 
 ## 代码，也有好的阅读体验
 
-打开「设置 → 外观 → 字体设置」，分别选择内容与界面的中英文字体；代码等宽字体可试试 Menlo、Monaco 或 Inconsolata。代码预览跟随所选字体，未安装时使用系统回退。网页设置保留在当前页面，桌面版重启后恢复。
+打开左下角「偏好设置 → 字体与排版」，分别选择内容与界面的中英文字体；代码等宽字体可试试 Menlo、Monaco 或 Inconsolata。代码预览跟随所选字体，未安装时使用系统回退。网页设置保留在当前页面，桌面版重启后恢复。
 
 \`\`\`javascript
 const button = document.createElement('button');
@@ -555,11 +604,11 @@ Jump between sections in the outline. Drag either divider, or hide the sidebars 
 
 Open, Search, and the file tree toggle align with the file pane width. Toggle the file tree to watch the pane and its header move together; divider drags resize both, with alignment preserved at the minimum width. Focus a divider to resize with arrow keys, use Home / End for its limits, or double-click to restore its default width. Transitions are disabled when your system requests reduced motion.
 
-Choose Auto-hide under Settings → Appearance → Top toolbar for more reading space. Move the pointer to the top of the workspace to reveal it. Leaving starts a one-second hide delay; returning cancels it, and the document stays in place. You can also Tab to the reveal button, then continue with the pointer.
+Choose Auto-hide under bottom-left Settings → Layout & view → Top toolbar for more reading space. Move the pointer to the top of the workspace to reveal it. Leaving starts a one-second hide delay; returning cancels it, and the document stays in place. You can also Tab to the reveal button, then continue with the pointer.
 
 ### Give content and interface their own fonts
 
-Open Settings → Appearance → Font settings. Under Content fonts, choose Chinese, English / Latin, and monospace fonts for body text, headings, and code. Interface fonts separately control the file tree, outline, toolbar, and settings. Changing interface fonts keeps the content and heading fonts intact.
+Open bottom-left Settings → Typography. Under Content fonts, choose Chinese, English / Latin, and monospace fonts for body text, headings, and code. Interface fonts separately control the file tree, outline, toolbar, and settings. Changing interface fonts keeps the content and heading fonts intact.
 
 Try Songti SC and Georgia for content, Menlo for code, and PingFang or another font for the interface. Marker makes room for your words. 阅读与写作，也可以有自己的节奏。
 
@@ -579,7 +628,7 @@ Move the pointer to the left of a paragraph and drag its six-dot handle to reord
 
 Choose Source and drag the middle divider to resize the source and preview. Use arrow keys for fine adjustments or double-click for equal widths. Your split ratio stays in this browser across mode changes and page reloads.
 
-Turn off Show status bar under Settings → Appearance to make more room for the document. Turn it back on for document information and reading progress. Demo settings stay in this page; the desktop app restores them after a restart.
+Turn off Show status bar under bottom-left Settings → Layout & view to make more room for the document. Turn it back on for document information and reading progress. Demo settings stay in this page; the desktop app restores them after a restart.
 
 ## A lighter everyday workflow
 
@@ -619,6 +668,55 @@ Operation results appear as compact colored toasts at the top right and close au
 Removing a workspace also clears its visited file records. Unsaved edits prompt you to save, discard, or cancel first. Standalone files stay in place, and the desktop app keeps the removed workspace's files out of the restored session after a restart.
 
 You can also follow the [release checklist](Projects/Marker/Release/Checklist.md) to open a document inside the nested folders.
+`,
+    },
+    {
+      id: 'workspace-guide', path: 'Workspace.md', title: 'Keep your workspace in step',
+      markdown: `# Keep your workspace in step
+
+Open another sample, then drag its tab to the left, right, top, or bottom edge of the document to create document panes. Drag a divider to resize, double-click to balance, or focus it and use the arrow keys.
+
+## Keep the context
+
+Try keeping Workspace.md and Notes.md visible together. Click ordinary text in another pane to activate it. Each pane keeps its own reading position and outline; text selection, links, and diagram controls do not accidentally switch documents. Removing a pane keeps its tab open. A single document hides the duplicate pane outline.
+
+Website documents, drafts, and panes stay in this page; reload or Reset demo restores the samples. The desktop app saves pane layouts and reading positions for the next session.
+
+## Keep settings within reach
+
+Open the bottom-left Marker menu for language and light/dark appearance, or choose the adjacent Settings icon. Settings groups code and terminal, layout and view, privacy and sync, color themes, and typography. Search for a keyword or clear the query to return to all options.
+
+Under Layout & view, switch between standard reading, reading with outline, and source split view. The current document responds immediately. Press Esc to close Settings and return to your document.
+
+## Change just the selected words
+
+Choose Edit, select the sentence below, and pick 24 px under Font size in the floating toolbar. Return to Read to compare. Undo, redo, or choose Default to restore the size; mode changes and HTML export preserve text sizing.
+
+<span data-marker-font-size="24" style="font-size:24px">Give this sentence a little more room.</span>
+
+Other paragraphs keep their own size. Document typography settings still control the whole page.
+
+## Try terminal command simulation
+
+Choose Run terminal command below to see output, then type a command, clear the output, or close the panel. The pwd and ls commands use the sample workspace path and entries. This is a command simulator; it does not run a system shell or install software.
+
+\`\`\`terminal
+$ echo Marker workspace
+$ pwd
+$ ls
+\`\`\`
+
+## See where code has focus
+
+When code has focus with no range selected, its active line has an inset rounded background while the gutter stays continuous. Select some code or click ordinary text to compare. Click again to return to the code.
+
+\`\`\`javascript
+const workspace = 'Marker';
+const nextStep = 'Keep writing';
+console.log(workspace, nextStep);
+\`\`\`
+
+[Open another note](Notes.md) · [Explore the full Markdown sample](Markdown.md)
 `,
     },
     {
@@ -906,7 +1004,7 @@ Drag a cell's right or bottom edge to adjust column width or row height. Focus t
 
 ## Code deserves a good reading experience
 
-Open Settings → Appearance → Font settings to separate content and interface fonts. Content includes Chinese, English / Latin, and monospace choices; try Menlo, Monaco, or Inconsolata for code. Uninstalled fonts use system fallbacks. Demo preferences stay in this page; the desktop app restores them after restart.
+Open bottom-left Settings → Typography to separate content and interface fonts. Content includes Chinese, English / Latin, and monospace choices; try Menlo, Monaco, or Inconsolata for code. Uninstalled fonts use system fallbacks. Demo preferences stay in this page; the desktop app restores them after restart.
 
 \`\`\`javascript
 const button = document.createElement('button');

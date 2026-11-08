@@ -23,7 +23,15 @@ The Pages staging whitelist publishes `assets/demo/`, not this adapter directory
 The checked-in output lets the website deploy independently of private-source
 access. Rebuild it after a desktop UI change to keep the experience current.
 
-The 0.1.42 experience restores mind map image copying and PNG/SVG exports from
+The 0.1.43 experience adds document panes with edge drops, independent reading
+positions, outlines, resizable dividers, and desktop session persistence. Browser
+samples keep pane layouts and drafts within the current page. Workspace.md in both
+languages introduces panes, the bottom-left quick menu, searchable category-based
+Settings, selected-text font sizes, terminal command simulation, and focus-only
+code-line highlights. Terminal output is simulated; it does not execute a system
+shell. Read and HTML export preserve validated text-size metadata.
+
+The experience restores mind map image copying and PNG/SVG exports from
 the current inline edit or valid source draft. Native saves reuse destination
 grants and image clipboard commands; browser downloads keep Blob URLs alive for
 handoff and request clipboard access during the click. Busy, cancellation, invalid
