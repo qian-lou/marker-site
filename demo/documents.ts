@@ -47,7 +47,7 @@ const samples: Record<DemoLocale, DemoDocument[]> = {
 
 点击右侧标题跳转章节，拖动两侧分隔线，或收起侧栏，把整个画面留给正文。
 
-顶部左侧的打开、搜索和文件树按钮随文件栏宽度对齐。点击文件树按钮，观察侧栏与顶部按钮区域同步展开、收起；拖动文件栏分隔线时同步调整，拖到最窄时仍与顶部按钮区对齐。聚焦分隔线后用方向键微调、Home / End 调至边界，双击恢复默认宽度。系统启用「减少动态效果」时不播放过渡。
+左侧导航栏集中「文件」「快速打开」和「新建笔记」。收起文件树后，仍可用这些入口和底部的「偏好设置」。打开 [Workspace.md](Workspace.md)，试试拖动侧栏分隔线并观察正文重排。
 
 在左下角「偏好设置 → 界面与视图 → 顶部工具栏」选择自动隐藏，把更多空间留给文字。鼠标移到工作台顶部即可唤出，移开 1 秒后收起；期间返回工具栏会取消隐藏，正文位置保持不变。也可用 Tab 聚焦顶部唤出按钮，再继续使用鼠标操作。
 
@@ -120,6 +120,16 @@ const samples: Record<DemoLocale, DemoDocument[]> = {
     {
       id: 'workspace-guide', path: 'Workspace.md', title: '让工作区跟上思路',
       markdown: `# 让工作区跟上思路
+
+## 用左侧导航打开或新建笔记
+
+点击「文件」收起文件树，再用「快速打开」搜索 Notes.md。也可以点击「新建笔记」，在空白文档里输入一句话。收起文件树后，左下角 Marker 图标仍可打开语言和主题菜单，齿轮可直接打开偏好设置。
+
+## 边读边调整宽度
+
+打开 [Reading.md](Reading.md)，滚到文档中段，拖动文件栏或目录栏的分隔线，观察可见文字随宽度重排。松手后，阅读位置会尽量停在原来的段落。聚焦分隔线后可用方向键微调，按 Home 或 End 跳到宽度边界，双击恢复默认宽度。
+
+## 并排打开两份文档
 
 打开另一份示例，再把它的标签拖到正文左、右边缘，或顶部、底部，组成多文档分栏。拖动分隔线调整大小，双击恢复均分；也可以聚焦分隔线，用方向键微调。
 
@@ -602,7 +612,7 @@ Good tools stay quietly beside you. Read a long article, gather your notes, or c
 
 Jump between sections in the outline. Drag either divider, or hide the sidebars to give the page your full attention.
 
-Open, Search, and the file tree toggle align with the file pane width. Toggle the file tree to watch the pane and its header move together; divider drags resize both, with alignment preserved at the minimum width. Focus a divider to resize with arrow keys, use Home / End for its limits, or double-click to restore its default width. Transitions are disabled when your system requests reduced motion.
+The left rail gives you Files, Quick open, and New note. These controls and Settings remain available when you collapse the file tree. Open [Workspace.md](Workspace.md) to drag a sidebar divider and watch the document reflow.
 
 Choose Auto-hide under bottom-left Settings → Layout & view → Top toolbar for more reading space. Move the pointer to the top of the workspace to reveal it. Leaving starts a one-second hide delay; returning cancels it, and the document stays in place. You can also Tab to the reveal button, then continue with the pointer.
 
@@ -673,6 +683,16 @@ You can also follow the [release checklist](Projects/Marker/Release/Checklist.md
     {
       id: 'workspace-guide', path: 'Workspace.md', title: 'Keep your workspace in step',
       markdown: `# Keep your workspace in step
+
+## Open or create a note from the rail
+
+Choose Files to collapse the tree, then use Quick open to find Notes.md. Try New note to write a sentence in a blank document. With the tree closed, the bottom-left Marker icon still opens language and theme controls, and the gear opens Settings.
+
+## Adjust the width while reading
+
+Open [Reading.md](Reading.md), scroll partway through, and drag a file or outline sidebar divider. Watch the visible text reflow as you drag. When you release, the reader keeps your place near the same paragraph. Focus a divider to resize with the arrow keys, press Home or End to reach its limits, or double-click to restore its default width.
+
+## Open two documents side by side
 
 Open another sample, then drag its tab to the left, right, top, or bottom edge of the document to create document panes. Drag a divider to resize, double-click to balance, or focus it and use the arrow keys.
 
