@@ -352,6 +352,31 @@ ${DEFAULT_MINDMAP_SAMPLE}
 `,
     },
     {
+      id: 'image-guide', path: 'Images.md', title: '让文字绕着图片走',
+      markdown: `# 让文字绕着图片走
+
+切到「编辑」，从图片本身向左或向右拖动，松手放下。点击图片旁的空白处即可输入，也可以先选中图片，再按 ← 或 → 到对应一侧写字。试试先写一句，再拖动图片，观察文字怎样重新换行。
+
+![试着拖动这张图片](${sampleImage} "向左或向右拖动")
+
+<!-- marker:image-frame {"width":260,"height":240} -->
+
+## 看两侧文字如何接排
+
+下面的图片两侧已有正文。拖动图片，或调整工作台宽度，观察文字在图旁和图下的变化。选中图片后仍可修改说明和图片区域大小。
+
+![两侧正文示例](${sampleImage} "图文绕排示例")
+
+<!-- marker:image-frame {"width":260,"height":240,"textBlocks":1,"leftTextBlocks":1} -->
+
+右侧适合补充画面之外的信息。试着在这里多写几句，看看行宽变窄后，文字怎样在图片边缘换行。超过图片底边的内容会继续排到下方。你也可以把这段改成自己的笔记。
+
+左侧可以写观察或摘要。先挑一个容易辨认的细节，再说明它和正文有什么关系。继续添加几句，观察当侧边空间不足时，段落怎样接到图下。
+
+切回「只读」查看排版，或在「源码」中查看图片旁的正文和布局记录。按撤销或重做可对照拖动前后的效果。
+`,
+    },
+    {
       id: 'markdown', path: 'Markdown.md', title: '让内容，自然成形',
       markdown: `# 让内容，自然成形
 
@@ -504,6 +529,8 @@ document.getElementById('add-idea').addEventListener('click', () => {
 HTML 预览可手动加载 HTTP(S) CDN 脚本和样式；网页中的 fetch / XMLHttpRequest 遵循浏览器 CORS。桌面版提供本地请求代理，无需接口开放 CORS；预览无法访问应用文档或 IPC。示例不依赖外部资源，点击后即可离线体验。
 
 ## 图片，也能自然排版
+
+打开 [Images.md](Images.md)，试试横向拖动图片、在两侧写字和图下续排。
 
 切到「编辑」并点击图片，试试下方的说明、缩放和区域尺寸控件，或拖动边缘与角落的把手。图片始终完整显示，切回「只读」或「源码」查看保留的尺寸；修改也支持撤销与重做。
 
@@ -915,6 +942,31 @@ Collect a passage, organize meeting notes, or write down an idea before it has a
 `,
     },
     {
+      id: 'image-guide', path: 'Images.md', title: 'Write around an image',
+      markdown: `# Write around an image
+
+Choose Edit and drag the image itself left or right. Click the space beside it to start typing, or select the image and press ← or → to write on that side. Add a sentence, then move the image again and watch the words wrap.
+
+![An image to drag](${sampleImage} "Drag left or right")
+
+<!-- marker:image-frame {"width":260,"height":240} -->
+
+## See how text continues below
+
+The next image already has text on both sides. Drag the image or change the workspace width to see how the text fits beside and below it. Select the image to edit its caption and frame size.
+
+![An image with text on both sides](${sampleImage} "Text wrapping example")
+
+<!-- marker:image-frame {"width":260,"height":240,"textBlocks":1,"leftTextBlocks":1} -->
+
+Use this side for a detail that goes beyond the picture. Add a few lines and watch how they wrap when the space gets narrower. Text continues below the image when it runs past the bottom edge. Try replacing this paragraph with your own note.
+
+Use this side for observations or a short summary. Pick one detail you can point to, then explain how it relates to the surrounding text. Keep typing to see how the paragraph continues below the image when space runs out.
+
+Switch to Read to inspect the layout, or open Source to see the text and layout recorded in Markdown. Use Undo and Redo to compare positions before and after a drag.
+`,
+    },
+    {
       id: 'markdown', path: 'Markdown.md', title: 'Give your ideas a clear shape',
       markdown: `# Give your ideas a clear shape
 
@@ -1067,6 +1119,8 @@ document.getElementById('add-idea').addEventListener('click', () => {
 HTML previews can manually load HTTP(S) CDN scripts and styles. Web fetch / XMLHttpRequest follows browser CORS. The desktop app provides a local request proxy without requiring API CORS; previews cannot access application documents or IPC. These samples use no external resources, so you can try them offline after loading.
 
 ## Images that fit the page
+
+Open [Images.md](Images.md) to drag an image and write beside it, then see how the text continues below.
 
 Choose Edit and select the image to try its caption, scale, and area dimensions, or drag an edge or corner handle. The whole image stays visible. Switch to Read or Source to review its saved dimensions; changes support undo and redo.
 
