@@ -51,6 +51,8 @@ const samples: Record<DemoLocale, DemoDocument[]> = {
 
 在左下角「偏好设置 → 界面与视图 → 顶部工具栏」选择自动隐藏，把更多空间留给文字。鼠标移到工作台顶部即可唤出，移开 1 秒后收起；期间返回工具栏会取消隐藏，正文位置保持不变。也可用 Tab 聚焦顶部唤出按钮，再继续使用鼠标操作。
 
+打开 [Appearance.md](Appearance.md)，试试自定义主题、背景图片和窄窗口工具栏。
+
 ### 内容与界面，各有合适的字体
 
 打开左下角「偏好设置 → 字体与排版」，在「内容字体」中分别选择中文、英文和代码等宽字体；在「界面字体」中设置文件树、大纲、工具栏与设置面板的中英文字体。更改界面字体后，正文和标题仍使用自己的内容字体。
@@ -115,6 +117,25 @@ const samples: Record<DemoLocale, DemoDocument[]> = {
 移除工作空间时，其打开过的文件记录会一并清理；如有未保存内容，会先提示保存、放弃或取消。独立文件保持不变，桌面版重启后也不会恢复已移除工作空间的文件记录。
 
 也可以通过[发布清单](Projects/Marker/Release/Checklist.md)跳转到深层目录中的文档。
+`,
+    },
+    {
+      id: 'appearance-guide', path: 'Appearance.md', title: '把工作台调成自己的样子',
+      markdown: `# 把工作台调成自己的样子
+
+打开左下角的「偏好设置」，在「主题与色彩」的「自定义」区新建主题。试试纸色 #F5E8DB、墨色 #30241F、点缀色 #7C3659。预览和文档会一起更新。把墨色调得接近纸色，可查看正文对比度如何自动校正。
+
+## 让背景适合阅读
+
+在「背景图片」导入一张本地 PNG、JPEG 或 WebP。先降低不透明度，再试模糊度或色温，对照正文是否易读。「填充」「适应」「拉伸」会改变图片占据窗口的方式。网页把背景图片保存在当前浏览器，可在同一区域移除。
+
+## 在窄窗口切换视图
+
+点击官网的「在新窗口体验」，打开几份示例，再缩窄窗口。顶部控件会在标签空间不足时折叠为菜单。可从文档模式菜单切换只读、编辑和分屏，也可从布局菜单调整正文宽度和目录栏。用 Tab 聚焦控件，再用 Enter 打开菜单。
+
+这段正文可以用来比较纸色和墨色。**重点文字**、[工作区示例](Workspace.md)和引用也会跟随主题。
+
+> 背景只改变工作台外观；写下的内容仍在 Markdown 文档里。
 `,
     },
     {
@@ -643,6 +664,8 @@ The left rail gives you Files, Quick open, and New note. These controls and Sett
 
 Choose Auto-hide under bottom-left Settings → Layout & view → Top toolbar for more reading space. Move the pointer to the top of the workspace to reveal it. Leaving starts a one-second hide delay; returning cancels it, and the document stays in place. You can also Tab to the reveal button, then continue with the pointer.
 
+Open [Appearance.md](Appearance.md) to try custom themes, a background image, and the compact toolbar.
+
 ### Give content and interface their own fonts
 
 Open bottom-left Settings → Typography. Under Content fonts, choose Chinese, English / Latin, and monospace fonts for body text, headings, and code. Interface fonts separately control the file tree, outline, toolbar, and settings. Changing interface fonts keeps the content and heading fonts intact.
@@ -705,6 +728,25 @@ Operation results appear as compact colored toasts at the top right and close au
 Removing a workspace also clears its visited file records. Unsaved edits prompt you to save, discard, or cancel first. Standalone files stay in place, and the desktop app keeps the removed workspace's files out of the restored session after a restart.
 
 You can also follow the [release checklist](Projects/Marker/Release/Checklist.md) to open a document inside the nested folders.
+`,
+    },
+    {
+      id: 'appearance-guide', path: 'Appearance.md', title: 'Make the workspace your own',
+      markdown: `# Make the workspace your own
+
+Open Settings at the bottom left and create a theme under Color Themes → Custom. Try #F5E8DB for paper, #30241F for ink, and #7C3659 for accent. The preview and document update together. Pick an ink color close to the paper to see the automatic contrast adjustment.
+
+## Set a background for reading
+
+Import a local PNG, JPEG, or WebP under Background image. Lower the opacity, then try blur or temperature while checking how the text reads. Cover, Fit, and Stretch place the picture differently across the window. Your browser stores the background image locally. Remove it in the same section.
+
+## Switch views in a narrow window
+
+Choose Open the workspace on the website, open a few sample files, then narrow the window. When tabs need more room, the toolbar condenses into menus. Use Document mode to switch between Read, Edit, and Split view. Use Layout options to change the reading width or toggle the outline. Press Tab to focus a control and Enter to open it.
+
+Use this paragraph to compare paper and ink. **Emphasis**, [the workspace sample](Workspace.md), and quotes also follow the theme.
+
+> The background belongs to your workspace appearance. Your writing stays in the Markdown document.
 `,
     },
     {
