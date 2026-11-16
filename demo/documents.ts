@@ -51,7 +51,7 @@ const samples: Record<DemoLocale, DemoDocument[]> = {
 
 在左下角「偏好设置 → 界面与视图 → 顶部工具栏」选择自动隐藏，把更多空间留给文字。鼠标移到工作台顶部即可唤出，移开 1 秒后收起；期间返回工具栏会取消隐藏，正文位置保持不变。也可用 Tab 聚焦顶部唤出按钮，再继续使用鼠标操作。
 
-打开 [Appearance.md](Appearance.md)，试试自定义主题、背景图片和窄窗口工具栏。
+打开 [Appearance.md](Appearance.md)，试试先预览主题再应用，也可以调整背景图片。
 
 ### 内容与界面，各有合适的字体
 
@@ -123,7 +123,11 @@ const samples: Record<DemoLocale, DemoDocument[]> = {
       id: 'appearance-guide', path: 'Appearance.md', title: '把工作台调成自己的样子',
       markdown: `# 把工作台调成自己的样子
 
-打开左下角的「偏好设置」，在「主题与色彩」的「自定义」区新建主题。试试纸色 #F5E8DB、墨色 #30241F、点缀色 #7C3659。预览和文档会一起更新。把墨色调得接近纸色，可查看正文对比度如何自动校正。
+打开左下角的「偏好设置」，选择「主题与色彩」。在内置色样中选一款，先看设置里的阅读预览。点「取消」返回色样，或点「应用主题」把配色切换到工作台。
+
+## 调整配色草稿
+
+在「自定义主题」里点「新建主题」。试试纸色 #F5E8DB、墨色 #30241F、点缀色 #7C3659，也可切换浅色或深色。把墨色调得接近纸色，可以看到正文对比度的自动校正。设置里的预览会即时更新。点「应用主题」保存并切换，或点「取消」放弃这次调整。
 
 ## 让背景适合阅读
 
@@ -681,7 +685,7 @@ The left rail gives you Files, Quick open, and New note. These controls and Sett
 
 Choose Auto-hide under bottom-left Settings → Layout & view → Top toolbar for more reading space. Move the pointer to the top of the workspace to reveal it. Leaving starts a one-second hide delay; returning cancels it, and the document stays in place. You can also Tab to the reveal button, then continue with the pointer.
 
-Open [Appearance.md](Appearance.md) to try custom themes, a background image, and the compact toolbar.
+Open [Appearance.md](Appearance.md) to preview themes before applying them and try a background image.
 
 ### Give content and interface their own fonts
 
@@ -751,7 +755,11 @@ You can also follow the [release checklist](Projects/Marker/Release/Checklist.md
       id: 'appearance-guide', path: 'Appearance.md', title: 'Make the workspace your own',
       markdown: `# Make the workspace your own
 
-Open Settings at the bottom left and create a theme under Color Themes → Custom. Try #F5E8DB for paper, #30241F for ink, and #7C3659 for accent. The preview and document update together. Pick an ink color close to the paper to see the automatic contrast adjustment.
+Open Settings at the bottom left and choose Color Themes. Select a built-in swatch to see its reading preview in Settings. Choose Cancel to return to the swatches, or Apply theme to use the palette in the workspace.
+
+## Try a palette in a draft
+
+Choose New theme under Custom themes. Try #F5E8DB for paper, #30241F for ink, and #7C3659 for accent. Switch between Light and Dark or pick an ink close to the paper to see the automatic contrast adjustment. The preview updates in Settings as you work. Choose Apply theme to save and switch, or Cancel to discard the changes.
 
 ## Set a background for reading
 
