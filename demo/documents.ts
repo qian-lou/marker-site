@@ -146,6 +146,10 @@ const samples: Record<DemoLocale, DemoDocument[]> = {
 
 点击「文件」收起文件树，再用「快速打开」搜索 Notes.md。也可以点击「新建笔记」，在空白文档里输入一句话。收起文件树后，左下角 Marker 图标仍可打开语言和主题菜单，齿轮可直接打开偏好设置。
 
+## 在窄侧栏里打开深层文件
+
+展开 **Projects / Marker / Release / Checks / Desktop / Preview**，把文件栏缩窄，再打开[安装和自动更新检查表](Projects/Marker/Release/Checks/Desktop/Preview/Installation-and-automatic-update-verification-checklist.md)。长文件名会在一行内省略，文件树可继续上下滚动。也可在「快速打开」搜索完整名称，或用 Tab 聚焦文件行后按 Enter 打开。
+
 ## 边读边调整宽度
 
 打开 [Reading.md](Reading.md)，滚到文档中段，拖动文件栏或目录栏的分隔线，观察可见文字随宽度重排。松手后，阅读位置会尽量停在原来的段落。聚焦分隔线后可用方向键微调，按 Home 或 End 跳到宽度边界，双击恢复默认宽度。
@@ -628,6 +632,19 @@ flowchart LR
 `,
     },
     {
+      id: 'nested-update-checklist', path: 'Projects/Marker/Release/Checks/Desktop/Preview/Installation-and-automatic-update-verification-checklist.md', title: '安装和自动更新检查表',
+      markdown: `# 安装和自动更新检查表
+
+这份示例位于多层目录中。拖窄文件栏，再从文件树或快速打开回到这里。
+
+- [ ] 核对安装包对应的系统和架构
+- [ ] 比对自动更新清单中的版本号
+- [ ] 回到官网体验，确认工作区可用
+
+[返回工作区指引](../../../../../../Workspace.md)
+`,
+    },
+    {
       id: 'quick-note', path: 'Quick note.md', title: '一份随手打开的笔记', standalone: true,
       markdown: `# 一份随手打开的笔记
 
@@ -756,6 +773,10 @@ Use this paragraph to compare paper and ink. **Emphasis**, [the workspace sample
 ## Open or create a note from the rail
 
 Choose Files to collapse the tree, then use Quick open to find Notes.md. Try New note to write a sentence in a blank document. With the tree closed, the bottom-left Marker icon still opens language and theme controls, and the gear opens Settings.
+
+## Open a deeply nested file in a narrow sidebar
+
+Expand **Projects / Marker / Release / Checks / Desktop / Preview**, narrow the file sidebar, then open the [installation and automatic update checklist](Projects/Marker/Release/Checks/Desktop/Preview/Installation-and-automatic-update-verification-checklist.md). The long filename uses an ellipsis on one line and the tree still scrolls vertically. Search for the full name in Quick open, or focus the file row with Tab and press Enter.
 
 ## Adjust the width while reading
 
@@ -1236,6 +1257,19 @@ Release status: LaunchReady. Check installers, the update manifest, and the webs
 Save an edit, visit another document, and come back: your changes remain in this page session. These samples never write to your disk. Choose Reset demo on the website to restore the original content.
 
 [Back to Welcome](../../../Welcome.md)
+`,
+    },
+    {
+      id: 'nested-update-checklist', path: 'Projects/Marker/Release/Checks/Desktop/Preview/Installation-and-automatic-update-verification-checklist.md', title: 'Installation and automatic update checklist',
+      markdown: `# Installation and automatic update checklist
+
+This sample lives inside nested folders. Narrow the file sidebar, then return to this document from the file tree or Quick open.
+
+- [ ] Check the installer platform and architecture
+- [ ] Compare the version in the automatic update manifest
+- [ ] Open the website demo and check the workspace
+
+[Back to the workspace guide](../../../../../../Workspace.md)
 `,
     },
     {
