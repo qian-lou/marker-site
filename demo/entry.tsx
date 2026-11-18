@@ -9,6 +9,7 @@ import { parseDocumentLink, resolveBrowserDocumentLink } from '@/ipc/document-li
 import { parseReadingPosition, serializeReadingPosition } from '@/ipc/reading-position';
 import { useDocumentStore } from '@/stores/document-store';
 import { useWorkspaceStore } from '@/stores/workspace-store';
+import { useKnowledgeStore } from '@/stores/knowledge-store';
 import { usePreferencesStore } from '@/stores/preferences-store';
 import { useCodeFoldStore } from '@/components/code/code-fold-state';
 import { useCodeFoldPersistenceStatus } from '@/components/code/code-fold-persistence';
@@ -293,6 +294,10 @@ async function resetDemo(): Promise<void> {
         });
       });
     }
+    for (const library of await browserIpc.listKnowledgeLibraries()) {
+      await browserIpc.deleteKnowledgeLibrary(library.id);
+    }
+    useKnowledgeStore.setState({ libraries: new Map(), documentLibraries: new Map() });
     useCodeFoldStore.getState().clear();
     folds.clear();
     positions.clear();

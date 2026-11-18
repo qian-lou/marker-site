@@ -51,7 +51,7 @@ const samples: Record<DemoLocale, DemoDocument[]> = {
 
 在左下角「偏好设置 → 界面与视图 → 顶部工具栏」选择自动隐藏，把更多空间留给文字。鼠标移到工作台顶部即可唤出，移开 1 秒后收起；期间返回工具栏会取消隐藏，正文位置保持不变。也可用 Tab 聚焦顶部唤出按钮，再继续使用鼠标操作。
 
-打开 [Appearance.md](Appearance.md)，试试先预览主题再应用，也可以调整背景图片。
+打开 [Knowledge.md](Knowledge.md)，试试新建知识库、收藏和只读权限。也可以打开 [Appearance.md](Appearance.md)，预览主题和调整背景图片。
 
 ### 内容与界面，各有合适的字体
 
@@ -117,6 +117,29 @@ const samples: Record<DemoLocale, DemoDocument[]> = {
 移除工作空间时，其打开过的文件记录会一并清理；如有未保存内容，会先提示保存、放弃或取消。独立文件保持不变，桌面版重启后也不会恢复已移除工作空间的文件记录。
 
 也可以通过[发布清单](Projects/Marker/Release/Checklist.md)跳转到深层目录中的文档。
+`,
+    },
+    {
+      id: 'knowledge-guide', path: 'Knowledge.md', title: '把笔记整理进知识库',
+      markdown: `# 把笔记整理进知识库
+
+点击左侧导航栏的「知识库」，再点「新建知识库」。输入名称和描述，创建一个专门收集阅读笔记的库。
+
+## 写下第一篇笔记
+
+在新库里点「新建笔记」，输入「阅读清单」。打开笔记进入编辑，记录今天读到的内容。回到「全部知识库」，用搜索框按名称找到它，也可以切换网格和列表视图。
+
+点击卡片上的图钉，把知识库加入「常用」。从卡片的更多操作中可重命名、修改描述或调整权限。打开几篇笔记后，点击标签页列表，悬停文件名查看所属路径。
+
+## 试试只读权限
+
+在知识库卡片的更多操作里选择「权限」，切换为「只读」并保存。库内笔记仍可阅读。恢复「可编辑」后，可继续新建、编辑和删除笔记。
+
+## 从已有文件夹开始
+
+回到工作空间，从示例工作区的更多操作中选择「添加为知识库」。再次打开「知识库」，就能按名称或路径筛选其中的示例文档。
+
+官网中的知识库和笔记仅保留在当前页面。点击「重置体验」或刷新页面即可重新开始。桌面版会把新建的知识库保存到本机。
 `,
     },
     {
@@ -685,7 +708,7 @@ The left rail gives you Files, Quick open, and New note. These controls and Sett
 
 Choose Auto-hide under bottom-left Settings → Layout & view → Top toolbar for more reading space. Move the pointer to the top of the workspace to reveal it. Leaving starts a one-second hide delay; returning cancels it, and the document stays in place. You can also Tab to the reveal button, then continue with the pointer.
 
-Open [Appearance.md](Appearance.md) to preview themes before applying them and try a background image.
+Open [Knowledge.md](Knowledge.md) to create a library, add favorites, and try read-only access. Visit [Appearance.md](Appearance.md) to preview themes and try a background image.
 
 ### Give content and interface their own fonts
 
@@ -749,6 +772,29 @@ Operation results appear as compact colored toasts at the top right and close au
 Removing a workspace also clears its visited file records. Unsaved edits prompt you to save, discard, or cancel first. Standalone files stay in place, and the desktop app keeps the removed workspace's files out of the restored session after a restart.
 
 You can also follow the [release checklist](Projects/Marker/Release/Checklist.md) to open a document inside the nested folders.
+`,
+    },
+    {
+      id: 'knowledge-guide', path: 'Knowledge.md', title: 'Organize notes into libraries',
+      markdown: `# Organize notes into libraries
+
+Choose Knowledge base in the left navigation, then New library. Give it a name and description to start a collection of reading notes.
+
+## Write your first note
+
+Choose New note in the library and name it Reading list. Open the note to write down what you read today. Return to All libraries and find the library by name, or switch between grid and list views.
+
+Use the pin on a library card to add it to Favorites. The card's more-actions menu lets you rename it, update its description, or change permissions. After opening a few notes, open the tab list and hover over a filename to see its path.
+
+## Try read-only access
+
+Choose Permissions from a library card's more-actions menu, select Read-only, and save. You can keep reading notes in the library. Restore Editable access to create, edit, and delete notes again.
+
+## Start with an existing folder
+
+Return to your workspaces and choose Add as knowledge library from the sample workspace's more-actions menu. Open Knowledge base again to filter its sample documents by name or path.
+
+Libraries and notes in this web experience last for the current page. Use Reset experience or reload to start again. The desktop app saves newly created libraries on your computer.
 `,
     },
     {
