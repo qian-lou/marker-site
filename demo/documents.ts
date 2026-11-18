@@ -51,7 +51,7 @@ const samples: Record<DemoLocale, DemoDocument[]> = {
 
 在左下角「偏好设置 → 界面与视图 → 顶部工具栏」选择自动隐藏，把更多空间留给文字。鼠标移到工作台顶部即可唤出，移开 1 秒后收起；期间返回工具栏会取消隐藏，正文位置保持不变。也可用 Tab 聚焦顶部唤出按钮，再继续使用鼠标操作。
 
-打开 [Knowledge.md](Knowledge.md)，试试新建知识库、收藏和只读权限。也可以打开 [Appearance.md](Appearance.md)，预览主题和调整背景图片。
+打开 [Diagrams.md](Diagrams.md)，对照深浅主题下的流程图与时序图。打开 [Knowledge.md](Knowledge.md)，试试新建知识库、收藏和只读权限。也可以打开 [Appearance.md](Appearance.md)，预览主题和调整背景图片。
 
 ### 内容与界面，各有合适的字体
 
@@ -117,6 +117,38 @@ const samples: Record<DemoLocale, DemoDocument[]> = {
 移除工作空间时，其打开过的文件记录会一并清理；如有未保存内容，会先提示保存、放弃或取消。独立文件保持不变，桌面版重启后也不会恢复已移除工作空间的文件记录。
 
 也可以通过[发布清单](Projects/Marker/Release/Checklist.md)跳转到深层目录中的文档。
+`,
+    },
+    {
+      id: 'diagrams-guide', path: 'Diagrams.md', title: '让图表跟随阅读主题',
+      markdown: `# 让图表跟随阅读主题
+
+用下面的流程图和时序图比较节点、连线、箭头与文字。点击官网右上角的深浅主题按钮，查看同一份图表在两种背景下的效果。
+
+## 从想法到笔记
+
+\`\`\`mermaid
+flowchart LR
+  A([收集想法]) --> B{整理内容}
+  B -->|形成结构| C[写成笔记]
+  C --> D([回顾分享])
+\`\`\`
+
+## 一次阅读与保存
+
+\`\`\`mermaid
+sequenceDiagram
+  participant R as 读者
+  participant M as Marker
+  R->>M: 打开笔记
+  M-->>R: 显示正文与图表
+  R->>M: 保存修改
+  M-->>R: 保存完成
+\`\`\`
+
+使用图表上方的 ＋ / − 调整缩放，点击百分比重置视图。点「弹窗」可以放大查看，按 Esc 返回文档。
+
+切换到编辑模式，点击流程图的「可视化编辑」，可以拖动节点、调整连线，再点「完成」写回正文。时序图可在源码中修改并查看预览。网页草稿仅保留在当前页面，点击「重置体验」可恢复示例。
 `,
     },
     {
@@ -708,7 +740,7 @@ The left rail gives you Files, Quick open, and New note. These controls and Sett
 
 Choose Auto-hide under bottom-left Settings → Layout & view → Top toolbar for more reading space. Move the pointer to the top of the workspace to reveal it. Leaving starts a one-second hide delay; returning cancels it, and the document stays in place. You can also Tab to the reveal button, then continue with the pointer.
 
-Open [Knowledge.md](Knowledge.md) to create a library, add favorites, and try read-only access. Visit [Appearance.md](Appearance.md) to preview themes and try a background image.
+Open [Diagrams.md](Diagrams.md) to compare flowcharts and sequence diagrams in light and dark themes. Open [Knowledge.md](Knowledge.md) to create a library, add favorites, and try read-only access. Visit [Appearance.md](Appearance.md) to preview themes and try a background image.
 
 ### Give content and interface their own fonts
 
@@ -772,6 +804,38 @@ Operation results appear as compact colored toasts at the top right and close au
 Removing a workspace also clears its visited file records. Unsaved edits prompt you to save, discard, or cancel first. Standalone files stay in place, and the desktop app keeps the removed workspace's files out of the restored session after a restart.
 
 You can also follow the [release checklist](Projects/Marker/Release/Checklist.md) to open a document inside the nested folders.
+`,
+    },
+    {
+      id: 'diagrams-guide', path: 'Diagrams.md', title: 'Read diagrams in either theme',
+      markdown: `# Read diagrams in either theme
+
+Compare the nodes, connections, arrows, and labels in the flowchart and sequence diagram below. Use the theme button at the top right of the website to view the same diagrams against light and dark backgrounds.
+
+## From an idea to a note
+
+\`\`\`mermaid
+flowchart LR
+  A([Collect ideas]) --> B{Organize content}
+  B -->|Build a structure| C[Write a note]
+  C --> D([Review and share])
+\`\`\`
+
+## Read and save a note
+
+\`\`\`mermaid
+sequenceDiagram
+  participant R as Reader
+  participant M as Marker
+  R->>M: Open a note
+  M-->>R: Show text and diagrams
+  R->>M: Save changes
+  M-->>R: Saved
+\`\`\`
+
+Use the + / − controls above a diagram to zoom, or click the percentage to reset the view. Choose Pop out for a larger view and press Esc to return to the document.
+
+Switch to Edit and choose Visual editor on the flowchart to move nodes and adjust connections. Choose Done to write the result back into the document. Edit the sequence diagram in source mode to see its preview. Web drafts last for the current page. Use Reset experience to restore the samples.
 `,
     },
     {
