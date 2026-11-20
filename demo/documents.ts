@@ -51,7 +51,7 @@ const samples: Record<DemoLocale, DemoDocument[]> = {
 
 在左下角「偏好设置 → 界面与视图 → 顶部工具栏」选择自动隐藏，把更多空间留给文字。鼠标移到工作台顶部即可唤出，移开 1 秒后收起；期间返回工具栏会取消隐藏，正文位置保持不变。也可用 Tab 聚焦顶部唤出按钮，再继续使用鼠标操作。
 
-打开 [Diagrams.md](Diagrams.md)，对照深浅主题下的流程图与时序图。打开 [Knowledge.md](Knowledge.md)，试试新建知识库、收藏和只读权限。也可以打开 [Appearance.md](Appearance.md)，预览主题和调整背景图片。
+打开 [Knowledge.md](Knowledge.md)，试试新建知识库、按文件名或路径搜索笔记，以及收藏和只读权限。打开左下角 Marker 菜单切换深浅外观，观察底部状态栏的配色。也可以打开 [Diagrams.md](Diagrams.md) 对照图表，或在 [Appearance.md](Appearance.md) 调整主题与背景图片。
 
 ### 内容与界面，各有合适的字体
 
@@ -171,6 +171,12 @@ sequenceDiagram
 
 回到工作空间，从示例工作区的更多操作中选择「添加为知识库」。再次打开「知识库」，就能按名称或路径筛选其中的示例文档。
 
+## 更快找到笔记
+
+文档列表集中显示文件名。试着搜索 **Projects/Marker**，找到多层目录里的清单；点击「清除搜索」回到全部文档。用 Tab 聚焦笔记后按 Enter 打开，也可以点击整行；行末的更多操作单独保留，方便管理笔记。
+
+点击左侧文件夹图标回到文件视图，再点「知识库」继续浏览。库内的「新建笔记」按钮就在搜索框旁边。
+
 官网中的知识库和笔记仅保留在当前页面。点击「重置体验」或刷新页面即可重新开始。桌面版会把新建的知识库保存到本机。
 `,
     },
@@ -226,6 +232,8 @@ sequenceDiagram
 ## 把设置放在手边
 
 点击左下角 Marker 菜单切换语言和深浅外观，或点击旁边的「偏好设置」。设置按代码与终端、界面与视图、安全与同步、主题与色彩、字体与排版分组，可搜索关键词，也可清空搜索回到全部选项。
+
+保持底部状态栏可见，打开 Marker 菜单选择浅色或深色，比较状态栏与正文的配色。菜单会显示在状态栏上方；选好外观后，按 Esc 返回文档。
 
 在「界面与视图」切换标准阅读、带目录阅读或源码分屏，观察当前文档立即响应。设置可按 Esc 关闭，回到刚才的阅读与编辑位置。
 
@@ -740,7 +748,7 @@ The left rail gives you Files, Quick open, and New note. These controls and Sett
 
 Choose Auto-hide under bottom-left Settings → Layout & view → Top toolbar for more reading space. Move the pointer to the top of the workspace to reveal it. Leaving starts a one-second hide delay; returning cancels it, and the document stays in place. You can also Tab to the reveal button, then continue with the pointer.
 
-Open [Diagrams.md](Diagrams.md) to compare flowcharts and sequence diagrams in light and dark themes. Open [Knowledge.md](Knowledge.md) to create a library, add favorites, and try read-only access. Visit [Appearance.md](Appearance.md) to preview themes and try a background image.
+Open [Knowledge.md](Knowledge.md) to create a library, search notes by filename or path, add favorites, and try read-only access. Switch appearance in the bottom-left Marker menu and watch the status bar colors change. Visit [Diagrams.md](Diagrams.md) to compare diagrams, or [Appearance.md](Appearance.md) to try themes and a background image.
 
 ### Give content and interface their own fonts
 
@@ -858,6 +866,12 @@ Choose Permissions from a library card's more-actions menu, select Read-only, an
 
 Return to your workspaces and choose Add as knowledge library from the sample workspace's more-actions menu. Open Knowledge base again to filter its sample documents by name or path.
 
+## Find notes faster
+
+The document list focuses on filenames. Search for **Projects/Marker** to find checklists inside nested folders, then choose Clear search to show all documents again. Tab to a note and press Enter to open it, or click its row. The separate more-actions button at the end of each row keeps note management within reach.
+
+Choose the folder icon in the left rail to return to Files, then Knowledge base to continue browsing. New note sits beside the library's search box.
+
 Libraries and notes in this web experience last for the current page. Use Reset experience or reload to start again. The desktop app saves newly created libraries on your computer.
 `,
     },
@@ -913,6 +927,8 @@ Website documents, drafts, and panes stay in this page; reload or Reset demo res
 ## Keep settings within reach
 
 Open the bottom-left Marker menu for language and light/dark appearance, or choose the adjacent Settings icon. Settings groups code and terminal, layout and view, privacy and sync, color themes, and typography. Search for a keyword or clear the query to return to all options.
+
+Keep the status bar visible, then open the Marker menu and choose Light or Dark to compare its colors with the document. The menu opens above the status bar. Press Esc when you are ready to return to the document.
 
 Under Layout & view, switch between standard reading, reading with outline, and source split view. The current document responds immediately. Press Esc to close Settings and return to your document.
 
