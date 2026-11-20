@@ -57,6 +57,7 @@ try {
     },
   }));
   await cp(path.join(desktopRoot, 'public/marker-icon.svg'), path.join(outputRoot, 'marker-icon.svg'));
+  await cp(path.join(desktopRoot, 'public/licenses'), path.join(outputRoot, 'licenses'), { recursive: true });
   for (const runtime of ['javascript-sandbox.js', 'preview-network.js', 'preview-size.js']) {
     await cp(path.join(desktopRoot, 'public', runtime), path.join(outputRoot, runtime));
   }

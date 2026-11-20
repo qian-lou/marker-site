@@ -177,6 +177,12 @@ sequenceDiagram
 
 点击左侧文件夹图标回到文件视图，再点「知识库」继续浏览。库内的「新建笔记」按钮就在搜索框旁边。
 
+## 从图谱核对引用
+
+把示例工作区添加为知识库后，打开库详情，点击「知识图谱」。拖动画布旋转，滚动缩放。用搜索框找到 **Knowledge.md**，选中搜索结果，展开的关系列表会显示它引用的 [Workspace.md](Workspace.md)。选中关系，点「在旁边读原文」查看原句，或打开目标文档。
+
+试着从 **Knowledge.md** 查找到 **Notes.md** 的引用路径，中间会经过 **Workspace.md**。读完可返回图谱，也可用文档工具栏的前进、后退按钮回到刚才的阅读位置。
+
 官网中的知识库和笔记仅保留在当前页面。点击「重置体验」或刷新页面即可重新开始。桌面版会把新建的知识库保存到本机。
 `,
     },
@@ -871,6 +877,12 @@ Return to your workspaces and choose Add as knowledge library from the sample wo
 The document list focuses on filenames. Search for **Projects/Marker** to find checklists inside nested folders, then choose Clear search to show all documents again. Tab to a note and press Enter to open it, or click its row. The separate more-actions button at the end of each row keeps note management within reach.
 
 Choose the folder icon in the left rail to return to Files, then Knowledge base to continue browsing. New note sits beside the library's search box.
+
+## Follow a reference in the graph
+
+Add the sample workspace as a library, open it, and choose Knowledge graph. Drag to rotate the graph or scroll to zoom. Search for **Knowledge.md**, and select the result to show its reference to [Workspace.md](Workspace.md) under Inspect links. Select the connection to read the source alongside the graph or open the target note.
+
+Find a path from **Knowledge.md** to **Notes.md** through **Workspace.md**. After reading, you can return to the graph or use the Back and Forward buttons in the document toolbar to revisit your reading history.
 
 Libraries and notes in this web experience last for the current page. Use Reset experience or reload to start again. The desktop app saves newly created libraries on your computer.
 `,

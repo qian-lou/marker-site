@@ -138,6 +138,23 @@ ipcClient.saveReaderSession = async () => {};
 ipcClient.openWorkspaceByPath = async () => createWorkspace();
 ipcClient.listWorkspaceEntries = async id => id === workspaceId
   ? createWorkspace().entries : browserIpc.listWorkspaceEntries(id);
+ipcClient.indexGraphFiles = async (id, paths) => {
+  if (id !== workspaceId) return browserIpc.indexGraphFiles(id, paths);
+  const { browserGraphSource } = await import('@/knowledge/browser-graph-source');
+  const samples = new Map(getSampleDocuments(locale)
+    .filter(sample => !sample.standalone)
+    .map(sample => [sample.path, sample.id]));
+  return Promise.all(paths.map(async path => {
+    const sampleId = samples.get(path);
+    const document = sampleId === undefined ? undefined : documents.get(sampleId);
+    if (!document) return { path, source: null };
+    try {
+      return { path, source: await browserGraphSource(document.rawMarkdown) };
+    } catch {
+      return { path, source: null };
+    }
+  }));
+};
 ipcClient.openWorkspaceDocument = async (id, path) => {
   if (id !== workspaceId) return browserIpc.openWorkspaceDocument(id, path);
   return rememberSample(documentAtPath(path));
