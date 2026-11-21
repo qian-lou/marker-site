@@ -20,6 +20,8 @@ const outputRoot = path.join(siteRoot, 'assets/demo');
 
 try {
   await cp(path.join(siteRoot, 'demo'), temporaryRoot, { recursive: true });
+  const demoPublicRoot = path.join(temporaryRoot, 'public');
+  await cp(path.join(desktopRoot, 'public/fonts/inter'), path.join(demoPublicRoot, 'fonts/inter'), { recursive: true });
   await writeFile(path.join(temporaryRoot, 'tsconfig.json'), JSON.stringify({
     extends: path.join(desktopRoot, 'tsconfig.json'),
     include: ['entry.tsx', 'documents.ts', 'fixtures.ts', path.join(desktopRoot, 'src/vite-env.d.ts')],
@@ -35,7 +37,7 @@ try {
     logLevel: 'warn',
     root: temporaryRoot,
     base: './',
-    publicDir: false,
+    publicDir: demoPublicRoot,
     envDir: false,
     resolve: { alias: [{ find: '@marker/fixtures', replacement: path.join(temporaryRoot, 'fixtures.ts') }] },
     css: {

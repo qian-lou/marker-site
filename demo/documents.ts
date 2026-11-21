@@ -190,6 +190,8 @@ sequenceDiagram
       id: 'appearance-guide', path: 'Appearance.md', title: '把工作台调成自己的样子',
       markdown: `# 把工作台调成自己的样子
 
+打开左下角的「偏好设置」，在「字体与排版」查看默认字体。中文优先使用系统苹方半粗体，英文使用工作台随附的 Inter。切到「界面与视图」或「主题与色彩」时，右侧会只显示当前分类；内容与界面字体可以分别调整。
+
 打开左下角的「偏好设置」，选择「主题与色彩」。在内置色样中选一款，先看设置里的阅读预览。点「取消」返回色样，或点「应用主题」把配色切换到工作台。
 
 ## 调整配色草稿
@@ -283,6 +285,20 @@ console.log(workspace, nextStep);
     {
       id: 'layout', path: 'Layout.md', title: '让图块与文字一起排版',
       markdown: `# 让图块与文字一起排版
+
+## 让表格适应阅读区
+
+这张表保存了三列的宽度。收起两侧栏，或将正文切换为自适应宽度，观察列宽按原比例铺开。缩窄窗口后，可在表格内部横向滚动。
+
+| 步骤 | 内容 | 状态 |
+| --- | --- | --- |
+| 01 | 整理阅读笔记 | 完成 |
+| 02 | Review the reading list | 进行中 |
+| 03 | 保存笔记并回到工作区 | 待办 |
+
+<!-- marker:table-layout {"widths":[120,260,140],"heights":[0,0,0,0]} -->
+
+## 试试图文并排
 
 先切到「编辑」，拖动画板右边缘把它收窄，再到右侧留白处输入文字。也可以聚焦边缘后用左右方向键微调宽度，用底边的上下方向键调整高度。
 
@@ -897,6 +913,8 @@ Libraries and notes in this web experience last for the current page. Use Reset 
       id: 'appearance-guide', path: 'Appearance.md', title: 'Make the workspace your own',
       markdown: `# Make the workspace your own
 
+Open Settings at the bottom left and select Typography to see the default fonts. Chinese text uses the system PingFang Semibold when available, and Latin text uses the bundled Inter. Switch to the layout or theme category to see its settings on their own. You can still choose separate fonts for the document and interface.
+
 Open Settings at the bottom left and choose Color Themes. Select a built-in swatch to see its reading preview in Settings. Choose Cancel to return to the swatches, or Apply theme to use the palette in the workspace.
 
 ## Try a palette in a draft
@@ -990,6 +1008,20 @@ console.log(workspace, nextStep);
     {
       id: 'layout', path: 'Layout.md', title: 'Make room for diagrams and words',
       markdown: `# Make room for diagrams and words
+
+## Fit the table to the reading pane
+
+This table has saved column widths. Collapse the sidebars or switch the reader to adaptive width to see the columns expand in proportion. In a narrow window, scroll horizontally inside the table.
+
+| Step | Task | Status |
+| --- | --- | --- |
+| 01 | Organize reading notes | Done |
+| 02 | Review the reading list | In progress |
+| 03 | Save notes and return to the workspace | Next |
+
+<!-- marker:table-layout {"widths":[120,260,140],"heights":[0,0,0,0]} -->
+
+## Try text beside a diagram
 
 Choose Edit and drag the canvas's right edge to make it narrower, then type in the space beside it. Focus the edge and use Left / Right to adjust width, or use Up / Down on the bottom edge to adjust height.
 
