@@ -221,6 +221,12 @@ sequenceDiagram
 
 展开 **Projects / Marker / Release / Checks / Desktop / Preview**，把文件栏缩窄，再打开[安装和自动更新检查表](Projects/Marker/Release/Checks/Desktop/Preview/Installation-and-automatic-update-verification-checklist.md)。长文件名会在一行内省略，文件树可继续上下滚动。也可在「快速打开」搜索完整名称，或用 Tab 聚焦文件行后按 Enter 打开。
 
+## 从文件菜单复制路径
+
+右键左侧的 Notes.md，把鼠标移到「复制为」，选择「文件名」或「相对路径」。窗口空间不足时，子菜单会换到另一侧或上下避让。按 Esc 可关闭菜单。
+
+切换官网右上角的深浅外观，再打开一次文件菜单，对照侧栏、正文和菜单配色。
+
 ## 边读边调整宽度
 
 打开 [Reading.md](Reading.md)，滚到文档中段，拖动文件栏或目录栏的分隔线，观察可见文字随宽度重排。松手后，阅读位置会尽量停在原来的段落。聚焦分隔线后可用方向键微调，按 Home 或 End 跳到宽度边界，双击恢复默认宽度。
@@ -921,6 +927,12 @@ Choose Files to collapse the tree, then use Quick open to find Notes.md. Try New
 ## Open a deeply nested file in a narrow sidebar
 
 Expand **Projects / Marker / Release / Checks / Desktop / Preview**, narrow the file sidebar, then open the [installation and automatic update checklist](Projects/Marker/Release/Checks/Desktop/Preview/Installation-and-automatic-update-verification-checklist.md). The long filename uses an ellipsis on one line and the tree still scrolls vertically. Search for the full name in Quick open, or focus the file row with Tab and press Enter.
+
+## Copy a path from the file menu
+
+Right-click Notes.md in the file tree, hover over Copy As, then choose File Name or Relative Path. If space is tight, the submenu opens on the other side or shifts above or below the item. Press Esc to close the menu.
+
+Switch the website's appearance, then open the file menu again to compare the sidebar, reader, and menu colors.
 
 ## Adjust the width while reading
 
