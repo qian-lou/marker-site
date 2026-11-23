@@ -27,6 +27,7 @@ jobs:
       commit: ${{ steps.metadata.outputs.commit }}
       version: ${{ steps.metadata.outputs.version }}
       tag: ${{ steps.metadata.outputs.tag }}
+      license_sha256: ${{ steps.metadata.outputs.license_sha256 }}
     steps:
       - name: Check out publishing tools
         uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
@@ -58,6 +59,15 @@ jobs:
       - name: Read release version and exact source commit
         id: metadata
         run: python3 site/.github/scripts/release.py metadata
+
+      - name: Upload the license from the resolved source
+        if: steps.metadata.outputs.license_sha256 != ''
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
+        with:
+          name: marker-license
+          path: source/apps/desktop/src-tauri/LICENSE-MARKER.txt
+          if-no-files-found: error
+          retention-days: 1
 
       - name: Refuse an existing public tag or release
         uses: actions/github-script@373c709c69115d41ff229c7e5df9f8788daa9553 # v9
@@ -227,6 +237,7 @@ jobs:
       SOURCE_COMMIT: ${{ needs.resolve.outputs.commit }}
       RELEASE_VERSION: ${{ needs.resolve.outputs.version }}
       RELEASE_TAG: ${{ needs.resolve.outputs.tag }}
+      RELEASE_LICENSE_SHA256: ${{ needs.resolve.outputs.license_sha256 }}
     steps:
       - name: Check out publishing tools
         uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
@@ -240,6 +251,13 @@ jobs:
           pattern: installer-*
           path: downloads
 
+      - name: Download the release license
+        if: env.RELEASE_LICENSE_SHA256 != ''
+        uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8
+        with:
+          name: marker-license
+          path: release-license
+
       - name: Verify provenance and generate signed updater manifest
         run: python3 site/.github/scripts/release.py verify
 
@@ -252,6 +270,8 @@ jobs:
             const crypto = require('node:crypto');
             const tag = process.env.RELEASE_TAG;
             const manifest = JSON.parse(fs.readFileSync('release-manifest.json', 'utf8'));
+            const licenseUrl = `${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/releases/download/${tag}/LICENSE-MARKER.txt`;
+            const hasLicense = manifest.files.some(file => file.name === 'LICENSE-MARKER.txt');
             const releases = await github.paginate(github.rest.repos.listReleases, context.repo);
             if (releases.some(release => release.tag_name === tag)) {
               throw new Error(`Release ${tag} already exists; existing releases are never overwritten.`);
@@ -274,6 +294,7 @@ jobs:
               '请使用 SHA256SUMS.txt 校验下载文件。',
               '支持应用内更新；latest.json 和 .sig 文件用于校验并安装更新，macOS 更新使用 .app.tar.gz。',
               '',
+              ...(hasLicense ? [`Marker 可用于个人和商业用途。禁止出售或收费分发原版及修改版。详见 [Marker 软件使用许可协议](${licenseUrl})。`, ''] : []),
               `Source commit: \`${process.env.SOURCE_COMMIT}\``,
               `Build: ${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`,
             ].join('\n');

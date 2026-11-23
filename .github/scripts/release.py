@@ -30,6 +30,7 @@ UPDATER_TARGETS: dict[str, tuple[tuple[str, str], ...]] = {
     "linux-x64": (("linux-x86_64-deb", ".deb"), ("linux-x86_64-appimage", ".AppImage")),
 }
 RELEASE_DOWNLOADS = "https://github.com/qian-lou/marker-site/releases/download"
+LICENSE_FILENAME = "LICENSE-MARKER.txt"
 MAX_SIGNATURE_BYTES = 16 * 1024
 VERSION_PATTERN = re.compile(
     r"(?:0|[1-9]\d*)\.(?:0|[1-9]\d*)\.(?:0|[1-9]\d*)"
@@ -100,7 +101,8 @@ def read_signature(path: Path, expected_key_id: str | None = None) -> str:
 
 def metadata() -> None:
     source = Path("source")
-    config = json.loads((source / "apps/desktop/src-tauri/tauri.conf.json").read_text(encoding="utf-8"))
+    tauri_dir = source / "apps/desktop/src-tauri"
+    config = json.loads((tauri_dir / "tauri.conf.json").read_text(encoding="utf-8"))
     version = config.get("version") if isinstance(config, dict) else None
     if not isinstance(version, str) or not VERSION_PATTERN.fullmatch(version):
         raise ValueError("tauri.conf.json must contain a semantic version string")
@@ -112,8 +114,12 @@ def metadata() -> None:
     expected = os.environ.get("SOURCE_COMMIT")
     if expected and (commit != expected or version != os.environ.get("RELEASE_VERSION")):
         raise ValueError("Source checkout does not match the resolved release")
+    license_path = tauri_dir / LICENSE_FILENAME
+    license_sha256 = (
+        file_record(license_path)["sha256"] if license_path.exists() or license_path.is_symlink() else ""
+    )
     with Path(os.environ["GITHUB_OUTPUT"]).open("a", encoding="utf-8") as output:
-        output.write(f"version={version}\ncommit={commit}\ntag=v{version}\n")
+        output.write(f"version={version}\ncommit={commit}\ntag=v{version}\nlicense_sha256={license_sha256}\n")
 
 
 def collect() -> None:
@@ -194,6 +200,14 @@ def verify() -> None:
                 "url": f"{RELEASE_DOWNLOADS}/v{version}/{name}",
                 "signature": read_signature(folder / f"{name}.sig", key_id),
             }
+    license_sha256 = os.environ.get("RELEASE_LICENSE_SHA256")
+    if license_sha256:
+        license_path = Path("release-license") / LICENSE_FILENAME
+        license_record = file_record(license_path)
+        if license_record["sha256"] != license_sha256:
+            raise ValueError("The Marker license checksum does not match the resolved source")
+        shutil.copyfile(license_path, destination / LICENSE_FILENAME)
+        files.append(license_record)
     latest = destination / "latest.json"
     latest.write_text(
         json.dumps({"version": version, "platforms": updater_platforms}, indent=2) + "\n",

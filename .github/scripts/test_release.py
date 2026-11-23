@@ -41,7 +41,9 @@ class ReleaseTests(unittest.TestCase):
         self.addCleanup(environment.stop)
         self.config = Path("source/apps/desktop/src-tauri/tauri.conf.json")
         self.config.parent.mkdir(parents=True)
-        self.config.write_text(json.dumps({"plugins": {"updater": {"pubkey": PUBLIC_KEY}}}), encoding="utf-8")
+        self.config.write_text(
+            json.dumps({"version": VERSION, "plugins": {"updater": {"pubkey": PUBLIC_KEY}}}), encoding="utf-8"
+        )
 
     def create_bundle(self, platform: str) -> Path:
         root = self.root / f"bundle-{platform}"
@@ -95,6 +97,7 @@ class ReleaseTests(unittest.TestCase):
         manifest = json.loads(Path("release-manifest.json").read_text(encoding="utf-8"))
         self.assertEqual(manifest["source_commit"], COMMIT)
         self.assertEqual(manifest["version"], VERSION)
+        self.assertFalse((Path("release") / release.LICENSE_FILENAME).exists())
         actual_files = [release.file_record(path) for path in Path("release").iterdir()]
         self.assertEqual(
             sorted(manifest["files"], key=lambda item: item["name"]),
@@ -105,6 +108,42 @@ class ReleaseTests(unittest.TestCase):
         for record in manifest["files"]:
             if record["name"] != "SHA256SUMS.txt":
                 self.assertIn(f"{record['sha256']}  {record['name']}\n", checksums)
+
+    def test_verify_publishes_exact_license_from_resolved_source(self) -> None:
+        source_license = self.config.with_name(release.LICENSE_FILENAME)
+        license_bytes = "Marker 软件使用许可协议\nMarker Software License Agreement\n".encode("utf-8")
+        source_license.write_bytes(license_bytes)
+        output = self.root / "github-output"
+        with (
+            patch.dict(os.environ, {"GITHUB_OUTPUT": str(output)}),
+            patch("release.subprocess.check_output", return_value=f"{COMMIT}\n"),
+        ):
+            release.metadata()
+        metadata = dict(line.split("=", 1) for line in output.read_text(encoding="utf-8").splitlines())
+        self.assertEqual(metadata["license_sha256"], release.sha256(source_license))
+
+        self.prepare_downloads()
+        Path("release-license").mkdir()
+        download = Path("release-license") / release.LICENSE_FILENAME
+        shutil.copyfile(source_license, download)
+        shutil.rmtree("source")
+        with patch.dict(os.environ, {"RELEASE_LICENSE_SHA256": metadata["license_sha256"]}):
+            release.verify()
+        published = Path("release") / release.LICENSE_FILENAME
+        self.assertEqual(published.read_bytes(), license_bytes)
+        manifest = json.loads(Path("release-manifest.json").read_text(encoding="utf-8"))
+        self.assertIn(release.file_record(published), manifest["files"])
+        checksums = Path("release/SHA256SUMS.txt").read_text(encoding="utf-8")
+        self.assertIn(f"{metadata['license_sha256']}  {release.LICENSE_FILENAME}\n", checksums)
+
+    def test_verify_rejects_a_changed_license(self) -> None:
+        self.prepare_downloads()
+        Path("release-license").mkdir()
+        license_path = Path("release-license") / release.LICENSE_FILENAME
+        license_path.write_bytes(b"A changed license")
+        with patch.dict(os.environ, {"RELEASE_LICENSE_SHA256": "0" * 64}):
+            with self.assertRaisesRegex(ValueError, "license checksum"):
+                release.verify()
 
     def test_collect_requires_an_updater_signature(self) -> None:
         root = self.create_bundle("macos-arm64")
